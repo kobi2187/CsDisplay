@@ -27,7 +27,7 @@ public class OurLine {
     public override string ToString()
     {
         // return base.ToString();
-        var s="";
+        string s;
         if (this.Kind != LineKind.EndBlock) {
             s= "kind: " + Kind.ToString() + ", decl name: "+ Declaration ;
             if (this.Info!=null)
