@@ -269,6 +269,7 @@ internal partial class VisitCSharp :  CSharpSyntaxWalker
         if(debug) Console.WriteLine(node.ToFullString());
         var nl = OurLine.NewLine(LineKind.Decl, "ReturnStatement");
         nl.Source = node.ToFullString();
+        // System.Console.WriteLine(node.Expression.Token.Text)
         LogCommand(nl);
         Todo("ReturnStatement");
 
