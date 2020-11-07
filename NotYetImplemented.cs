@@ -265,7 +265,15 @@ internal partial class VisitCSharp :  CSharpSyntaxWalker
 
         base.VisitMemberBindingExpression(node);
     }
+ public override void VisitReturnStatement(ReturnStatementSyntax node)  {
+        if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "ReturnStatement");
+        nl.Source = node.ToFullString();
+        LogCommand(nl);
+        Todo("ReturnStatement");
 
+        base.VisitReturnStatement(node);
+    }
     public override void VisitNameColon(NameColonSyntax node)  {
         if(debug) Console.WriteLine(node.ToFullString());
         var nl = OurLine.NewLine(LineKind.Decl, "NameColon");
@@ -818,5 +826,966 @@ internal partial class VisitCSharp :  CSharpSyntaxWalker
 
         base.VisitYieldStatement(node);
     }
+
+    public override void VisitAccessorList(AccessorListSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "AccessorList");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitAccessorList(node);
+}
+
+public override void VisitAliasQualifiedName(AliasQualifiedNameSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "AliasQualifiedName");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitAliasQualifiedName(node);
+}
+
+public override void VisitAnonymousMethodExpression(AnonymousMethodExpressionSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "AnonymousMethodExpression");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitAnonymousMethodExpression(node);
+}
+
+public override void VisitAnonymousObjectCreationExpression(AnonymousObjectCreationExpressionSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "AnonymousObjectCreationExpression");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitAnonymousObjectCreationExpression(node);
+}
+
+public override void VisitAnonymousObjectMemberDeclarator(AnonymousObjectMemberDeclaratorSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "AnonymousObjectMemberDeclarator");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitAnonymousObjectMemberDeclarator(node);
+}
+
+public override void VisitArrayCreationExpression(ArrayCreationExpressionSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "ArrayCreationExpression");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitArrayCreationExpression(node);
+}
+
+public override void VisitArrayRankSpecifier(ArrayRankSpecifierSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "ArrayRankSpecifier");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitArrayRankSpecifier(node);
+}
+
+public override void VisitArrayType(ArrayTypeSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "ArrayType");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitArrayType(node);
+}
+
+public override void VisitArrowExpressionClause(ArrowExpressionClauseSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "ArrowExpressionClause");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitArrowExpressionClause(node);
+}
+
+public override void VisitAttribute(AttributeSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "Attribute");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitAttribute(node);
+}
+
+public override void VisitAttributeArgument(AttributeArgumentSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "AttributeArgument");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitAttributeArgument(node);
+}
+
+public override void VisitAttributeArgumentList(AttributeArgumentListSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "AttributeArgumentList");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitAttributeArgumentList(node);
+}
+
+public override void VisitAttributeList(AttributeListSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "AttributeList");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitAttributeList(node);
+}
+
+public override void VisitAttributeTargetSpecifier(AttributeTargetSpecifierSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "AttributeTargetSpecifier");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitAttributeTargetSpecifier(node);
+}
+
+public override void VisitAwaitExpression(AwaitExpressionSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "AwaitExpression");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitAwaitExpression(node);
+}
+
+public override void VisitBadDirectiveTrivia(BadDirectiveTriviaSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "BadDirectiveTrivia");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitBadDirectiveTrivia(node);
+}
+
+public override void VisitBaseExpression(BaseExpressionSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "BaseExpression");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitBaseExpression(node);
+}
+
+public override void VisitBaseList(BaseListSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "BaseList");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitBaseList(node);
+}
+
+public override void VisitBinaryExpression(BinaryExpressionSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "BinaryExpression");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitBinaryExpression(node);
+}
+
+public override void VisitBinaryPattern(BinaryPatternSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "BinaryPattern");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitBinaryPattern(node);
+}
+
+public override void VisitBracketedArgumentList(BracketedArgumentListSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "BracketedArgumentList");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitBracketedArgumentList(node);
+}
+
+public override void VisitBracketedParameterList(BracketedParameterListSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "BracketedParameterList");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitBracketedParameterList(node);
+}
+
+public override void VisitBreakStatement(BreakStatementSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "BreakStatement");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitBreakStatement(node);
+}
+
+public override void VisitCasePatternSwitchLabel(CasePatternSwitchLabelSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "CasePatternSwitchLabel");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitCasePatternSwitchLabel(node);
+}
+
+public override void VisitCaseSwitchLabel(CaseSwitchLabelSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "CaseSwitchLabel");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitCaseSwitchLabel(node);
+}
+
+public override void VisitCastExpression(CastExpressionSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "CastExpression");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitCastExpression(node);
+}
+
+public override void VisitCatchClause(CatchClauseSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "CatchClause");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitCatchClause(node);
+}
+
+public override void VisitCatchDeclaration(CatchDeclarationSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "CatchDeclaration");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitCatchDeclaration(node);
+}
+
+public override void VisitCatchFilterClause(CatchFilterClauseSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "CatchFilterClause");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitCatchFilterClause(node);
+}
+
+public override void VisitCheckedExpression(CheckedExpressionSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "CheckedExpression");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitCheckedExpression(node);
+}
+
+public override void VisitCheckedStatement(CheckedStatementSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "CheckedStatement");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitCheckedStatement(node);
+}
+
+public override void VisitClassOrStructConstraint(ClassOrStructConstraintSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "ClassOrStructConstraint");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitClassOrStructConstraint(node);
+}
+
+public override void VisitCompilationUnit(CompilationUnitSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "CompilationUnit");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitCompilationUnit(node);
+}
+
+public override void VisitConditionalAccessExpression(ConditionalAccessExpressionSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "ConditionalAccessExpression");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitConditionalAccessExpression(node);
+}
+
+public override void VisitConditionalExpression(ConditionalExpressionSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "ConditionalExpression");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitConditionalExpression(node);
+}
+
+public override void VisitConstantPattern(ConstantPatternSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "ConstantPattern");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitConstantPattern(node);
+}
+
+public override void VisitConstructorConstraint(ConstructorConstraintSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "ConstructorConstraint");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitConstructorConstraint(node);
+}
+
+public override void VisitConstructorDeclaration(ConstructorDeclarationSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "ConstructorDeclaration");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitConstructorDeclaration(node);
+}
+
+public override void VisitConstructorInitializer(ConstructorInitializerSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "ConstructorInitializer");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitConstructorInitializer(node);
+}
+
+public override void VisitContinueStatement(ContinueStatementSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "ContinueStatement");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitContinueStatement(node);
+}
+
+public override void VisitConversionOperatorDeclaration(ConversionOperatorDeclarationSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "ConversionOperatorDeclaration");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitConversionOperatorDeclaration(node);
+}
+
+public override void VisitConversionOperatorMemberCref(ConversionOperatorMemberCrefSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "ConversionOperatorMemberCref");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitConversionOperatorMemberCref(node);
+}
+
+public override void VisitCrefBracketedParameterList(CrefBracketedParameterListSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "CrefBracketedParameterList");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitCrefBracketedParameterList(node);
+}
+
+public override void VisitCrefParameter(CrefParameterSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "CrefParameter");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitCrefParameter(node);
+}
+
+public override void VisitCrefParameterList(CrefParameterListSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "CrefParameterList");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitCrefParameterList(node);
+}
+
+public override void VisitDeclarationExpression(DeclarationExpressionSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "DeclarationExpression");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitDeclarationExpression(node);
+}
+
+public override void VisitDeclarationPattern(DeclarationPatternSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "DeclarationPattern");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitDeclarationPattern(node);
+}
+
+public override void VisitDefaultExpression(DefaultExpressionSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "DefaultExpression");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitDefaultExpression(node);
+}
+
+public override void VisitDefaultSwitchLabel(DefaultSwitchLabelSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "DefaultSwitchLabel");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitDefaultSwitchLabel(node);
+}
+
+public override void VisitDefineDirectiveTrivia(DefineDirectiveTriviaSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "DefineDirectiveTrivia");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitDefineDirectiveTrivia(node);
+}
+
+public override void VisitDelegateDeclaration(DelegateDeclarationSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "DelegateDeclaration");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitDelegateDeclaration(node);
+}
+
+public override void VisitDestructorDeclaration(DestructorDeclarationSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "DestructorDeclaration");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitDestructorDeclaration(node);
+}
+
+public override void VisitDiscardDesignation(DiscardDesignationSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "DiscardDesignation");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitDiscardDesignation(node);
+}
+
+public override void VisitDiscardPattern(DiscardPatternSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "DiscardPattern");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitDiscardPattern(node);
+}
+
+public override void VisitDocumentationCommentTrivia(DocumentationCommentTriviaSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "DocumentationCommentTrivia");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitDocumentationCommentTrivia(node);
+}
+
+public override void VisitDoStatement(DoStatementSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "DoStatement");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitDoStatement(node);
+}
+
+public override void VisitElementAccessExpression(ElementAccessExpressionSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "ElementAccessExpression");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitElementAccessExpression(node);
+}
+
+public override void VisitElementBindingExpression(ElementBindingExpressionSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "ElementBindingExpression");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitElementBindingExpression(node);
+}
+
+public override void VisitElifDirectiveTrivia(ElifDirectiveTriviaSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "ElifDirectiveTrivia");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitElifDirectiveTrivia(node);
+}
+
+public override void VisitElseClause(ElseClauseSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "ElseClause");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitElseClause(node);
+}
+
+public override void VisitElseDirectiveTrivia(ElseDirectiveTriviaSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "ElseDirectiveTrivia");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitElseDirectiveTrivia(node);
+}
+
+public override void VisitEmptyStatement(EmptyStatementSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "EmptyStatement");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitEmptyStatement(node);
+}
+
+public override void VisitEndIfDirectiveTrivia(EndIfDirectiveTriviaSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "EndIfDirectiveTrivia");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitEndIfDirectiveTrivia(node);
+}
+
+public override void VisitEndRegionDirectiveTrivia(EndRegionDirectiveTriviaSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "EndRegionDirectiveTrivia");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitEndRegionDirectiveTrivia(node);
+}
+
+public override void VisitEnumDeclaration(EnumDeclarationSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "EnumDeclaration");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitEnumDeclaration(node);
+}
+
+public override void VisitEnumMemberDeclaration(EnumMemberDeclarationSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "EnumMemberDeclaration");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitEnumMemberDeclaration(node);
+}
+
+public override void VisitEqualsValueClause(EqualsValueClauseSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "EqualsValueClause");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitEqualsValueClause(node);
+}
+
+public override void VisitErrorDirectiveTrivia(ErrorDirectiveTriviaSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "ErrorDirectiveTrivia");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitErrorDirectiveTrivia(node);
+}
+
+public override void VisitEventDeclaration(EventDeclarationSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "EventDeclaration");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitEventDeclaration(node);
+}
+
+public override void VisitEventFieldDeclaration(EventFieldDeclarationSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "EventFieldDeclaration");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitEventFieldDeclaration(node);
+}
+
+public override void VisitExplicitInterfaceSpecifier(ExplicitInterfaceSpecifierSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "ExplicitInterfaceSpecifier");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitExplicitInterfaceSpecifier(node);
+}
+
+public override void VisitExternAliasDirective(ExternAliasDirectiveSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "ExternAliasDirective");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitExternAliasDirective(node);
+}
+
+public override void VisitFieldDeclaration(FieldDeclarationSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "FieldDeclaration");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitFieldDeclaration(node);
+}
+
+public override void VisitFinallyClause(FinallyClauseSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "FinallyClause");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitFinallyClause(node);
+}
+
+public override void VisitFixedStatement(FixedStatementSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "FixedStatement");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitFixedStatement(node);
+}
+
+public override void VisitForEachStatement(ForEachStatementSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "ForEachStatement");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitForEachStatement(node);
+}
+
+public override void VisitForEachVariableStatement(ForEachVariableStatementSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "ForEachVariableStatement");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitForEachVariableStatement(node);
+}
+
+public override void VisitForStatement(ForStatementSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "ForStatement");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitForStatement(node);
+}
+
+public override void VisitFromClause(FromClauseSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "FromClause");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitFromClause(node);
+}
+
+public override void VisitFunctionPointerType(FunctionPointerTypeSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "FunctionPointerType");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitFunctionPointerType(node);
+}
+
+public override void VisitGenericName(GenericNameSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "GenericName");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitGenericName(node);
+}
+
+public override void VisitGlobalStatement(GlobalStatementSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "GlobalStatement");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitGlobalStatement(node);
+}
+
+public override void VisitGotoStatement(GotoStatementSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "GotoStatement");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitGotoStatement(node);
+}
+
+public override void VisitGroupClause(GroupClauseSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "GroupClause");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitGroupClause(node);
+}
+
+public override void VisitIdentifierName(IdentifierNameSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "IdentifierName");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitIdentifierName(node);
+}
+
+public override void VisitImplicitObjectCreationExpression(ImplicitObjectCreationExpressionSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "ImplicitObjectCreationExpression");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitImplicitObjectCreationExpression(node);
+}
+
+public override void VisitMemberAccessExpression(MemberAccessExpressionSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "MemberAccessExpression");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitMemberAccessExpression(node);
+}
+
+public override void VisitNullableDirectiveTrivia(NullableDirectiveTriviaSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "NullableDirectiveTrivia");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitNullableDirectiveTrivia(node);
+}
+
+public override void VisitObjectCreationExpression(ObjectCreationExpressionSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "ObjectCreationExpression");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitObjectCreationExpression(node);
+}
+
+public override void VisitParameterList(ParameterListSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "ParameterList");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitParameterList(node);
+}
+
+public override void VisitParenthesizedPattern(ParenthesizedPatternSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "ParenthesizedPattern");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitParenthesizedPattern(node);
+}
+
+public override void VisitPositionalPatternClause(PositionalPatternClauseSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "PositionalPatternClause");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitPositionalPatternClause(node);
+}
+
+public override void VisitPrimaryConstructorBaseType(PrimaryConstructorBaseTypeSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "PrimaryConstructorBaseType");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitPrimaryConstructorBaseType(node);
+}
+
+public override void VisitPropertyPatternClause(PropertyPatternClauseSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "PropertyPatternClause");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitPropertyPatternClause(node);
+}
+
+public override void VisitRangeExpression(RangeExpressionSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "RangeExpression");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitRangeExpression(node);
+}
+
+public override void VisitRecordDeclaration(RecordDeclarationSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "RecordDeclaration");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitRecordDeclaration(node);
+}
+
+public override void VisitRecursivePattern(RecursivePatternSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "RecursivePattern");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitRecursivePattern(node);
+}
+
+public override void VisitRegionDirectiveTrivia(RegionDirectiveTriviaSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "RegionDirectiveTrivia");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitRegionDirectiveTrivia(node);
+}
+
+public override void VisitRelationalPattern(RelationalPatternSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "RelationalPattern");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitRelationalPattern(node);
+}
+
+public override void VisitSubpattern(SubpatternSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "Subpattern");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitSubpattern(node);
+}
+
+public override void VisitSwitchExpression(SwitchExpressionSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "SwitchExpression");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitSwitchExpression(node);
+}
+
+public override void VisitSwitchExpressionArm(SwitchExpressionArmSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "SwitchExpressionArm");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitSwitchExpressionArm(node);
+}
+
+public override void VisitTypePattern(TypePatternSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "TypePattern");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitTypePattern(node);
+}
+
+public override void VisitUnaryPattern(UnaryPatternSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "UnaryPattern");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitUnaryPattern(node);
+}
+
+public override void VisitVariableDeclarator(VariableDeclaratorSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "VariableDeclarator");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitVariableDeclarator(node);
+}
+
+public override void VisitVarPattern(VarPatternSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "VarPattern");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitVarPattern(node);
+}
+
+public override void VisitWithExpression(WithExpressionSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "WithExpression");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitWithExpression(node);
+}
+
+public override void VisitXmlCDataSection(XmlCDataSectionSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "XmlCDataSection");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitXmlCDataSection(node);
+}
+
+public override void VisitXmlComment(XmlCommentSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "XmlComment");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitXmlComment(node);
+}
+
+public override void VisitXmlCrefAttribute(XmlCrefAttributeSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "XmlCrefAttribute");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitXmlCrefAttribute(node);
+}
+
+public override void VisitXmlElement(XmlElementSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "XmlElement");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitXmlElement(node);
+}
+
+public override void VisitXmlElementEndTag(XmlElementEndTagSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "XmlElementEndTag");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitXmlElementEndTag(node);
+}
+
+public override void VisitXmlElementStartTag(XmlElementStartTagSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "XmlElementStartTag");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitXmlElementStartTag(node);
+}
+
+public override void VisitXmlEmptyElement(XmlEmptyElementSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "XmlEmptyElement");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitXmlEmptyElement(node);
+}
+
+public override void VisitXmlName(XmlNameSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "XmlName");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitXmlName(node);
+}
+
+public override void VisitXmlNameAttribute(XmlNameAttributeSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "XmlNameAttribute");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitXmlNameAttribute(node);
+}
+
+public override void VisitXmlPrefix(XmlPrefixSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "XmlPrefix");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitXmlPrefix(node);
+}
+
+public override void VisitXmlProcessingInstruction(XmlProcessingInstructionSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "XmlProcessingInstruction");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitXmlProcessingInstruction(node);
+}
+
+public override void VisitXmlText(XmlTextSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "XmlText");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitXmlText(node);
+}
+
+public override void VisitXmlTextAttribute(XmlTextAttributeSyntax node) {
+if(debug) Console.WriteLine(node.ToFullString());
+        var nl = OurLine.NewLine(LineKind.Decl, "XmlTextAttribute");
+nl.Source = node.ToFullString();
+        LogCommand(nl);
+        base.VisitXmlTextAttribute(node);
+}
+
 }
 }
