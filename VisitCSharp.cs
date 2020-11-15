@@ -18,7 +18,7 @@ public enum LineKind { Decl,EndBlock}
 
 partial class VisitCSharp :  CSharpSyntaxWalker
     {
-    readonly bool debug = true;
+    const bool debug = false;
     static int blockCount = 0;
 
 public void LogCommand(OurLine line) {
@@ -48,7 +48,7 @@ public VisitCSharp(string filename, SyntaxWalkerDepth depth = SyntaxWalkerDepth.
 public void Finish() {
     var lines2 = JsonConvert.SerializeObject(this.lines);
     System.Console.WriteLine("Finishing...");
-    System.Console.WriteLine(lines2);
+    if (debug) System.Console.WriteLine(lines2);
     this.json.WritePropertyName("Lines");
     // this.json.WriteStartArray();
     this.json.WriteRaw(lines2);

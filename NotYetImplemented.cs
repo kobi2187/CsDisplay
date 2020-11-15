@@ -1084,13 +1084,7 @@ nl.Source = node.ToFullString();
         base.VisitClassOrStructConstraint(node);
 }
 
-public override void VisitCompilationUnit(CompilationUnitSyntax node) {
-if(debug) Console.WriteLine(node.ToFullString());
-        var nl = OurLine.NewLine(LineKind.Decl, "CompilationUnit");
-nl.Source = node.ToFullString();
-        LogCommand(nl);
-        base.VisitCompilationUnit(node);
-}
+
 
 public override void VisitConditionalAccessExpression(ConditionalAccessExpressionSyntax node) {
 if(debug) Console.WriteLine(node.ToFullString());

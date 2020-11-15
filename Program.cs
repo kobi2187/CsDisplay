@@ -19,6 +19,7 @@ static class Program  // use shell to collect the displayed results: $ CsDisplay
     public static Dictionary<string,int> counter = new Dictionary<string,int>();
 
     static void handleFile(string f) {
+        System.GC.Collect();
         System.Console.WriteLine(f);
         if (Prefs.displayOnly) {
             System.Console.WriteLine();
@@ -66,6 +67,7 @@ static class Program  // use shell to collect the displayed results: $ CsDisplay
         if( Directory.Exists(file)) {
             var dir=file;
             list = Directory.GetFiles(dir, "*.cs", SearchOption.AllDirectories).ToList();
+            list.Sort();
             Program.dir=true;
         }
         else if (File.Exists(file)) {
@@ -76,8 +78,10 @@ static class Program  // use shell to collect the displayed results: $ CsDisplay
             System.Console.WriteLine("File doesn't exist");
             return;
         }
-
+        int x = 0;
         foreach (var f in list) {
+            x++;
+            System.Console.WriteLine(x * 100 / list.Count + " %");
             handleFile(f);
         }
         if (Program.dir)

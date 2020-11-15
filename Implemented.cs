@@ -26,6 +26,9 @@ internal partial class VisitCSharp :  CSharpSyntaxWalker
         LogCommand(nl);
         base.VisitInvocationExpression(node);
     }
+    public override void VisitCompilationUnit(CompilationUnitSyntax node) {
+        base.VisitCompilationUnit(node);
+}
     public override void VisitUsingDirective(UsingDirectiveSyntax node)  {
         var name = node.Name.ToString();
         if(debug) Console.WriteLine(node.ToFullString());
@@ -166,7 +169,7 @@ internal partial class VisitCSharp :  CSharpSyntaxWalker
     // TODO(mostused)
     public override void VisitExpressionStatement(ExpressionStatementSyntax node)  {
         if(debug) Console.WriteLine(node.ToFullString());
-        System.Console.WriteLine(node.Expression.ToString(), node.AttributeLists);
+        // System.Console.WriteLine(node.Expression.ToString(), node.AttributeLists);
         var nl = OurLine.NewLine(LineKind.Decl, "ExpressionStatement");
         nl.Source = node.ToFullString();
         LogCommand(nl);
