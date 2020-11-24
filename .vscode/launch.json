@@ -11,7 +11,8 @@
       "preLaunchTask": "build",
       "program": "${workspaceFolder}/bin/Debug/netcoreapp2.2/CsDisplay.dll",
       "args": [
-        "samples"
+        "../cs2nim/tests/samples/"
+        // "/home/kobi7/currentWork/nim/just_like/dotnet/spec.cs"
         // "/boot/efi/Downloads/CSharpSampleLibs/abp-dev/abp_io/AbpIoLocalization/AbpIoLocalization/AbpIoLocalizationModule.cs"
       ],
       "cwd": "${workspaceFolder}",

@@ -81,7 +81,7 @@ static class Program  // use shell to collect the displayed results: $ CsDisplay
         int x = 0;
         foreach (var f in list) {
             x++;
-            System.Console.WriteLine(x * 100 / list.Count + " %");
+            System.Console.WriteLine(x * 100.0 / list.Count + " %");
             handleFile(f);
         }
         if (Program.dir)

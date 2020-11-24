@@ -14,53 +14,67 @@ using Microsoft.CodeAnalysis.CSharp;
 
 namespace CsDisplay
 {
-public enum LineKind { Decl,EndBlock}
+  public enum LineKind { Decl, EndBlock }
 
-partial class VisitCSharp :  CSharpSyntaxWalker
-    {
+  partial class VisitCSharp : CSharpSyntaxWalker
+  {
     const bool debug = false;
     static int blockCount = 0;
 
-public void LogCommand(OurLine line) {
-    // var s = JsonConvert.SerializeObject(line);
-    if (debug) Console.WriteLine(line);
-    lines.Add(line);
-}
-public void EndBlock() {
-    var nl =new OurLine(LineKind.EndBlock);
-    LogCommand(nl);
-}
+    public void LogCommand(OurLine line)
+    {
+      // var s = JsonConvert.SerializeObject(line);
+      if (debug) Console.WriteLine(line);
+      lines.Add(line);
+    }
+    public void StartBlock()
+    {
+      blockCount++;
 
-public StringBuilder sb;
-public JsonTextWriter json;
-public List<OurLine> lines;
-public VisitCSharp(string filename, SyntaxWalkerDepth depth = SyntaxWalkerDepth.Token) : base(depth)
-{
-    this.lines = new List<OurLine>();
-    this.sb = new StringBuilder();
-    var sw = new StringWriter(sb);
-    this.json = new JsonTextWriter(sw);
-    this.json.WriteStartObject();
-    this.json.WritePropertyName("File");
-    this.json.WriteValue(filename);
-}
+      var nl = OurLine.NewLine(LineKind.Decl, "BlockStarts");
+      OurLine.AddEssentialInfo(ref nl, blockCount.ToString());
+      LogCommand(nl);
+    }
+    public void EndBlock()
+    {
+      blockCount--;
+      var nl = new OurLine(LineKind.EndBlock);
+      OurLine.AddEssentialInfo(ref nl, blockCount.ToString());
+      LogCommand(nl);
+    }
 
-public void Finish() {
-    var lines2 = JsonConvert.SerializeObject(this.lines);
-    System.Console.WriteLine("Finishing...");
-    if (debug) System.Console.WriteLine(lines2);
-    this.json.WritePropertyName("Lines");
-    // this.json.WriteStartArray();
-    this.json.WriteRaw(lines2);
-    // this.json.WriteEndArray();
-    // this.json.WriteRaw(lines);
-    this.json.WriteRaw("}");
+    public StringBuilder sb;
+    public JsonTextWriter json;
+    public List<OurLine> lines;
+    public VisitCSharp(string filename, SyntaxWalkerDepth depth = SyntaxWalkerDepth.Token) : base(depth)
+    {
+      this.lines = new List<OurLine>();
+      this.sb = new StringBuilder();
+      var sw = new StringWriter(sb);
+      this.json = new JsonTextWriter(sw);
+      this.json.WriteStartObject();
+      this.json.WritePropertyName("File");
+      this.json.WriteValue(filename);
+    }
 
-    // this.json.WriteEndObject();
-}
-public override void DefaultVisit(SyntaxNode node)  {
-    base.DefaultVisit(node);
-}
+    public void Finish()
+    {
+      var lines2 = JsonConvert.SerializeObject(this.lines);
+      System.Console.WriteLine("Finishing...");
+      if (debug) System.Console.WriteLine(lines2);
+      this.json.WritePropertyName("Lines");
+      // this.json.WriteStartArray();
+      this.json.WriteRaw(lines2);
+      // this.json.WriteEndArray();
+      // this.json.WriteRaw(lines);
+      this.json.WriteRaw("}");
 
-}
+      // this.json.WriteEndObject();
+    }
+    public override void DefaultVisit(SyntaxNode node)
+    {
+      base.DefaultVisit(node);
+    }
+
+  }
 }
