@@ -492,7 +492,7 @@ namespace CsDisplay
     }
     public override void VisitPropertyDeclaration(PropertyDeclarationSyntax node)
     {
-      StartBlock();
+      StartBlock("PropertyDeclaration");
 
       if (debug) Console.WriteLine(node.ToFullString());
       var nl = OurLine.NewLine(LineKind.Decl, "PropertyDeclaration");

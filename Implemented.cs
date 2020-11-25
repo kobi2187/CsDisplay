@@ -45,7 +45,7 @@ namespace CsDisplay
     }
     public override void VisitNamespaceDeclaration(NamespaceDeclarationSyntax node)
     {
-      StartBlock(); // worked wonderfully!
+      StartBlock("NamespaceDeclaration"); // worked wonderfully!
 
       var name = node.Name.ToString();
       // currentNamespace = null;
@@ -72,7 +72,7 @@ namespace CsDisplay
 
     public override void VisitClassDeclaration(ClassDeclarationSyntax node)
     {
-      StartBlock();
+      StartBlock("ClassDeclaration");
       var clsname = node.Identifier.ToString();
       var nl = OurLine.NewLine(LineKind.Decl, "ClassDeclaration");
       OurLine.AddEssentialInfo(ref nl, clsname);
@@ -96,11 +96,11 @@ namespace CsDisplay
     }
     public override void VisitMethodDeclaration(MethodDeclarationSyntax node)
     {
-      StartBlock();
+      StartBlock("MethodDeclaration");
       var name = node.Identifier.ToString();
-      var arity = node.Arity;
+      var arity = node.ParameterList.Parameters.Count;
       var nl = OurLine.NewLine(LineKind.Decl, "MethodDeclaration");
-      OurLine.AddEssentialInfo(ref nl, name + "/" + arity.ToString());
+      OurLine.AddEssentialInfo(ref nl, name);
       nl.Source = node.ToFullString();
       LogCommand(nl);
       // currentMethod = node;
@@ -203,18 +203,19 @@ namespace CsDisplay
 
       base.VisitExpressionStatement(node);
     }
+
     public override void VisitParameter(ParameterSyntax node)
     {
       var nl = OurLine.NewLine(LineKind.Decl, "Parameter");
-      OurLine.AddEssentialInfo(ref nl, node.ToFullString());
+      OurLine.AddEssentialInfo(ref nl, node.Identifier.Text);
+      OurLine.AddEssentialInfo(ref nl, node.Type.GetText().ToString());
       if (node.Modifiers.Count > 0)
         OurLine.AddExtraInfo(ref nl, node.Modifiers.ToString());
       nl.Source = node.ToFullString();
       LogCommand(nl);
-
-
       base.VisitParameter(node);
     }
+
     // TODO(mostused)
     public override void VisitAssignmentExpression(AssignmentExpressionSyntax node)
     {
@@ -242,7 +243,7 @@ namespace CsDisplay
 
     public override void VisitEnumDeclaration(EnumDeclarationSyntax node)
     {
-      StartBlock();
+      StartBlock("EnumDeclaration");
       if (debug) Console.WriteLine(node.ToFullString());
       var nl = OurLine.NewLine(LineKind.Decl, "EnumDeclaration");
       nl.Source = node.ToFullString();
