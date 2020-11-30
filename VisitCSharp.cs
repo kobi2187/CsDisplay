@@ -18,7 +18,7 @@ namespace CsDisplay
 
   partial class VisitCSharp : CSharpSyntaxWalker
   {
-    const bool debug = false;
+    const bool debug = Prefs.debug;
     static int blockCount = 0;
 
     public void LogCommand(OurLine line)
@@ -43,7 +43,6 @@ namespace CsDisplay
       OurLine.AddEssentialInfo(ref nl, blockCount.ToString());
       LogCommand(nl);
     }
-
     public StringBuilder sb;
     public JsonTextWriter json;
     public List<OurLine> lines;
@@ -56,12 +55,17 @@ namespace CsDisplay
       this.json.WriteStartObject();
       this.json.WritePropertyName("File");
       this.json.WriteValue(filename);
-    }
 
+      // ======== test
+      jsonWriter = new JsonTextWriter(siw);
+    }
+    JsonSerializer jsn = new JsonSerializer();
+    StringWriter siw = new StringWriter();
+    JsonTextWriter jsonWriter;
     public void Finish()
     {
       var lines2 = JsonConvert.SerializeObject(this.lines);
-      System.Console.WriteLine("Finishing...");
+      if (debug) System.Console.WriteLine("Finishing...");
       if (debug) System.Console.WriteLine(lines2);
       this.json.WritePropertyName("Lines");
       // this.json.WriteStartArray();
@@ -72,8 +76,13 @@ namespace CsDisplay
 
       // this.json.WriteEndObject();
     }
+
     public override void DefaultVisit(SyntaxNode node)
     {
+      // System.Console.WriteLine(node);
+      // jsn.Serialize(jsonWriter, node);
+      // System.Console.WriteLine(jsonWriter.ToString());
+
       base.DefaultVisit(node);
     }
 

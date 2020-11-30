@@ -2,7 +2,7 @@
 
 using System;
 // using System.Collections.Generic;
-// using System.Linq;
+using System.Linq;
 // using System.Text;
 // using System.Threading.Tasks;
 // using Microsoft.CodeAnalysis;
@@ -76,6 +76,12 @@ namespace CsDisplay
       var clsname = node.Identifier.ToString();
       var nl = OurLine.NewLine(LineKind.Decl, "ClassDeclaration");
       OurLine.AddEssentialInfo(ref nl, clsname);
+      if (node.BaseList != null)
+      {
+        var baseTypes = node.BaseList.Types.ToString(); //.Select((t) => t.Type.Identifier.Text.ToString()).Join(", ");
+        System.Console.WriteLine(baseTypes);
+        OurLine.AddEssentialInfo(ref nl, baseTypes);
+      }
       nl.Source = node.ToFullString();
       LogCommand(nl);
       // currentClass = node;
@@ -208,7 +214,7 @@ namespace CsDisplay
     {
       var nl = OurLine.NewLine(LineKind.Decl, "Parameter");
       OurLine.AddEssentialInfo(ref nl, node.Identifier.Text);
-      OurLine.AddEssentialInfo(ref nl, node.Type.GetText().ToString());
+      OurLine.AddEssentialInfo(ref nl, node.Type?.GetText().ToString());
       if (node.Modifiers.Count > 0)
         OurLine.AddExtraInfo(ref nl, node.Modifiers.ToString());
       nl.Source = node.ToFullString();
@@ -248,7 +254,7 @@ namespace CsDisplay
       var nl = OurLine.NewLine(LineKind.Decl, "EnumDeclaration");
       nl.Source = node.ToFullString();
       OurLine.AddEssentialInfo(ref nl, node.Identifier.Text.ToString());
-      System.Console.WriteLine(nl);
+      // System.Console.WriteLine(nl);
       LogCommand(nl);
       base.VisitEnumDeclaration(node);
       EndBlock();

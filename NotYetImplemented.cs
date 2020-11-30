@@ -299,9 +299,10 @@ namespace CsDisplay
       if (debug) Console.WriteLine(node.ToFullString());
       var nl = OurLine.NewLine(LineKind.Decl, "ReturnStatement");
       nl.Source = node.ToFullString();
-      // System.Console.WriteLine(node.Expression.Token.Text)
+      // System.Console.WriteLine(node.Expression);
+      OurLine.AddEssentialInfo(ref nl, node.Expression.ToString());
       LogCommand(nl);
-      Todo("ReturnStatement");
+      // Todo("ReturnStatement");
 
       base.VisitReturnStatement(node);
     }
@@ -1253,6 +1254,7 @@ namespace CsDisplay
       if (debug) Console.WriteLine(node.ToFullString());
       var nl = OurLine.NewLine(LineKind.Decl, "ConstructorDeclaration");
       nl.Source = node.ToFullString();
+      OurLine.AddEssentialInfo(ref nl, node.Identifier.Text);
       LogCommand(nl);
       base.VisitConstructorDeclaration(node);
     }
