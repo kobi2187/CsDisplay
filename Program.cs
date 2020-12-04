@@ -27,7 +27,9 @@ namespace CsDisplay
       var astFile = new FileInfo(f2);
       // if csast newer than app's mtime, return
       if (!Prefs.debug && astFile.LastWriteTime > AppBuildTime) { System.Console.WriteLine(); return; }
-      Console.Write(f.Replace(saveDirName, "").Split("/")[0] + "\t");
+      if (Program.saveDirName != null)
+        Console.Write(f.Replace(saveDirName, "").Split("/")[0] + "\t");
+
       Console.WriteLine(finfo.Name);
 
       if (Prefs.displayOnly)
@@ -89,7 +91,7 @@ namespace CsDisplay
         var dir = file;
         saveDirName = dir;
         list = Directory.GetFiles(dir, "*.cs", SearchOption.AllDirectories).ToList();
-        list.Sort((string a, string b) => a.ToLower().CompareTo(b.ToLower()));
+        // list.Sort((string a, string b) => a.ToLower().CompareTo(b.ToLower()));
         Program.dir = true;
       }
       else if (File.Exists(file))

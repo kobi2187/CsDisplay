@@ -96,7 +96,7 @@ namespace CsDisplay
       var nl = OurLine.NewLine(LineKind.Decl, "IndexerDeclaration");
       nl.Source = node.ToFullString();
       LogCommand(nl);
-      Todo("IndexerDeclaration");
+      // Todo("IndexerDeclaration");
 
       base.VisitIndexerDeclaration(node);
     }
@@ -300,7 +300,9 @@ namespace CsDisplay
       var nl = OurLine.NewLine(LineKind.Decl, "ReturnStatement");
       nl.Source = node.ToFullString();
       // System.Console.WriteLine(node.Expression);
-      OurLine.AddEssentialInfo(ref nl, node.Expression.ToString());
+      if (node.Expression != null)
+        OurLine.AddEssentialInfo(ref nl, node.Expression.ToString());
+
       LogCommand(nl);
       // Todo("ReturnStatement");
 
@@ -491,20 +493,7 @@ namespace CsDisplay
 
       base.VisitPrefixUnaryExpression(node);
     }
-    public override void VisitPropertyDeclaration(PropertyDeclarationSyntax node)
-    {
-      StartBlock("PropertyDeclaration");
 
-      if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "PropertyDeclaration");
-      nl.Source = node.ToFullString();
-      LogCommand(nl);
-      Todo("PropertyDeclaration");
-      OurLine.AddEssentialInfo(ref nl, node?.AccessorList?.Accessors.Count.ToString());
-      // sometimes has body etc..
-      base.VisitPropertyDeclaration(node);
-      EndBlock();
-    }
     public override void VisitQualifiedCref(QualifiedCrefSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
@@ -1546,6 +1535,8 @@ namespace CsDisplay
     {
       if (debug) Console.WriteLine(node.ToFullString());
       var nl = OurLine.NewLine(LineKind.Decl, "ExplicitInterfaceSpecifier");
+      OurLine.AddEssentialInfo(ref nl, node.Name.ToString().TrimEnd('.'));
+      // System.Console.WriteLine(node.Name.ToString());
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitExplicitInterfaceSpecifier(node);

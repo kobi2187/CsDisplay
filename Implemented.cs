@@ -43,6 +43,35 @@ namespace CsDisplay
       // System.Console.WriteLine("info: " + nodeContent);
       base.VisitUsingDirective(node);
     }
+
+    public override void VisitPropertyDeclaration(PropertyDeclarationSyntax node)
+    {
+      StartBlock("PropertyDeclaration");
+
+      if (debug) Console.WriteLine(node.ToFullString());
+      var nl = OurLine.NewLine(LineKind.Decl, "PropertyDeclaration");
+      nl.Source = node.ToFullString();
+      // Todo("PropertyDeclaration");
+      OurLine.AddEssentialInfo(ref nl, node?.Identifier.Text.ToString());
+      var cnt = node?.AccessorList?.Accessors.Count.ToString();
+      int count;
+      if (cnt == null)
+        count = 0;
+      else
+        count = int.Parse(cnt);
+
+      OurLine.AddEssentialInfo(ref nl, node?.AccessorList?.Accessors.Count.ToString());
+
+      if (count > 0)
+        OurLine.AddExtraInfo(ref nl, node?.AccessorList?.Accessors[0].Keyword.Text);
+      if (count > 1)
+        OurLine.AddExtraInfo(ref nl, node?.AccessorList?.Accessors[1].Keyword.Text);
+      // sometimes has body etc..
+      LogCommand(nl);
+      base.VisitPropertyDeclaration(node);
+      EndBlock();
+    }
+
     public override void VisitNamespaceDeclaration(NamespaceDeclarationSyntax node)
     {
       StartBlock("NamespaceDeclaration"); // worked wonderfully!
@@ -51,7 +80,7 @@ namespace CsDisplay
       // currentNamespace = null;
       var nl = OurLine.NewLine(LineKind.Decl, "NamespaceDeclaration");
       OurLine.AddEssentialInfo(ref nl, name);
-      nl.Source = node.ToFullString();
+      // nl.Source = node.ToFullString();
       LogCommand(nl);
       // currentNamespace = node;
       base.VisitNamespaceDeclaration(node);
@@ -65,7 +94,7 @@ namespace CsDisplay
       var text = node.ToString();
       var nl = OurLine.NewLine(LineKind.Decl, "QualifiedName");
       OurLine.AddEssentialInfo(ref nl, text);
-      nl.Source = node.ToFullString();
+      // nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitQualifiedName(node);
     }
@@ -106,7 +135,9 @@ namespace CsDisplay
       var name = node.Identifier.ToString();
       var arity = node.ParameterList.Parameters.Count;
       var nl = OurLine.NewLine(LineKind.Decl, "MethodDeclaration");
+      var mod = node.Modifiers.ToString();
       OurLine.AddEssentialInfo(ref nl, name);
+      OurLine.AddExtraInfo(ref nl, mod);
       nl.Source = node.ToFullString();
       LogCommand(nl);
       // currentMethod = node;
@@ -117,7 +148,7 @@ namespace CsDisplay
 
     public override void VisitBlock(BlockSyntax node)
     {
-      StartBlock();
+      StartBlock("VisitBlock");
       base.VisitBlock(node);
       EndBlock();
     }
@@ -200,14 +231,15 @@ namespace CsDisplay
     // TODO(mostused)
     public override void VisitExpressionStatement(ExpressionStatementSyntax node)
     {
+      StartBlock("ExpressionStatement");
       if (debug) Console.WriteLine(node.ToFullString());
-      // System.Console.WriteLine(node.Expression.ToString(), node.AttributeLists);
       var nl = OurLine.NewLine(LineKind.Decl, "ExpressionStatement");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       // Todo("ExpressionStatement");
 
       base.VisitExpressionStatement(node);
+      EndBlock();
     }
 
     public override void VisitParameter(ParameterSyntax node)
