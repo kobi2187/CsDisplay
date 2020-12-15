@@ -25,7 +25,16 @@ namespace CsDisplay
     public string KindStr { get { return this.Kind.ToString(); } }
     public string Declaration { get; set; }
     public Info Info { get; set; }
-    public string Source { get; set; }
+    string _src;
+    public string Source
+    {
+      get { return _src; }
+      set
+      {
+        if (value.Length > 500) { _src = value.Substring(0, 500); }
+        else { _src = value; }
+      }
+    }
     public override string ToString()
     {
       // return base.ToString();

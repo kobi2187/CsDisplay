@@ -31,6 +31,104 @@ namespace CsDisplay
     {
       base.VisitCompilationUnit(node);
     }
+
+    public override void VisitSwitchSection(SwitchSectionSyntax node)
+    {
+      if (debug) Console.WriteLine(node.ToFullString());
+      var nl = OurLine.NewLine(LineKind.Decl, "SwitchSection");
+      OurLine.AddEssentialInfo(ref nl, node.Labels.ToString());
+      // OurLine.AddEssentialInfo(ref nl, node.Labels.Select((l) => l.Value.ToString()));
+      OurLine.AddEssentialInfo(ref nl, node.Statements.ToString());
+
+      nl.Source = node.ToFullString();
+      LogCommand(nl);
+
+      base.VisitSwitchSection(node);
+    }
+    public override void VisitTypeArgumentList(TypeArgumentListSyntax node)
+    {
+      if (debug) Console.WriteLine(node.ToFullString());
+      var nl = OurLine.NewLine(LineKind.Decl, "TypeArgumentList");
+      nl.Source = node.ToFullString();
+      OurLine.AddEssentialInfo(ref nl, node.Arguments.ToString());
+      LogCommand(nl);
+
+      base.VisitTypeArgumentList(node);
+    }
+    public override void VisitObjectCreationExpression(ObjectCreationExpressionSyntax node)
+    {
+      if (debug) Console.WriteLine(node.ToFullString());
+      var nl = OurLine.NewLine(LineKind.Decl, "ObjectCreationExpression");
+      OurLine.AddEssentialInfo(ref nl, node.Type.ToString());
+      nl.Source = node.ToFullString();
+      LogCommand(nl);
+      base.VisitObjectCreationExpression(node);
+    }
+    public override void VisitConstructorDeclaration(ConstructorDeclarationSyntax node)
+    {
+      if (debug) Console.WriteLine(node.ToFullString());
+      var nl = OurLine.NewLine(LineKind.Decl, "ConstructorDeclaration");
+      nl.Source = node.ToFullString();
+      OurLine.AddEssentialInfo(ref nl, node.Identifier.Text);
+      LogCommand(nl);
+      base.VisitConstructorDeclaration(node);
+    }
+    public override void VisitEnumMemberDeclaration(EnumMemberDeclarationSyntax node)
+    {
+      if (debug) Console.WriteLine(node.ToFullString());
+      var nl = OurLine.NewLine(LineKind.Decl, "EnumMemberDeclaration");
+      OurLine.AddEssentialInfo(ref nl, node.Identifier.Text.ToString());
+
+      nl.Source = node.ToFullString();
+      LogCommand(nl);
+      base.VisitEnumMemberDeclaration(node);
+    }
+    public override void VisitExplicitInterfaceSpecifier(ExplicitInterfaceSpecifierSyntax node)
+    {
+      if (debug) Console.WriteLine(node.ToFullString());
+      var nl = OurLine.NewLine(LineKind.Decl, "ExplicitInterfaceSpecifier");
+      OurLine.AddEssentialInfo(ref nl, node.Name.ToString().TrimEnd('.'));
+      // System.Console.WriteLine(node.Name.ToString());
+      nl.Source = node.ToFullString();
+      LogCommand(nl);
+      base.VisitExplicitInterfaceSpecifier(node);
+    }
+    public override void VisitSimpleBaseType(SimpleBaseTypeSyntax node)
+    {
+      if (debug) Console.WriteLine(node.ToFullString());
+      var nl = OurLine.NewLine(LineKind.Decl, "SimpleBaseType");
+      OurLine.AddEssentialInfo(ref nl, node.Type.ToString());
+      nl.Source = node.ToFullString();
+      LogCommand(nl);
+
+      base.VisitSimpleBaseType(node);
+    }
+    public override void VisitReturnStatement(ReturnStatementSyntax node)
+    {
+      if (debug) Console.WriteLine(node.ToFullString());
+      var nl = OurLine.NewLine(LineKind.Decl, "ReturnStatement");
+      nl.Source = node.ToFullString();
+      // System.Console.WriteLine(node.Expression);
+      if (node.Expression != null)
+        OurLine.AddEssentialInfo(ref nl, node.Expression.ToString());
+
+      LogCommand(nl);
+
+      base.VisitReturnStatement(node);
+    }
+    public override void VisitFieldDeclaration(FieldDeclarationSyntax node)
+    {
+      if (debug) Console.WriteLine(node.ToFullString());
+
+      var nl = OurLine.NewLine(LineKind.Decl, "FieldDeclaration");
+      OurLine.AddEssentialInfo(ref nl, node.Modifiers.ToString());
+      OurLine.AddEssentialInfo(ref nl, node.Declaration.Type.ToString());
+      OurLine.AddEssentialInfo(ref nl, node.Declaration.Variables.ToString());
+      nl.Source = node.ToFullString();
+      LogCommand(nl);
+      base.VisitFieldDeclaration(node);
+    }
+
     public override void VisitUsingDirective(UsingDirectiveSyntax node)
     {
       var name = node.Name.ToString();
@@ -51,7 +149,6 @@ namespace CsDisplay
       if (debug) Console.WriteLine(node.ToFullString());
       var nl = OurLine.NewLine(LineKind.Decl, "PropertyDeclaration");
       nl.Source = node.ToFullString();
-      // Todo("PropertyDeclaration");
       OurLine.AddEssentialInfo(ref nl, node?.Identifier.Text.ToString());
       var cnt = node?.AccessorList?.Accessors.Count.ToString();
       int count;
@@ -111,11 +208,12 @@ namespace CsDisplay
         System.Console.WriteLine(baseTypes);
         OurLine.AddEssentialInfo(ref nl, baseTypes);
       }
-      nl.Source = node.ToFullString();
-      LogCommand(nl);
+      // nl.Source = node.ToFullString();
       // currentClass = node;
-      var modifiers = node.Modifiers; // TODO
+      var modifiers = node.Modifiers;
+      OurLine.AddEssentialInfo(ref nl, modifiers.ToString());
 
+      LogCommand(nl);
       base.VisitClassDeclaration(node);
       EndBlock();
     }
@@ -200,7 +298,6 @@ namespace CsDisplay
     // TODO
     public override void VisitTypeParameterList(TypeParameterListSyntax node)
     {
-      Todo("TypeParameterList");
       if (debug) Console.WriteLine(node.ToFullString());
       var nl = OurLine.NewLine(LineKind.Decl, "TypeParameterList");
       OurLine.AddEssentialInfo(ref nl, node.ToString());
@@ -224,7 +321,6 @@ namespace CsDisplay
       OurLine.AddEssentialInfo(ref nl, n.ToFullString());
       nl.Source = node.ToFullString();
       LogCommand(nl);
-      // Todo("Argument");
 
       base.VisitArgument(node);
     }
@@ -236,7 +332,6 @@ namespace CsDisplay
       var nl = OurLine.NewLine(LineKind.Decl, "ExpressionStatement");
       nl.Source = node.ToFullString();
       LogCommand(nl);
-      // Todo("ExpressionStatement");
 
       base.VisitExpressionStatement(node);
       EndBlock();
@@ -264,7 +359,6 @@ namespace CsDisplay
       OurLine.AddEssentialInfo(ref nl, node.Right.ToString());
       nl.Source = node.ToFullString();
       LogCommand(nl);
-      Todo("ParameterList");
 
       base.VisitAssignmentExpression(node);
     }
@@ -273,7 +367,12 @@ namespace CsDisplay
     {
       if (debug) Console.WriteLine(node.ToFullString());
       var nl = OurLine.NewLine(LineKind.Decl, "LocalDeclarationStatement");
-      OurLine.AddEssentialInfo(ref nl, node.ToString());
+      var typ = node.Declaration.Type.ToString();
+      var names = node.Declaration.Variables.Select((x) => x.Identifier.Text).ToList();
+      // left hand side comes later.
+      OurLine.AddEssentialInfo(ref nl, string.Join(", ", names));
+      OurLine.AddEssentialInfo(ref nl, typ);
+
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitLocalDeclarationStatement(node);
@@ -297,9 +396,16 @@ namespace CsDisplay
     {
       if (debug) Console.WriteLine(node.ToFullString());
       var nl = OurLine.NewLine(LineKind.Decl, "IfStatement");
+      // condition, statement, else.statement
       nl.Source = node.ToFullString();
+      OurLine.AddEssentialInfo(ref nl, node.Condition.ToString());
+      OurLine.AddEssentialInfo(ref nl, node.Statement.ToString());
+      var elsey = node.Else?.Statement;
+      if (elsey != null)
+        OurLine.AddEssentialInfo(ref nl, elsey.ToString());
+
+
       LogCommand(nl);
-      Todo("IfStatement");
 
       base.VisitIfStatement(node);
     }

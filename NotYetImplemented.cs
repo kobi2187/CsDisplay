@@ -2,7 +2,7 @@
 
 using System;
 using System.Collections.Generic;
-// using System.Linq;
+using System.Linq;
 // using System.Text;
 // using System.Threading.Tasks;
 using Microsoft.CodeAnalysis;
@@ -34,7 +34,7 @@ namespace CsDisplay
     public override void VisitAccessorDeclaration(AccessorDeclarationSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "AccessorDeclaration");
+      Todo("AccessorDeclaration"); var nl = OurLine.NewLine(LineKind.Decl, "AccessorDeclaration");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitAccessorDeclaration(node);
@@ -42,7 +42,7 @@ namespace CsDisplay
     public override void VisitIfDirectiveTrivia(IfDirectiveTriviaSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "IfDirectiveTrivia");
+      Todo("IfDirectiveTrivia"); var nl = OurLine.NewLine(LineKind.Decl, "IfDirectiveTrivia");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       Todo("IfDirectiveTrivia");
@@ -53,7 +53,7 @@ namespace CsDisplay
     public override void VisitImplicitArrayCreationExpression(ImplicitArrayCreationExpressionSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "ImplicitArrayCreationExpression");
+      Todo("ImplicitArrayCreationExpression"); var nl = OurLine.NewLine(LineKind.Decl, "ImplicitArrayCreationExpression");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       Todo("ImplicitArrayCreationExpression");
@@ -63,7 +63,7 @@ namespace CsDisplay
     public override void VisitImplicitElementAccess(ImplicitElementAccessSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "ImplicitElementAccess");
+      Todo("ImplicitElementAccess"); var nl = OurLine.NewLine(LineKind.Decl, "ImplicitElementAccess");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       Todo("ImplicitElementAccess");
@@ -73,7 +73,7 @@ namespace CsDisplay
     public override void VisitImplicitStackAllocArrayCreationExpression(ImplicitStackAllocArrayCreationExpressionSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "ImplicitStackAllocArrayCreationExpression");
+      Todo("ImplicitStackAllocArrayCreationExpression"); var nl = OurLine.NewLine(LineKind.Decl, "ImplicitStackAllocArrayCreationExpression");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       Todo("ImplicitStackAllocArrayCreationExpression");
@@ -83,7 +83,7 @@ namespace CsDisplay
     public override void VisitIncompleteMember(IncompleteMemberSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "IncompleteMember");
+      Todo("IncompleteMember"); var nl = OurLine.NewLine(LineKind.Decl, "IncompleteMember");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       Todo("IncompleteMember");
@@ -93,7 +93,7 @@ namespace CsDisplay
     public override void VisitIndexerDeclaration(IndexerDeclarationSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "IndexerDeclaration");
+      Todo("IndexerDeclaration"); var nl = OurLine.NewLine(LineKind.Decl, "IndexerDeclaration");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       // Todo("IndexerDeclaration");
@@ -103,7 +103,7 @@ namespace CsDisplay
     public override void VisitIndexerMemberCref(IndexerMemberCrefSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "IndexerMemberCref");
+      Todo("IndexerMemberCref"); var nl = OurLine.NewLine(LineKind.Decl, "IndexerMemberCref");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       Todo("IndexerMemberCref");
@@ -113,7 +113,7 @@ namespace CsDisplay
     public override void VisitInitializerExpression(InitializerExpressionSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "InitializerExpression");
+      Todo("InitializerExpression"); var nl = OurLine.NewLine(LineKind.Decl, "InitializerExpression");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       Todo("InitializerExpression");
@@ -123,7 +123,7 @@ namespace CsDisplay
     public override void VisitInterfaceDeclaration(InterfaceDeclarationSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "InterfaceDeclaration");
+      Todo("InterfaceDeclaration"); var nl = OurLine.NewLine(LineKind.Decl, "InterfaceDeclaration");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       Todo("InterfaceDeclaration");
@@ -133,7 +133,7 @@ namespace CsDisplay
     public override void VisitInterpolatedStringExpression(InterpolatedStringExpressionSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "InterpolatedStringExpression");
+      Todo("InterpolatedStringExpression"); var nl = OurLine.NewLine(LineKind.Decl, "InterpolatedStringExpression");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       Todo("InterpolatedStringExpression");
@@ -143,7 +143,7 @@ namespace CsDisplay
     public override void VisitInterpolatedStringText(InterpolatedStringTextSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "InterpolatedStringText");
+      Todo("InterpolatedStringText"); var nl = OurLine.NewLine(LineKind.Decl, "InterpolatedStringText");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       Todo("InterpolatedStringText");
@@ -153,7 +153,7 @@ namespace CsDisplay
     public override void VisitInterpolation(InterpolationSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "Interpolation");
+      Todo("Interpolation"); var nl = OurLine.NewLine(LineKind.Decl, "Interpolation");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       Todo("Interpolation");
@@ -163,7 +163,7 @@ namespace CsDisplay
     public override void VisitInterpolationAlignmentClause(InterpolationAlignmentClauseSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "InterpolationAlignmentClause");
+      Todo("InterpolationAlignmentClause"); var nl = OurLine.NewLine(LineKind.Decl, "InterpolationAlignmentClause");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       Todo("InterpolationAlignmentClause");
@@ -173,7 +173,7 @@ namespace CsDisplay
     public override void VisitInterpolationFormatClause(InterpolationFormatClauseSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "InterpolationFormatClause");
+      Todo("InterpolationFormatClause"); var nl = OurLine.NewLine(LineKind.Decl, "InterpolationFormatClause");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       Todo("InterpolationFormatClause");
@@ -184,7 +184,7 @@ namespace CsDisplay
     public override void VisitIsPatternExpression(IsPatternExpressionSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "IsPatternExpression");
+      Todo("IsPatternExpression"); var nl = OurLine.NewLine(LineKind.Decl, "IsPatternExpression");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       Todo("IsPatternExpression");
@@ -194,7 +194,7 @@ namespace CsDisplay
     public override void VisitJoinClause(JoinClauseSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "JoinClause");
+      Todo("JoinClause"); var nl = OurLine.NewLine(LineKind.Decl, "JoinClause");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       Todo("JoinClause");
@@ -204,7 +204,7 @@ namespace CsDisplay
     public override void VisitJoinIntoClause(JoinIntoClauseSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "JoinIntoClause");
+      Todo("JoinIntoClause"); var nl = OurLine.NewLine(LineKind.Decl, "JoinIntoClause");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       Todo("JoinIntoClause");
@@ -214,7 +214,7 @@ namespace CsDisplay
     public override void VisitLabeledStatement(LabeledStatementSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "LabeledStatement");
+      Todo("LabeledStatement"); var nl = OurLine.NewLine(LineKind.Decl, "LabeledStatement");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       Todo("LabeledStatement");
@@ -224,7 +224,7 @@ namespace CsDisplay
     public override void VisitLetClause(LetClauseSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "LetClause");
+      Todo("LetClause"); var nl = OurLine.NewLine(LineKind.Decl, "LetClause");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       Todo("LetClause");
@@ -234,7 +234,7 @@ namespace CsDisplay
     public override void VisitLineDirectiveTrivia(LineDirectiveTriviaSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "LineDirectiveTrivia");
+      Todo("LineDirectiveTrivia"); var nl = OurLine.NewLine(LineKind.Decl, "LineDirectiveTrivia");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       Todo("LineDirectiveTrivia");
@@ -245,7 +245,7 @@ namespace CsDisplay
     public override void VisitLoadDirectiveTrivia(LoadDirectiveTriviaSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "LoadDirectiveTrivia");
+      Todo("LoadDirectiveTrivia"); var nl = OurLine.NewLine(LineKind.Decl, "LoadDirectiveTrivia");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       Todo("LoadDirectiveTrivia");
@@ -256,7 +256,7 @@ namespace CsDisplay
     public override void VisitLocalFunctionStatement(LocalFunctionStatementSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "LocalFunctionStatement");
+      Todo("LocalFunctionStatement"); var nl = OurLine.NewLine(LineKind.Decl, "LocalFunctionStatement");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       Todo("LocalFunctionStatement");
@@ -266,7 +266,7 @@ namespace CsDisplay
     public override void VisitLockStatement(LockStatementSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "LockStatement");
+      Todo("LockStatement"); var nl = OurLine.NewLine(LineKind.Decl, "LockStatement");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       Todo("LockStatement");
@@ -276,7 +276,7 @@ namespace CsDisplay
     public override void VisitMakeRefExpression(MakeRefExpressionSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "MakeRefExpression");
+      Todo("MakeRefExpression"); var nl = OurLine.NewLine(LineKind.Decl, "MakeRefExpression");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       Todo("MakeRefExpression");
@@ -287,31 +287,18 @@ namespace CsDisplay
     public override void VisitMemberBindingExpression(MemberBindingExpressionSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "MemberBindingExpression");
+      Todo("MemberBindingExpression"); var nl = OurLine.NewLine(LineKind.Decl, "MemberBindingExpression");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       Todo("MemberBindingExpression");
 
       base.VisitMemberBindingExpression(node);
     }
-    public override void VisitReturnStatement(ReturnStatementSyntax node)
-    {
-      if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "ReturnStatement");
-      nl.Source = node.ToFullString();
-      // System.Console.WriteLine(node.Expression);
-      if (node.Expression != null)
-        OurLine.AddEssentialInfo(ref nl, node.Expression.ToString());
 
-      LogCommand(nl);
-      // Todo("ReturnStatement");
-
-      base.VisitReturnStatement(node);
-    }
     public override void VisitNameColon(NameColonSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "NameColon");
+      Todo("NameColon"); var nl = OurLine.NewLine(LineKind.Decl, "NameColon");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       Todo("NameColon");
@@ -321,7 +308,7 @@ namespace CsDisplay
     public override void VisitNameEquals(NameEqualsSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "NameEquals");
+      Todo("NameEquals"); var nl = OurLine.NewLine(LineKind.Decl, "NameEquals");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       Todo("NameEquals");
@@ -331,7 +318,7 @@ namespace CsDisplay
     public override void VisitNameMemberCref(NameMemberCrefSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "NameMemberCref");
+      Todo("NameMemberCref"); var nl = OurLine.NewLine(LineKind.Decl, "NameMemberCref");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       Todo("NameMemberCref");
@@ -342,7 +329,7 @@ namespace CsDisplay
     public override void VisitNullableType(NullableTypeSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "NullableType");
+      Todo("NullableType"); var nl = OurLine.NewLine(LineKind.Decl, "NullableType");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       Todo("NullableType");
@@ -353,7 +340,7 @@ namespace CsDisplay
     public override void VisitOmittedArraySizeExpression(OmittedArraySizeExpressionSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "OmittedArraySizeExpression");
+      Todo("OmittedArraySizeExpression"); var nl = OurLine.NewLine(LineKind.Decl, "OmittedArraySizeExpression");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       Todo("OmittedArraySizeExpression");
@@ -363,7 +350,7 @@ namespace CsDisplay
     public override void VisitOmittedTypeArgument(OmittedTypeArgumentSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "OmittedTypeArgument");
+      Todo("OmittedTypeArgument"); var nl = OurLine.NewLine(LineKind.Decl, "OmittedTypeArgument");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       Todo("OmittedTypeArgument");
@@ -373,7 +360,7 @@ namespace CsDisplay
     public override void VisitOperatorDeclaration(OperatorDeclarationSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "OperatorDeclaration");
+      Todo("OperatorDeclaration"); var nl = OurLine.NewLine(LineKind.Decl, "OperatorDeclaration");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       Todo("OperatorDeclaration");
@@ -383,7 +370,7 @@ namespace CsDisplay
     public override void VisitOperatorMemberCref(OperatorMemberCrefSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "OperatorMemberCref");
+      Todo("OperatorMemberCref"); var nl = OurLine.NewLine(LineKind.Decl, "OperatorMemberCref");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       Todo("OperatorMemberCref");
@@ -393,7 +380,7 @@ namespace CsDisplay
     public override void VisitOrderByClause(OrderByClauseSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "OrderByClause");
+      Todo("OrderByClause"); var nl = OurLine.NewLine(LineKind.Decl, "OrderByClause");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       Todo("OrderByClause");
@@ -403,7 +390,7 @@ namespace CsDisplay
     public override void VisitOrdering(OrderingSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "Ordering");
+      Todo("Ordering"); var nl = OurLine.NewLine(LineKind.Decl, "Ordering");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       Todo("Ordering");
@@ -415,17 +402,18 @@ namespace CsDisplay
     public override void VisitParenthesizedExpression(ParenthesizedExpressionSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "ParenthesizedExpression");
+      Todo("ParenthesizedExpression"); var nl = OurLine.NewLine(LineKind.Decl, "ParenthesizedExpression");
       nl.Source = node.ToFullString();
       LogCommand(nl);
-      Todo("ParenthesizedExpression");
+      // Todo("ParenthesizedExpression");
+      // note: I think nothing is needed to be done here, can accept code as is.
 
       base.VisitParenthesizedExpression(node);
     }
     public override void VisitParenthesizedLambdaExpression(ParenthesizedLambdaExpressionSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "ParenthesizedLambdaExpression");
+      Todo("ParenthesizedLambdaExpression"); var nl = OurLine.NewLine(LineKind.Decl, "ParenthesizedLambdaExpression");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       Todo("ParenthesizedLambdaExpression");
@@ -435,7 +423,7 @@ namespace CsDisplay
     public override void VisitParenthesizedVariableDesignation(ParenthesizedVariableDesignationSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "ParenthesizedVariableDesignation");
+      Todo("ParenthesizedVariableDesignation"); var nl = OurLine.NewLine(LineKind.Decl, "ParenthesizedVariableDesignation");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       Todo("ParenthesizedVariableDesignation");
@@ -445,7 +433,7 @@ namespace CsDisplay
     public override void VisitPointerType(PointerTypeSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "PointerType");
+      Todo("PointerType"); var nl = OurLine.NewLine(LineKind.Decl, "PointerType");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       Todo("PointerType");
@@ -455,7 +443,7 @@ namespace CsDisplay
     public override void VisitPostfixUnaryExpression(PostfixUnaryExpressionSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "PostfixUnaryExpression");
+      Todo("PostfixUnaryExpression"); var nl = OurLine.NewLine(LineKind.Decl, "PostfixUnaryExpression");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       Todo("PostfixUnaryExpression");
@@ -465,7 +453,7 @@ namespace CsDisplay
     public override void VisitPragmaChecksumDirectiveTrivia(PragmaChecksumDirectiveTriviaSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "PragmaChecksumDirectiveTrivia");
+      Todo("PragmaChecksumDirectiveTrivia"); var nl = OurLine.NewLine(LineKind.Decl, "PragmaChecksumDirectiveTrivia");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       Todo("PragmaChecksumDirectiveTrivia");
@@ -475,7 +463,7 @@ namespace CsDisplay
     public override void VisitPragmaWarningDirectiveTrivia(PragmaWarningDirectiveTriviaSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "PragmaWarningDirectiveTrivia");
+      Todo("PragmaWarningDirectiveTrivia"); var nl = OurLine.NewLine(LineKind.Decl, "PragmaWarningDirectiveTrivia");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       Todo("PragmaWarningDirectiveTrivia");
@@ -486,10 +474,10 @@ namespace CsDisplay
     public override void VisitPrefixUnaryExpression(PrefixUnaryExpressionSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "PrefixUnaryExpression");
+      Todo("PrefixUnaryExpression"); var nl = OurLine.NewLine(LineKind.Decl, "PrefixUnaryExpression");
       nl.Source = node.ToFullString();
       LogCommand(nl);
-      Todo("PrefixUnaryExpression");
+      // Todo("PrefixUnaryExpression");
 
       base.VisitPrefixUnaryExpression(node);
     }
@@ -497,7 +485,7 @@ namespace CsDisplay
     public override void VisitQualifiedCref(QualifiedCrefSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "QualifiedCref");
+      Todo("QualifiedCref"); var nl = OurLine.NewLine(LineKind.Decl, "QualifiedCref");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       Todo("QualifiedCref");
@@ -508,7 +496,7 @@ namespace CsDisplay
     public override void VisitQueryBody(QueryBodySyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "QueryBody");
+      Todo("QueryBody"); var nl = OurLine.NewLine(LineKind.Decl, "QueryBody");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       Todo("QueryBody");
@@ -518,7 +506,7 @@ namespace CsDisplay
     public override void VisitQueryContinuation(QueryContinuationSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "QueryContinuation");
+      Todo("QueryContinuation"); var nl = OurLine.NewLine(LineKind.Decl, "QueryContinuation");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       Todo("QueryContinuation");
@@ -528,7 +516,7 @@ namespace CsDisplay
     public override void VisitQueryExpression(QueryExpressionSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "QueryExpression");
+      Todo("QueryExpression"); var nl = OurLine.NewLine(LineKind.Decl, "QueryExpression");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       Todo("QueryExpression");
@@ -538,7 +526,7 @@ namespace CsDisplay
     public override void VisitReferenceDirectiveTrivia(ReferenceDirectiveTriviaSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "ReferenceDirectiveTrivia");
+      Todo("ReferenceDirectiveTrivia"); var nl = OurLine.NewLine(LineKind.Decl, "ReferenceDirectiveTrivia");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       Todo("ReferenceDirectiveTrivia");
@@ -548,7 +536,7 @@ namespace CsDisplay
     public override void VisitRefExpression(RefExpressionSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "RefExpression");
+      Todo("RefExpression"); var nl = OurLine.NewLine(LineKind.Decl, "RefExpression");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       Todo("RefExpression");
@@ -558,7 +546,7 @@ namespace CsDisplay
     public override void VisitRefType(RefTypeSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "RefType");
+      Todo("RefType"); var nl = OurLine.NewLine(LineKind.Decl, "RefType");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       Todo("RefType");
@@ -568,7 +556,7 @@ namespace CsDisplay
     public override void VisitRefTypeExpression(RefTypeExpressionSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "RefTypeExpression");
+      Todo("RefTypeExpression"); var nl = OurLine.NewLine(LineKind.Decl, "RefTypeExpression");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       Todo("RefTypeExpression");
@@ -578,7 +566,7 @@ namespace CsDisplay
     public override void VisitRefValueExpression(RefValueExpressionSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "RefValueExpression");
+      Todo("RefValueExpression"); var nl = OurLine.NewLine(LineKind.Decl, "RefValueExpression");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       Todo("RefValueExpression");
@@ -590,7 +578,7 @@ namespace CsDisplay
     public override void VisitSelectClause(SelectClauseSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "SelectClause");
+      Todo("SelectClause"); var nl = OurLine.NewLine(LineKind.Decl, "SelectClause");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       Todo("SelectClause");
@@ -600,27 +588,18 @@ namespace CsDisplay
     public override void VisitShebangDirectiveTrivia(ShebangDirectiveTriviaSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "ShebangDirectiveTrivia");
+      Todo("ShebangDirectiveTrivia"); var nl = OurLine.NewLine(LineKind.Decl, "ShebangDirectiveTrivia");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       Todo("ShebangDirectiveTrivia");
 
       base.VisitShebangDirectiveTrivia(node);
     }
-    public override void VisitSimpleBaseType(SimpleBaseTypeSyntax node)
-    {
-      if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "SimpleBaseType");
-      nl.Source = node.ToFullString();
-      LogCommand(nl);
-      Todo("SimpleBaseType");
 
-      base.VisitSimpleBaseType(node);
-    }
     public override void VisitSimpleLambdaExpression(SimpleLambdaExpressionSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "SimpleLambdaExpression");
+      Todo("SimpleLambdaExpression"); var nl = OurLine.NewLine(LineKind.Decl, "SimpleLambdaExpression");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       Todo("SimpleLambdaExpression");
@@ -630,7 +609,7 @@ namespace CsDisplay
     public override void VisitSingleVariableDesignation(SingleVariableDesignationSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "SingleVariableDesignation");
+      Todo("SingleVariableDesignation"); var nl = OurLine.NewLine(LineKind.Decl, "SingleVariableDesignation");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       Todo("SingleVariableDesignation");
@@ -640,7 +619,7 @@ namespace CsDisplay
     public override void VisitSizeOfExpression(SizeOfExpressionSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "SizeOfExpression");
+      Todo("SizeOfExpression"); var nl = OurLine.NewLine(LineKind.Decl, "SizeOfExpression");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       Todo("SizeOfExpression");
@@ -650,7 +629,7 @@ namespace CsDisplay
     public override void VisitSkippedTokensTrivia(SkippedTokensTriviaSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "SkippedTokensTrivia");
+      Todo("SkippedTokensTrivia"); var nl = OurLine.NewLine(LineKind.Decl, "SkippedTokensTrivia");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       Todo("SkippedTokensTrivia");
@@ -660,7 +639,7 @@ namespace CsDisplay
     public override void VisitStackAllocArrayCreationExpression(StackAllocArrayCreationExpressionSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "StackAllocArrayCreationExpression");
+      Todo("StackAllocArrayCreationExpression"); var nl = OurLine.NewLine(LineKind.Decl, "StackAllocArrayCreationExpression");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       Todo("StackAllocArrayCreationExpression");
@@ -670,27 +649,18 @@ namespace CsDisplay
     public override void VisitStructDeclaration(StructDeclarationSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "StructDeclaration");
+      Todo("StructDeclaration"); var nl = OurLine.NewLine(LineKind.Decl, "StructDeclaration");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       Todo("StructDeclaration");
 
       base.VisitStructDeclaration(node);
     }
-    public override void VisitSwitchSection(SwitchSectionSyntax node)
-    {
-      if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "SwitchSection");
-      nl.Source = node.ToFullString();
-      LogCommand(nl);
-      Todo("SwitchSection");
 
-      base.VisitSwitchSection(node);
-    }
     public override void VisitSwitchStatement(SwitchStatementSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "SwitchStatement");
+      Todo("SwitchStatement"); var nl = OurLine.NewLine(LineKind.Decl, "SwitchStatement");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       Todo("SwitchStatement");
@@ -698,19 +668,19 @@ namespace CsDisplay
       base.VisitSwitchStatement(node);
     }
     public override void VisitThisExpression(ThisExpressionSyntax node)
-    {
+    { // note: I already do that with methods, no need for special handling.
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "ThisExpression");
+      Todo("ThisExpression"); var nl = OurLine.NewLine(LineKind.Decl, "ThisExpression");
       nl.Source = node.ToFullString();
       LogCommand(nl);
-      Todo("ThisExpression");
+      // Todo("ThisExpression");
 
       base.VisitThisExpression(node);
     }
     public override void VisitThrowExpression(ThrowExpressionSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "ThrowExpression");
+      Todo("ThrowExpression"); var nl = OurLine.NewLine(LineKind.Decl, "ThrowExpression");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       Todo("ThrowExpression");
@@ -720,7 +690,7 @@ namespace CsDisplay
     public override void VisitThrowStatement(ThrowStatementSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "ThrowStatement");
+      Todo("ThrowStatement"); var nl = OurLine.NewLine(LineKind.Decl, "ThrowStatement");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       Todo("ThrowStatement");
@@ -730,7 +700,7 @@ namespace CsDisplay
     public override void VisitTryStatement(TryStatementSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "TryStatement");
+      Todo("TryStatement"); var nl = OurLine.NewLine(LineKind.Decl, "TryStatement");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       Todo("TryStatement");
@@ -740,7 +710,7 @@ namespace CsDisplay
     public override void VisitTupleElement(TupleElementSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "TupleElement");
+      Todo("TupleElement"); var nl = OurLine.NewLine(LineKind.Decl, "TupleElement");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       Todo("TupleElement");
@@ -750,7 +720,7 @@ namespace CsDisplay
     public override void VisitTupleExpression(TupleExpressionSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "TupleExpression");
+      Todo("TupleExpression"); var nl = OurLine.NewLine(LineKind.Decl, "TupleExpression");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       Todo("TupleExpression");
@@ -760,27 +730,18 @@ namespace CsDisplay
     public override void VisitTupleType(TupleTypeSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "TupleType");
+      Todo("TupleType"); var nl = OurLine.NewLine(LineKind.Decl, "TupleType");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       Todo("TupleType");
 
       base.VisitTupleType(node);
     }
-    public override void VisitTypeArgumentList(TypeArgumentListSyntax node)
-    {
-      if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "TypeArgumentList");
-      nl.Source = node.ToFullString();
-      LogCommand(nl);
-      Todo("TypeArgumentList");
 
-      base.VisitTypeArgumentList(node);
-    }
     public override void VisitTypeConstraint(TypeConstraintSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "TypeConstraint");
+      Todo("TypeConstraint"); var nl = OurLine.NewLine(LineKind.Decl, "TypeConstraint");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       Todo("TypeConstraint");
@@ -790,7 +751,7 @@ namespace CsDisplay
     public override void VisitTypeCref(TypeCrefSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "TypeCref");
+      Todo("TypeCref"); var nl = OurLine.NewLine(LineKind.Decl, "TypeCref");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       Todo("TypeCref");
@@ -800,7 +761,7 @@ namespace CsDisplay
     public override void VisitTypeOfExpression(TypeOfExpressionSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "TypeOfExpression");
+      Todo("TypeOfExpression"); var nl = OurLine.NewLine(LineKind.Decl, "TypeOfExpression");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       Todo("TypeOfExpression");
@@ -810,7 +771,7 @@ namespace CsDisplay
     public override void VisitTypeParameter(TypeParameterSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "TypeParameter");
+      Todo("TypeParameter"); var nl = OurLine.NewLine(LineKind.Decl, "TypeParameter");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       Todo("TypeParameter");
@@ -820,7 +781,7 @@ namespace CsDisplay
     public override void VisitTypeParameterConstraintClause(TypeParameterConstraintClauseSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "TypeParameterConstraintClause");
+      Todo("TypeParameterConstraintClause"); var nl = OurLine.NewLine(LineKind.Decl, "TypeParameterConstraintClause");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       Todo("TypeParameterConstraintClause");
@@ -831,7 +792,7 @@ namespace CsDisplay
     public override void VisitUndefDirectiveTrivia(UndefDirectiveTriviaSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "UndefDirectiveTrivia");
+      Todo("UndefDirectiveTrivia"); var nl = OurLine.NewLine(LineKind.Decl, "UndefDirectiveTrivia");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       Todo("UndefDirectiveTrivia");
@@ -841,7 +802,7 @@ namespace CsDisplay
     public override void VisitUnsafeStatement(UnsafeStatementSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "UnsafeStatement");
+      Todo("UnsafeStatement"); var nl = OurLine.NewLine(LineKind.Decl, "UnsafeStatement");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       Todo("UnsafeStatement");
@@ -852,7 +813,7 @@ namespace CsDisplay
     public override void VisitUsingStatement(UsingStatementSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "UsingStatement");
+      Todo("UsingStatement"); var nl = OurLine.NewLine(LineKind.Decl, "UsingStatement");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       Todo("UsingStatement");
@@ -863,7 +824,7 @@ namespace CsDisplay
     public override void VisitWarningDirectiveTrivia(WarningDirectiveTriviaSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "WarningDirectiveTrivia");
+      Todo("WarningDirectiveTrivia"); var nl = OurLine.NewLine(LineKind.Decl, "WarningDirectiveTrivia");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       Todo("WarningDirectiveTrivia");
@@ -873,7 +834,7 @@ namespace CsDisplay
     public override void VisitWhenClause(WhenClauseSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "WhenClause");
+      Todo("WhenClause"); var nl = OurLine.NewLine(LineKind.Decl, "WhenClause");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       Todo("WhenClause");
@@ -883,7 +844,7 @@ namespace CsDisplay
     public override void VisitWhereClause(WhereClauseSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "WhereClause");
+      Todo("WhereClause"); var nl = OurLine.NewLine(LineKind.Decl, "WhereClause");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       Todo("WhereClause");
@@ -893,7 +854,7 @@ namespace CsDisplay
     public override void VisitWhileStatement(WhileStatementSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "WhileStatement");
+      Todo("WhileStatement"); var nl = OurLine.NewLine(LineKind.Decl, "WhileStatement");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       Todo("WhileStatement");
@@ -904,7 +865,7 @@ namespace CsDisplay
     public override void VisitYieldStatement(YieldStatementSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "YieldStatement");
+      Todo("YieldStatement"); var nl = OurLine.NewLine(LineKind.Decl, "YieldStatement");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       Todo("YieldStatement");
@@ -915,7 +876,7 @@ namespace CsDisplay
     public override void VisitAccessorList(AccessorListSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "AccessorList");
+      Todo("AccessorList"); var nl = OurLine.NewLine(LineKind.Decl, "AccessorList");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitAccessorList(node);
@@ -924,7 +885,7 @@ namespace CsDisplay
     public override void VisitAliasQualifiedName(AliasQualifiedNameSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "AliasQualifiedName");
+      Todo("AliasQualifiedName"); var nl = OurLine.NewLine(LineKind.Decl, "AliasQualifiedName");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitAliasQualifiedName(node);
@@ -933,7 +894,7 @@ namespace CsDisplay
     public override void VisitAnonymousMethodExpression(AnonymousMethodExpressionSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "AnonymousMethodExpression");
+      Todo("AnonymousMethodExpression"); var nl = OurLine.NewLine(LineKind.Decl, "AnonymousMethodExpression");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitAnonymousMethodExpression(node);
@@ -942,7 +903,7 @@ namespace CsDisplay
     public override void VisitAnonymousObjectCreationExpression(AnonymousObjectCreationExpressionSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "AnonymousObjectCreationExpression");
+      Todo("AnonymousObjectCreationExpression"); var nl = OurLine.NewLine(LineKind.Decl, "AnonymousObjectCreationExpression");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitAnonymousObjectCreationExpression(node);
@@ -951,7 +912,7 @@ namespace CsDisplay
     public override void VisitAnonymousObjectMemberDeclarator(AnonymousObjectMemberDeclaratorSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "AnonymousObjectMemberDeclarator");
+      Todo("AnonymousObjectMemberDeclarator"); var nl = OurLine.NewLine(LineKind.Decl, "AnonymousObjectMemberDeclarator");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitAnonymousObjectMemberDeclarator(node);
@@ -960,7 +921,7 @@ namespace CsDisplay
     public override void VisitArrayCreationExpression(ArrayCreationExpressionSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "ArrayCreationExpression");
+      Todo("ArrayCreationExpression"); var nl = OurLine.NewLine(LineKind.Decl, "ArrayCreationExpression");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitArrayCreationExpression(node);
@@ -969,7 +930,7 @@ namespace CsDisplay
     public override void VisitArrayRankSpecifier(ArrayRankSpecifierSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "ArrayRankSpecifier");
+      Todo("ArrayRankSpecifier"); var nl = OurLine.NewLine(LineKind.Decl, "ArrayRankSpecifier");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitArrayRankSpecifier(node);
@@ -978,7 +939,7 @@ namespace CsDisplay
     public override void VisitArrayType(ArrayTypeSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "ArrayType");
+      Todo("ArrayType"); var nl = OurLine.NewLine(LineKind.Decl, "ArrayType");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitArrayType(node);
@@ -987,7 +948,7 @@ namespace CsDisplay
     public override void VisitArrowExpressionClause(ArrowExpressionClauseSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "ArrowExpressionClause");
+      Todo("ArrowExpressionClause"); var nl = OurLine.NewLine(LineKind.Decl, "ArrowExpressionClause");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitArrowExpressionClause(node);
@@ -995,53 +956,59 @@ namespace CsDisplay
 
     public override void VisitAttribute(AttributeSyntax node)
     {
-      if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "Attribute");
-      nl.Source = node.ToFullString();
-      LogCommand(nl);
+      // not interested in supporting this!
+      // if (debug) Console.WriteLine(node.ToFullString());
+      // var nl = OurLine.NewLine(LineKind.Decl, "Attribute");
+      // nl.Source = node.ToFullString();
+      // LogCommand(nl);
       base.VisitAttribute(node);
     }
 
     public override void VisitAttributeArgument(AttributeArgumentSyntax node)
     {
-      if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "AttributeArgument");
-      nl.Source = node.ToFullString();
-      LogCommand(nl);
+      // not interested in supporting this!
+      // if (debug) Console.WriteLine(node.ToFullString());
+      // var nl = OurLine.NewLine(LineKind.Decl, "AttributeArgument");
+      // nl.Source = node.ToFullString();
+      // LogCommand(nl);
       base.VisitAttributeArgument(node);
     }
 
     public override void VisitAttributeArgumentList(AttributeArgumentListSyntax node)
     {
-      if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "AttributeArgumentList");
-      nl.Source = node.ToFullString();
-      LogCommand(nl);
+      // not interested in supporting this!
+      // if (debug) Console.WriteLine(node.ToFullString());
+      // var nl = OurLine.NewLine(LineKind.Decl, "AttributeArgumentList");
+      // nl.Source = node.ToFullString();
+      // LogCommand(nl);
       base.VisitAttributeArgumentList(node);
     }
 
     public override void VisitAttributeList(AttributeListSyntax node)
     {
-      if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "AttributeList");
-      nl.Source = node.ToFullString();
-      LogCommand(nl);
+      // I don't want to support this.
+
+      // if (debug) Console.WriteLine(node.ToFullString());
+      // var nl = OurLine.NewLine(LineKind.Decl, "AttributeList");
+      // nl.Source = node.ToFullString();
+      // LogCommand(nl);
       base.VisitAttributeList(node);
     }
 
     public override void VisitAttributeTargetSpecifier(AttributeTargetSpecifierSyntax node)
     {
-      if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "AttributeTargetSpecifier");
-      nl.Source = node.ToFullString();
-      LogCommand(nl);
+      // not interested in supporting this!
+      // if (debug) Console.WriteLine(node.ToFullString());
+      // var nl = OurLine.NewLine(LineKind.Decl, "AttributeTargetSpecifier");
+      // nl.Source = node.ToFullString();
+      // LogCommand(nl);
       base.VisitAttributeTargetSpecifier(node);
     }
 
     public override void VisitAwaitExpression(AwaitExpressionSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "AwaitExpression");
+      Todo("AwaitExpression"); var nl = OurLine.NewLine(LineKind.Decl, "AwaitExpression");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitAwaitExpression(node);
@@ -1050,7 +1017,7 @@ namespace CsDisplay
     public override void VisitBadDirectiveTrivia(BadDirectiveTriviaSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "BadDirectiveTrivia");
+      Todo("BadDirectiveTrivia"); var nl = OurLine.NewLine(LineKind.Decl, "BadDirectiveTrivia");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitBadDirectiveTrivia(node);
@@ -1059,7 +1026,7 @@ namespace CsDisplay
     public override void VisitBaseExpression(BaseExpressionSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "BaseExpression");
+      Todo("BaseExpression"); var nl = OurLine.NewLine(LineKind.Decl, "BaseExpression");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitBaseExpression(node);
@@ -1068,7 +1035,7 @@ namespace CsDisplay
     public override void VisitBaseList(BaseListSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "BaseList");
+      Todo("BaseList"); var nl = OurLine.NewLine(LineKind.Decl, "BaseList");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitBaseList(node);
@@ -1077,7 +1044,7 @@ namespace CsDisplay
     public override void VisitBinaryExpression(BinaryExpressionSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "BinaryExpression");
+      Todo("BinaryExpression"); var nl = OurLine.NewLine(LineKind.Decl, "BinaryExpression");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitBinaryExpression(node);
@@ -1086,7 +1053,7 @@ namespace CsDisplay
     public override void VisitBinaryPattern(BinaryPatternSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "BinaryPattern");
+      Todo("BinaryPattern"); var nl = OurLine.NewLine(LineKind.Decl, "BinaryPattern");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitBinaryPattern(node);
@@ -1095,7 +1062,7 @@ namespace CsDisplay
     public override void VisitBracketedArgumentList(BracketedArgumentListSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "BracketedArgumentList");
+      Todo("BracketedArgumentList"); var nl = OurLine.NewLine(LineKind.Decl, "BracketedArgumentList");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitBracketedArgumentList(node);
@@ -1104,7 +1071,7 @@ namespace CsDisplay
     public override void VisitBracketedParameterList(BracketedParameterListSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "BracketedParameterList");
+      Todo("BracketedParameterList"); var nl = OurLine.NewLine(LineKind.Decl, "BracketedParameterList");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitBracketedParameterList(node);
@@ -1113,7 +1080,7 @@ namespace CsDisplay
     public override void VisitBreakStatement(BreakStatementSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "BreakStatement");
+      Todo("BreakStatement"); var nl = OurLine.NewLine(LineKind.Decl, "BreakStatement");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitBreakStatement(node);
@@ -1122,7 +1089,7 @@ namespace CsDisplay
     public override void VisitCasePatternSwitchLabel(CasePatternSwitchLabelSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "CasePatternSwitchLabel");
+      Todo("CasePatternSwitchLabel"); var nl = OurLine.NewLine(LineKind.Decl, "CasePatternSwitchLabel");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitCasePatternSwitchLabel(node);
@@ -1131,7 +1098,7 @@ namespace CsDisplay
     public override void VisitCaseSwitchLabel(CaseSwitchLabelSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "CaseSwitchLabel");
+      Todo("CaseSwitchLabel"); var nl = OurLine.NewLine(LineKind.Decl, "CaseSwitchLabel");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitCaseSwitchLabel(node);
@@ -1140,7 +1107,7 @@ namespace CsDisplay
     public override void VisitCastExpression(CastExpressionSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "CastExpression");
+      Todo("CastExpression"); var nl = OurLine.NewLine(LineKind.Decl, "CastExpression");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitCastExpression(node);
@@ -1149,7 +1116,7 @@ namespace CsDisplay
     public override void VisitCatchClause(CatchClauseSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "CatchClause");
+      Todo("CatchClause"); var nl = OurLine.NewLine(LineKind.Decl, "CatchClause");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitCatchClause(node);
@@ -1158,7 +1125,7 @@ namespace CsDisplay
     public override void VisitCatchDeclaration(CatchDeclarationSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "CatchDeclaration");
+      Todo("CatchDeclaration"); var nl = OurLine.NewLine(LineKind.Decl, "CatchDeclaration");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitCatchDeclaration(node);
@@ -1167,7 +1134,7 @@ namespace CsDisplay
     public override void VisitCatchFilterClause(CatchFilterClauseSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "CatchFilterClause");
+      Todo("CatchFilterClause"); var nl = OurLine.NewLine(LineKind.Decl, "CatchFilterClause");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitCatchFilterClause(node);
@@ -1176,7 +1143,7 @@ namespace CsDisplay
     public override void VisitCheckedExpression(CheckedExpressionSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "CheckedExpression");
+      Todo("CheckedExpression"); var nl = OurLine.NewLine(LineKind.Decl, "CheckedExpression");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitCheckedExpression(node);
@@ -1185,7 +1152,7 @@ namespace CsDisplay
     public override void VisitCheckedStatement(CheckedStatementSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "CheckedStatement");
+      Todo("CheckedStatement"); var nl = OurLine.NewLine(LineKind.Decl, "CheckedStatement");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitCheckedStatement(node);
@@ -1194,7 +1161,7 @@ namespace CsDisplay
     public override void VisitClassOrStructConstraint(ClassOrStructConstraintSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "ClassOrStructConstraint");
+      Todo("ClassOrStructConstraint"); var nl = OurLine.NewLine(LineKind.Decl, "ClassOrStructConstraint");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitClassOrStructConstraint(node);
@@ -1205,7 +1172,7 @@ namespace CsDisplay
     public override void VisitConditionalAccessExpression(ConditionalAccessExpressionSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "ConditionalAccessExpression");
+      Todo("ConditionalAccessExpression"); var nl = OurLine.NewLine(LineKind.Decl, "ConditionalAccessExpression");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitConditionalAccessExpression(node);
@@ -1214,7 +1181,7 @@ namespace CsDisplay
     public override void VisitConditionalExpression(ConditionalExpressionSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "ConditionalExpression");
+      Todo("ConditionalExpression"); var nl = OurLine.NewLine(LineKind.Decl, "ConditionalExpression");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitConditionalExpression(node);
@@ -1223,7 +1190,7 @@ namespace CsDisplay
     public override void VisitConstantPattern(ConstantPatternSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "ConstantPattern");
+      Todo("ConstantPattern"); var nl = OurLine.NewLine(LineKind.Decl, "ConstantPattern");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitConstantPattern(node);
@@ -1232,26 +1199,18 @@ namespace CsDisplay
     public override void VisitConstructorConstraint(ConstructorConstraintSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "ConstructorConstraint");
+      Todo("ConstructorConstraint"); var nl = OurLine.NewLine(LineKind.Decl, "ConstructorConstraint");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitConstructorConstraint(node);
     }
 
-    public override void VisitConstructorDeclaration(ConstructorDeclarationSyntax node)
-    {
-      if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "ConstructorDeclaration");
-      nl.Source = node.ToFullString();
-      OurLine.AddEssentialInfo(ref nl, node.Identifier.Text);
-      LogCommand(nl);
-      base.VisitConstructorDeclaration(node);
-    }
+
 
     public override void VisitConstructorInitializer(ConstructorInitializerSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "ConstructorInitializer");
+      Todo("ConstructorInitializer"); var nl = OurLine.NewLine(LineKind.Decl, "ConstructorInitializer");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitConstructorInitializer(node);
@@ -1260,7 +1219,7 @@ namespace CsDisplay
     public override void VisitContinueStatement(ContinueStatementSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "ContinueStatement");
+      Todo("ContinueStatement"); var nl = OurLine.NewLine(LineKind.Decl, "ContinueStatement");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitContinueStatement(node);
@@ -1269,7 +1228,7 @@ namespace CsDisplay
     public override void VisitConversionOperatorDeclaration(ConversionOperatorDeclarationSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "ConversionOperatorDeclaration");
+      Todo("ConversionOperatorDeclaration"); var nl = OurLine.NewLine(LineKind.Decl, "ConversionOperatorDeclaration");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitConversionOperatorDeclaration(node);
@@ -1278,7 +1237,7 @@ namespace CsDisplay
     public override void VisitConversionOperatorMemberCref(ConversionOperatorMemberCrefSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "ConversionOperatorMemberCref");
+      Todo("ConversionOperatorMemberCref"); var nl = OurLine.NewLine(LineKind.Decl, "ConversionOperatorMemberCref");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitConversionOperatorMemberCref(node);
@@ -1287,7 +1246,7 @@ namespace CsDisplay
     public override void VisitCrefBracketedParameterList(CrefBracketedParameterListSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "CrefBracketedParameterList");
+      Todo("CrefBracketedParameterList"); var nl = OurLine.NewLine(LineKind.Decl, "CrefBracketedParameterList");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitCrefBracketedParameterList(node);
@@ -1296,7 +1255,7 @@ namespace CsDisplay
     public override void VisitCrefParameter(CrefParameterSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "CrefParameter");
+      Todo("CrefParameter"); var nl = OurLine.NewLine(LineKind.Decl, "CrefParameter");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitCrefParameter(node);
@@ -1305,7 +1264,7 @@ namespace CsDisplay
     public override void VisitCrefParameterList(CrefParameterListSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "CrefParameterList");
+      Todo("CrefParameterList"); var nl = OurLine.NewLine(LineKind.Decl, "CrefParameterList");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitCrefParameterList(node);
@@ -1314,7 +1273,7 @@ namespace CsDisplay
     public override void VisitDeclarationExpression(DeclarationExpressionSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "DeclarationExpression");
+      Todo("DeclarationExpression"); var nl = OurLine.NewLine(LineKind.Decl, "DeclarationExpression");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitDeclarationExpression(node);
@@ -1323,7 +1282,7 @@ namespace CsDisplay
     public override void VisitDeclarationPattern(DeclarationPatternSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "DeclarationPattern");
+      Todo("DeclarationPattern"); var nl = OurLine.NewLine(LineKind.Decl, "DeclarationPattern");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitDeclarationPattern(node);
@@ -1332,7 +1291,7 @@ namespace CsDisplay
     public override void VisitDefaultExpression(DefaultExpressionSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "DefaultExpression");
+      Todo("DefaultExpression"); var nl = OurLine.NewLine(LineKind.Decl, "DefaultExpression");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitDefaultExpression(node);
@@ -1341,7 +1300,7 @@ namespace CsDisplay
     public override void VisitDefaultSwitchLabel(DefaultSwitchLabelSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "DefaultSwitchLabel");
+      Todo("DefaultSwitchLabel"); var nl = OurLine.NewLine(LineKind.Decl, "DefaultSwitchLabel");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitDefaultSwitchLabel(node);
@@ -1350,7 +1309,7 @@ namespace CsDisplay
     public override void VisitDefineDirectiveTrivia(DefineDirectiveTriviaSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "DefineDirectiveTrivia");
+      Todo("DefineDirectiveTrivia"); var nl = OurLine.NewLine(LineKind.Decl, "DefineDirectiveTrivia");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitDefineDirectiveTrivia(node);
@@ -1359,7 +1318,7 @@ namespace CsDisplay
     public override void VisitDelegateDeclaration(DelegateDeclarationSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "DelegateDeclaration");
+      Todo("DelegateDeclaration"); var nl = OurLine.NewLine(LineKind.Decl, "DelegateDeclaration");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitDelegateDeclaration(node);
@@ -1368,7 +1327,7 @@ namespace CsDisplay
     public override void VisitDestructorDeclaration(DestructorDeclarationSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "DestructorDeclaration");
+      Todo("DestructorDeclaration"); var nl = OurLine.NewLine(LineKind.Decl, "DestructorDeclaration");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitDestructorDeclaration(node);
@@ -1377,7 +1336,7 @@ namespace CsDisplay
     public override void VisitDiscardDesignation(DiscardDesignationSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "DiscardDesignation");
+      Todo("DiscardDesignation"); var nl = OurLine.NewLine(LineKind.Decl, "DiscardDesignation");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitDiscardDesignation(node);
@@ -1386,7 +1345,7 @@ namespace CsDisplay
     public override void VisitDiscardPattern(DiscardPatternSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "DiscardPattern");
+      Todo("DiscardPattern"); var nl = OurLine.NewLine(LineKind.Decl, "DiscardPattern");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitDiscardPattern(node);
@@ -1395,7 +1354,7 @@ namespace CsDisplay
     public override void VisitDocumentationCommentTrivia(DocumentationCommentTriviaSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "DocumentationCommentTrivia");
+      Todo("DocumentationCommentTrivia"); var nl = OurLine.NewLine(LineKind.Decl, "DocumentationCommentTrivia");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitDocumentationCommentTrivia(node);
@@ -1404,7 +1363,7 @@ namespace CsDisplay
     public override void VisitDoStatement(DoStatementSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "DoStatement");
+      Todo("DoStatement"); var nl = OurLine.NewLine(LineKind.Decl, "DoStatement");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitDoStatement(node);
@@ -1413,7 +1372,7 @@ namespace CsDisplay
     public override void VisitElementAccessExpression(ElementAccessExpressionSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "ElementAccessExpression");
+      Todo("ElementAccessExpression"); var nl = OurLine.NewLine(LineKind.Decl, "ElementAccessExpression");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitElementAccessExpression(node);
@@ -1422,7 +1381,7 @@ namespace CsDisplay
     public override void VisitElementBindingExpression(ElementBindingExpressionSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "ElementBindingExpression");
+      Todo("ElementBindingExpression"); var nl = OurLine.NewLine(LineKind.Decl, "ElementBindingExpression");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitElementBindingExpression(node);
@@ -1431,7 +1390,7 @@ namespace CsDisplay
     public override void VisitElifDirectiveTrivia(ElifDirectiveTriviaSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "ElifDirectiveTrivia");
+      Todo("ElifDirectiveTrivia"); var nl = OurLine.NewLine(LineKind.Decl, "ElifDirectiveTrivia");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitElifDirectiveTrivia(node);
@@ -1440,7 +1399,7 @@ namespace CsDisplay
     public override void VisitElseClause(ElseClauseSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "ElseClause");
+      Todo("ElseClause"); var nl = OurLine.NewLine(LineKind.Decl, "ElseClause");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitElseClause(node);
@@ -1449,7 +1408,7 @@ namespace CsDisplay
     public override void VisitElseDirectiveTrivia(ElseDirectiveTriviaSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "ElseDirectiveTrivia");
+      Todo("ElseDirectiveTrivia"); var nl = OurLine.NewLine(LineKind.Decl, "ElseDirectiveTrivia");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitElseDirectiveTrivia(node);
@@ -1458,7 +1417,7 @@ namespace CsDisplay
     public override void VisitEmptyStatement(EmptyStatementSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "EmptyStatement");
+      Todo("EmptyStatement"); var nl = OurLine.NewLine(LineKind.Decl, "EmptyStatement");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitEmptyStatement(node);
@@ -1467,7 +1426,7 @@ namespace CsDisplay
     public override void VisitEndIfDirectiveTrivia(EndIfDirectiveTriviaSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "EndIfDirectiveTrivia");
+      Todo("EndIfDirectiveTrivia"); var nl = OurLine.NewLine(LineKind.Decl, "EndIfDirectiveTrivia");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitEndIfDirectiveTrivia(node);
@@ -1476,7 +1435,7 @@ namespace CsDisplay
     public override void VisitEndRegionDirectiveTrivia(EndRegionDirectiveTriviaSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "EndRegionDirectiveTrivia");
+      Todo("EndRegionDirectiveTrivia"); var nl = OurLine.NewLine(LineKind.Decl, "EndRegionDirectiveTrivia");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitEndRegionDirectiveTrivia(node);
@@ -1484,21 +1443,11 @@ namespace CsDisplay
 
 
 
-    public override void VisitEnumMemberDeclaration(EnumMemberDeclarationSyntax node)
-    {
-      if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "EnumMemberDeclaration");
-      OurLine.AddEssentialInfo(ref nl, node.Identifier.Text.ToString());
-
-      nl.Source = node.ToFullString();
-      LogCommand(nl);
-      base.VisitEnumMemberDeclaration(node);
-    }
 
     public override void VisitEqualsValueClause(EqualsValueClauseSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "EqualsValueClause");
+      Todo("EqualsValueClause"); var nl = OurLine.NewLine(LineKind.Decl, "EqualsValueClause");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitEqualsValueClause(node);
@@ -1507,7 +1456,7 @@ namespace CsDisplay
     public override void VisitErrorDirectiveTrivia(ErrorDirectiveTriviaSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "ErrorDirectiveTrivia");
+      Todo("ErrorDirectiveTrivia"); var nl = OurLine.NewLine(LineKind.Decl, "ErrorDirectiveTrivia");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitErrorDirectiveTrivia(node);
@@ -1516,7 +1465,7 @@ namespace CsDisplay
     public override void VisitEventDeclaration(EventDeclarationSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "EventDeclaration");
+      Todo("EventDeclaration"); var nl = OurLine.NewLine(LineKind.Decl, "EventDeclaration");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitEventDeclaration(node);
@@ -1525,45 +1474,27 @@ namespace CsDisplay
     public override void VisitEventFieldDeclaration(EventFieldDeclarationSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "EventFieldDeclaration");
+      Todo("EventFieldDeclaration"); var nl = OurLine.NewLine(LineKind.Decl, "EventFieldDeclaration");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitEventFieldDeclaration(node);
     }
 
-    public override void VisitExplicitInterfaceSpecifier(ExplicitInterfaceSpecifierSyntax node)
-    {
-      if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "ExplicitInterfaceSpecifier");
-      OurLine.AddEssentialInfo(ref nl, node.Name.ToString().TrimEnd('.'));
-      // System.Console.WriteLine(node.Name.ToString());
-      nl.Source = node.ToFullString();
-      LogCommand(nl);
-      base.VisitExplicitInterfaceSpecifier(node);
-    }
+
 
     public override void VisitExternAliasDirective(ExternAliasDirectiveSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "ExternAliasDirective");
+      Todo("ExternAliasDirective"); var nl = OurLine.NewLine(LineKind.Decl, "ExternAliasDirective");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitExternAliasDirective(node);
     }
 
-    public override void VisitFieldDeclaration(FieldDeclarationSyntax node)
-    {
-      if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "FieldDeclaration");
-      nl.Source = node.ToFullString();
-      LogCommand(nl);
-      base.VisitFieldDeclaration(node);
-    }
-
     public override void VisitFinallyClause(FinallyClauseSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "FinallyClause");
+      Todo("FinallyClause"); var nl = OurLine.NewLine(LineKind.Decl, "FinallyClause");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitFinallyClause(node);
@@ -1572,7 +1503,7 @@ namespace CsDisplay
     public override void VisitFixedStatement(FixedStatementSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "FixedStatement");
+      Todo("FixedStatement"); var nl = OurLine.NewLine(LineKind.Decl, "FixedStatement");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitFixedStatement(node);
@@ -1581,7 +1512,7 @@ namespace CsDisplay
     public override void VisitForEachStatement(ForEachStatementSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "ForEachStatement");
+      Todo("ForEachStatement"); var nl = OurLine.NewLine(LineKind.Decl, "ForEachStatement");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitForEachStatement(node);
@@ -1590,7 +1521,7 @@ namespace CsDisplay
     public override void VisitForEachVariableStatement(ForEachVariableStatementSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "ForEachVariableStatement");
+      Todo("ForEachVariableStatement"); var nl = OurLine.NewLine(LineKind.Decl, "ForEachVariableStatement");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitForEachVariableStatement(node);
@@ -1599,7 +1530,7 @@ namespace CsDisplay
     public override void VisitForStatement(ForStatementSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "ForStatement");
+      Todo("ForStatement"); var nl = OurLine.NewLine(LineKind.Decl, "ForStatement");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitForStatement(node);
@@ -1608,7 +1539,7 @@ namespace CsDisplay
     public override void VisitFromClause(FromClauseSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "FromClause");
+      Todo("FromClause"); var nl = OurLine.NewLine(LineKind.Decl, "FromClause");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitFromClause(node);
@@ -1617,7 +1548,7 @@ namespace CsDisplay
     public override void VisitFunctionPointerType(FunctionPointerTypeSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "FunctionPointerType");
+      Todo("FunctionPointerType"); var nl = OurLine.NewLine(LineKind.Decl, "FunctionPointerType");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitFunctionPointerType(node);
@@ -1626,7 +1557,7 @@ namespace CsDisplay
     public override void VisitGenericName(GenericNameSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "GenericName");
+      Todo("GenericName"); var nl = OurLine.NewLine(LineKind.Decl, "GenericName");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitGenericName(node);
@@ -1635,7 +1566,7 @@ namespace CsDisplay
     public override void VisitGlobalStatement(GlobalStatementSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "GlobalStatement");
+      Todo("GlobalStatement"); var nl = OurLine.NewLine(LineKind.Decl, "GlobalStatement");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitGlobalStatement(node);
@@ -1644,7 +1575,7 @@ namespace CsDisplay
     public override void VisitGotoStatement(GotoStatementSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "GotoStatement");
+      Todo("GotoStatement"); var nl = OurLine.NewLine(LineKind.Decl, "GotoStatement");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitGotoStatement(node);
@@ -1653,7 +1584,7 @@ namespace CsDisplay
     public override void VisitGroupClause(GroupClauseSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "GroupClause");
+      Todo("GroupClause"); var nl = OurLine.NewLine(LineKind.Decl, "GroupClause");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitGroupClause(node);
@@ -1663,7 +1594,7 @@ namespace CsDisplay
     public override void VisitImplicitObjectCreationExpression(ImplicitObjectCreationExpressionSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "ImplicitObjectCreationExpression");
+      Todo("ImplicitObjectCreationExpression"); var nl = OurLine.NewLine(LineKind.Decl, "ImplicitObjectCreationExpression");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitImplicitObjectCreationExpression(node);
@@ -1672,7 +1603,7 @@ namespace CsDisplay
     public override void VisitMemberAccessExpression(MemberAccessExpressionSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "MemberAccessExpression");
+      Todo("MemberAccessExpression"); var nl = OurLine.NewLine(LineKind.Decl, "MemberAccessExpression");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitMemberAccessExpression(node);
@@ -1681,25 +1612,18 @@ namespace CsDisplay
     public override void VisitNullableDirectiveTrivia(NullableDirectiveTriviaSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "NullableDirectiveTrivia");
+      Todo("NullableDirectiveTrivia"); var nl = OurLine.NewLine(LineKind.Decl, "NullableDirectiveTrivia");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitNullableDirectiveTrivia(node);
     }
 
-    public override void VisitObjectCreationExpression(ObjectCreationExpressionSyntax node)
-    {
-      if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "ObjectCreationExpression");
-      nl.Source = node.ToFullString();
-      LogCommand(nl);
-      base.VisitObjectCreationExpression(node);
-    }
+
 
     public override void VisitParameterList(ParameterListSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "ParameterList");
+      Todo("ParameterList"); var nl = OurLine.NewLine(LineKind.Decl, "ParameterList");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitParameterList(node);
@@ -1708,7 +1632,7 @@ namespace CsDisplay
     public override void VisitParenthesizedPattern(ParenthesizedPatternSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "ParenthesizedPattern");
+      Todo("ParenthesizedPattern"); var nl = OurLine.NewLine(LineKind.Decl, "ParenthesizedPattern");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitParenthesizedPattern(node);
@@ -1717,7 +1641,7 @@ namespace CsDisplay
     public override void VisitPositionalPatternClause(PositionalPatternClauseSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "PositionalPatternClause");
+      Todo("PositionalPatternClause"); var nl = OurLine.NewLine(LineKind.Decl, "PositionalPatternClause");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitPositionalPatternClause(node);
@@ -1726,7 +1650,7 @@ namespace CsDisplay
     public override void VisitPrimaryConstructorBaseType(PrimaryConstructorBaseTypeSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "PrimaryConstructorBaseType");
+      Todo("PrimaryConstructorBaseType"); var nl = OurLine.NewLine(LineKind.Decl, "PrimaryConstructorBaseType");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitPrimaryConstructorBaseType(node);
@@ -1735,7 +1659,7 @@ namespace CsDisplay
     public override void VisitPropertyPatternClause(PropertyPatternClauseSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "PropertyPatternClause");
+      Todo("PropertyPatternClause"); var nl = OurLine.NewLine(LineKind.Decl, "PropertyPatternClause");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitPropertyPatternClause(node);
@@ -1744,7 +1668,7 @@ namespace CsDisplay
     public override void VisitRangeExpression(RangeExpressionSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "RangeExpression");
+      Todo("RangeExpression"); var nl = OurLine.NewLine(LineKind.Decl, "RangeExpression");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitRangeExpression(node);
@@ -1753,7 +1677,7 @@ namespace CsDisplay
     public override void VisitRecordDeclaration(RecordDeclarationSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "RecordDeclaration");
+      Todo("RecordDeclaration"); var nl = OurLine.NewLine(LineKind.Decl, "RecordDeclaration");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitRecordDeclaration(node);
@@ -1762,7 +1686,7 @@ namespace CsDisplay
     public override void VisitRecursivePattern(RecursivePatternSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "RecursivePattern");
+      Todo("RecursivePattern"); var nl = OurLine.NewLine(LineKind.Decl, "RecursivePattern");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitRecursivePattern(node);
@@ -1771,7 +1695,7 @@ namespace CsDisplay
     public override void VisitRegionDirectiveTrivia(RegionDirectiveTriviaSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "RegionDirectiveTrivia");
+      Todo("RegionDirectiveTrivia"); var nl = OurLine.NewLine(LineKind.Decl, "RegionDirectiveTrivia");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitRegionDirectiveTrivia(node);
@@ -1780,7 +1704,7 @@ namespace CsDisplay
     public override void VisitRelationalPattern(RelationalPatternSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "RelationalPattern");
+      Todo("RelationalPattern"); var nl = OurLine.NewLine(LineKind.Decl, "RelationalPattern");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitRelationalPattern(node);
@@ -1789,7 +1713,7 @@ namespace CsDisplay
     public override void VisitSubpattern(SubpatternSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "Subpattern");
+      Todo("Subpattern"); var nl = OurLine.NewLine(LineKind.Decl, "Subpattern");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitSubpattern(node);
@@ -1798,7 +1722,7 @@ namespace CsDisplay
     public override void VisitSwitchExpression(SwitchExpressionSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "SwitchExpression");
+      Todo("SwitchExpression"); var nl = OurLine.NewLine(LineKind.Decl, "SwitchExpression");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitSwitchExpression(node);
@@ -1807,7 +1731,7 @@ namespace CsDisplay
     public override void VisitSwitchExpressionArm(SwitchExpressionArmSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "SwitchExpressionArm");
+      Todo("SwitchExpressionArm"); var nl = OurLine.NewLine(LineKind.Decl, "SwitchExpressionArm");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitSwitchExpressionArm(node);
@@ -1816,7 +1740,7 @@ namespace CsDisplay
     public override void VisitTypePattern(TypePatternSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "TypePattern");
+      Todo("TypePattern"); var nl = OurLine.NewLine(LineKind.Decl, "TypePattern");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitTypePattern(node);
@@ -1825,7 +1749,7 @@ namespace CsDisplay
     public override void VisitUnaryPattern(UnaryPatternSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "UnaryPattern");
+      Todo("UnaryPattern"); var nl = OurLine.NewLine(LineKind.Decl, "UnaryPattern");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitUnaryPattern(node);
@@ -1834,7 +1758,7 @@ namespace CsDisplay
     public override void VisitVariableDeclarator(VariableDeclaratorSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "VariableDeclarator");
+      Todo("VariableDeclarator"); var nl = OurLine.NewLine(LineKind.Decl, "VariableDeclarator");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitVariableDeclarator(node);
@@ -1843,7 +1767,7 @@ namespace CsDisplay
     public override void VisitVarPattern(VarPatternSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "VarPattern");
+      Todo("VarPattern"); var nl = OurLine.NewLine(LineKind.Decl, "VarPattern");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitVarPattern(node);
@@ -1852,7 +1776,7 @@ namespace CsDisplay
     public override void VisitWithExpression(WithExpressionSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "WithExpression");
+      Todo("WithExpression"); var nl = OurLine.NewLine(LineKind.Decl, "WithExpression");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitWithExpression(node);
@@ -1861,7 +1785,7 @@ namespace CsDisplay
     public override void VisitXmlCDataSection(XmlCDataSectionSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "XmlCDataSection");
+      Todo("XmlCDataSection"); var nl = OurLine.NewLine(LineKind.Decl, "XmlCDataSection");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitXmlCDataSection(node);
@@ -1870,7 +1794,7 @@ namespace CsDisplay
     public override void VisitXmlComment(XmlCommentSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "XmlComment");
+      Todo("XmlComment"); var nl = OurLine.NewLine(LineKind.Decl, "XmlComment");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitXmlComment(node);
@@ -1879,7 +1803,7 @@ namespace CsDisplay
     public override void VisitXmlCrefAttribute(XmlCrefAttributeSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "XmlCrefAttribute");
+      Todo("XmlCrefAttribute"); var nl = OurLine.NewLine(LineKind.Decl, "XmlCrefAttribute");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitXmlCrefAttribute(node);
@@ -1888,7 +1812,7 @@ namespace CsDisplay
     public override void VisitXmlElement(XmlElementSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "XmlElement");
+      Todo("XmlElement"); var nl = OurLine.NewLine(LineKind.Decl, "XmlElement");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitXmlElement(node);
@@ -1897,7 +1821,7 @@ namespace CsDisplay
     public override void VisitXmlElementEndTag(XmlElementEndTagSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "XmlElementEndTag");
+      Todo("XmlElementEndTag"); var nl = OurLine.NewLine(LineKind.Decl, "XmlElementEndTag");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitXmlElementEndTag(node);
@@ -1906,7 +1830,7 @@ namespace CsDisplay
     public override void VisitXmlElementStartTag(XmlElementStartTagSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "XmlElementStartTag");
+      Todo("XmlElementStartTag"); var nl = OurLine.NewLine(LineKind.Decl, "XmlElementStartTag");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitXmlElementStartTag(node);
@@ -1915,7 +1839,7 @@ namespace CsDisplay
     public override void VisitXmlEmptyElement(XmlEmptyElementSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "XmlEmptyElement");
+      Todo("XmlEmptyElement"); var nl = OurLine.NewLine(LineKind.Decl, "XmlEmptyElement");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitXmlEmptyElement(node);
@@ -1924,7 +1848,7 @@ namespace CsDisplay
     public override void VisitXmlName(XmlNameSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "XmlName");
+      Todo("XmlName"); var nl = OurLine.NewLine(LineKind.Decl, "XmlName");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitXmlName(node);
@@ -1933,7 +1857,7 @@ namespace CsDisplay
     public override void VisitXmlNameAttribute(XmlNameAttributeSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "XmlNameAttribute");
+      Todo("XmlNameAttribute"); var nl = OurLine.NewLine(LineKind.Decl, "XmlNameAttribute");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitXmlNameAttribute(node);
@@ -1942,7 +1866,7 @@ namespace CsDisplay
     public override void VisitXmlPrefix(XmlPrefixSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "XmlPrefix");
+      Todo("XmlPrefix"); var nl = OurLine.NewLine(LineKind.Decl, "XmlPrefix");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitXmlPrefix(node);
@@ -1951,7 +1875,7 @@ namespace CsDisplay
     public override void VisitXmlProcessingInstruction(XmlProcessingInstructionSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "XmlProcessingInstruction");
+      Todo("XmlProcessingInstruction"); var nl = OurLine.NewLine(LineKind.Decl, "XmlProcessingInstruction");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitXmlProcessingInstruction(node);
@@ -1960,7 +1884,7 @@ namespace CsDisplay
     public override void VisitXmlText(XmlTextSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "XmlText");
+      Todo("XmlText"); var nl = OurLine.NewLine(LineKind.Decl, "XmlText");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitXmlText(node);
@@ -1969,7 +1893,7 @@ namespace CsDisplay
     public override void VisitXmlTextAttribute(XmlTextAttributeSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "XmlTextAttribute");
+      Todo("XmlTextAttribute"); var nl = OurLine.NewLine(LineKind.Decl, "XmlTextAttribute");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitXmlTextAttribute(node);
