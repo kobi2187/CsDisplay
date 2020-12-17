@@ -34,7 +34,14 @@ namespace CsDisplay
     public override void VisitAccessorDeclaration(AccessorDeclarationSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      Todo("AccessorDeclaration"); var nl = OurLine.NewLine(LineKind.Decl, "AccessorDeclaration");
+      var nl = OurLine.NewLine(LineKind.Decl, "AccessorDeclaration");
+      var stms = node?.Body?.Statements.Select((x) => x.ToString());
+      OurLine.AddEssentialInfo(ref nl, node.Keyword.Text);
+      if (stms != null)
+      {
+        var statements = string.Join("###", stms);
+        OurLine.AddEssentialInfo(ref nl, statements);
+      }
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitAccessorDeclaration(node);
@@ -876,7 +883,8 @@ namespace CsDisplay
     public override void VisitAccessorList(AccessorListSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      Todo("AccessorList"); var nl = OurLine.NewLine(LineKind.Decl, "AccessorList");
+      var nl = OurLine.NewLine(LineKind.Decl, "AccessorList");
+      OurLine.AddEssentialInfo(ref nl, node.Accessors.ToString());
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitAccessorList(node);
@@ -1035,8 +1043,9 @@ namespace CsDisplay
     public override void VisitBaseList(BaseListSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      Todo("BaseList"); var nl = OurLine.NewLine(LineKind.Decl, "BaseList");
+      var nl = OurLine.NewLine(LineKind.Decl, "BaseList");
       nl.Source = node.ToFullString();
+      OurLine.AddEssentialInfo(ref nl, node.Types.ToString());
       LogCommand(nl);
       base.VisitBaseList(node);
     }
@@ -1071,8 +1080,9 @@ namespace CsDisplay
     public override void VisitBracketedParameterList(BracketedParameterListSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      Todo("BracketedParameterList"); var nl = OurLine.NewLine(LineKind.Decl, "BracketedParameterList");
+      var nl = OurLine.NewLine(LineKind.Decl, "BracketedParameterList");
       nl.Source = node.ToFullString();
+      OurLine.AddEssentialInfo(ref nl, node.Parameters.ToString());
       LogCommand(nl);
       base.VisitBracketedParameterList(node);
     }
@@ -1447,7 +1457,9 @@ namespace CsDisplay
     public override void VisitEqualsValueClause(EqualsValueClauseSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      Todo("EqualsValueClause"); var nl = OurLine.NewLine(LineKind.Decl, "EqualsValueClause");
+      // Todo("EqualsValueClause");
+      var nl = OurLine.NewLine(LineKind.Decl, "EqualsValueClause");
+      OurLine.AddEssentialInfo(ref nl, node.Value.ToString());
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitEqualsValueClause(node);

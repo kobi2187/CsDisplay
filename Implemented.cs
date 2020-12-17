@@ -246,9 +246,9 @@ namespace CsDisplay
 
     public override void VisitBlock(BlockSyntax node)
     {
-      StartBlock("VisitBlock");
+      // StartBlock("VisitBlock");
       base.VisitBlock(node);
-      EndBlock();
+      // EndBlock();
     }
 
 

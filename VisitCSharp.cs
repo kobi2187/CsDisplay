@@ -27,10 +27,11 @@ namespace CsDisplay
       if (debug) Console.WriteLine(line);
       lines.Add(line);
     }
-    public void StartBlock(string desc = "")
+    string currentBlock = "";
+    public void StartBlock(string desc)
     {
       blockCount++;
-
+      currentBlock = desc;
       var nl = OurLine.NewLine(LineKind.Decl, "BlockStarts");
       OurLine.AddEssentialInfo(ref nl, blockCount.ToString());
       if (desc != "") OurLine.AddExtraInfo(ref nl, desc);
@@ -41,6 +42,7 @@ namespace CsDisplay
       blockCount--;
       var nl = new OurLine(LineKind.EndBlock);
       OurLine.AddEssentialInfo(ref nl, blockCount.ToString());
+      OurLine.AddEssentialInfo(ref nl, currentBlock);
       LogCommand(nl);
     }
     public StringBuilder sb;
