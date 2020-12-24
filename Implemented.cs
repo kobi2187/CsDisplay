@@ -211,7 +211,7 @@ namespace CsDisplay
       // nl.Source = node.ToFullString();
       // currentClass = node;
       var modifiers = node.Modifiers;
-      OurLine.AddEssentialInfo(ref nl, modifiers.ToString());
+      OurLine.AddExtraInfo(ref nl, modifiers.ToString());
 
       LogCommand(nl);
       base.VisitClassDeclaration(node);
@@ -234,7 +234,9 @@ namespace CsDisplay
       var arity = node.ParameterList.Parameters.Count;
       var nl = OurLine.NewLine(LineKind.Decl, "MethodDeclaration");
       var mod = node.Modifiers.ToString();
+      var ret = node.ReturnType.ToString();
       OurLine.AddEssentialInfo(ref nl, name);
+      OurLine.AddEssentialInfo(ref nl, ret);
       OurLine.AddExtraInfo(ref nl, mod);
       nl.Source = node.ToFullString();
       LogCommand(nl);

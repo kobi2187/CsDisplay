@@ -100,7 +100,19 @@ namespace CsDisplay
     public override void VisitIndexerDeclaration(IndexerDeclarationSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      Todo("IndexerDeclaration"); var nl = OurLine.NewLine(LineKind.Decl, "IndexerDeclaration");
+      var nl = OurLine.NewLine(LineKind.Decl, "IndexerDeclaration");
+      // relevant parts: accessor list, interface specifier, parameterlist, maybe modifiers maybe expressionbody
+      if (node.ExplicitInterfaceSpecifier != null)
+        OurLine.AddEssentialInfo(ref nl, node.ExplicitInterfaceSpecifier.ToString());
+      if (node.ParameterList != null)
+        OurLine.AddEssentialInfo(ref nl, node.ParameterList.ToString());
+      if (node.AccessorList != null)
+        OurLine.AddEssentialInfo(ref nl, node.AccessorList.ToString());
+      if (node.Modifiers != null)
+        OurLine.AddEssentialInfo(ref nl, node.Modifiers.ToString());
+      if (node.ExpressionBody != null)
+        OurLine.AddEssentialInfo(ref nl, node?.ExpressionBody.ToString());
+
       nl.Source = node.ToFullString();
       LogCommand(nl);
       // Todo("IndexerDeclaration");
@@ -120,10 +132,11 @@ namespace CsDisplay
     public override void VisitInitializerExpression(InitializerExpressionSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      Todo("InitializerExpression"); var nl = OurLine.NewLine(LineKind.Decl, "InitializerExpression");
+      var nl = OurLine.NewLine(LineKind.Decl, "InitializerExpression");
+      OurLine.AddEssentialInfo(ref nl, node.Expressions.Count.ToString());
+      OurLine.AddEssentialInfo(ref nl, node.Expressions.ToString());
       nl.Source = node.ToFullString();
       LogCommand(nl);
-      Todo("InitializerExpression");
 
       base.VisitInitializerExpression(node);
     }
@@ -1220,7 +1233,8 @@ namespace CsDisplay
     public override void VisitConstructorInitializer(ConstructorInitializerSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      Todo("ConstructorInitializer"); var nl = OurLine.NewLine(LineKind.Decl, "ConstructorInitializer");
+      Todo("ConstructorInitializer");
+      var nl = OurLine.NewLine(LineKind.Decl, "ConstructorInitializer");
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitConstructorInitializer(node);
@@ -1569,8 +1583,13 @@ namespace CsDisplay
     public override void VisitGenericName(GenericNameSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      Todo("GenericName"); var nl = OurLine.NewLine(LineKind.Decl, "GenericName");
+      var nl = OurLine.NewLine(LineKind.Decl, "GenericName");
       nl.Source = node.ToFullString();
+      OurLine.AddEssentialInfo(ref nl, node.Arity.ToString());
+      OurLine.AddEssentialInfo(ref nl, node.Identifier.ToString());
+      OurLine.AddEssentialInfo(ref nl, node.TypeArgumentList.ToString());
+      OurLine.AddEssentialInfo(ref nl, node.TypeArgumentList.Arguments.ToString());
+
       LogCommand(nl);
       base.VisitGenericName(node);
     }
@@ -1615,8 +1634,10 @@ namespace CsDisplay
     public override void VisitMemberAccessExpression(MemberAccessExpressionSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      Todo("MemberAccessExpression"); var nl = OurLine.NewLine(LineKind.Decl, "MemberAccessExpression");
+      var nl = OurLine.NewLine(LineKind.Decl, "MemberAccessExpression");
       nl.Source = node.ToFullString();
+      OurLine.AddEssentialInfo(ref nl, node.Name.ToString());
+      OurLine.AddEssentialInfo(ref nl, node.Expression.ToString());
       LogCommand(nl);
       base.VisitMemberAccessExpression(node);
     }
@@ -1635,7 +1656,8 @@ namespace CsDisplay
     public override void VisitParameterList(ParameterListSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      Todo("ParameterList"); var nl = OurLine.NewLine(LineKind.Decl, "ParameterList");
+      var nl = OurLine.NewLine(LineKind.Decl, "ParameterList");
+      OurLine.AddEssentialInfo(ref nl, node.Parameters.ToString());
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitParameterList(node);
@@ -1770,7 +1792,8 @@ namespace CsDisplay
     public override void VisitVariableDeclarator(VariableDeclaratorSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      Todo("VariableDeclarator"); var nl = OurLine.NewLine(LineKind.Decl, "VariableDeclarator");
+      var nl = OurLine.NewLine(LineKind.Decl, "VariableDeclarator");
+      OurLine.AddEssentialInfo(ref nl, node.Identifier.ToString());
       nl.Source = node.ToFullString();
       LogCommand(nl);
       base.VisitVariableDeclarator(node);

@@ -21,12 +21,13 @@ namespace CsDisplay
     static DateTime AppBuildTime;
     static void handleFile(string f)
     {
+      System.Console.WriteLine("file is: " + f);
       GC.Collect();
       FileInfo finfo = new FileInfo(f);
       var f2 = finfo.FullName.Replace(".cs", ".csast");
       var astFile = new FileInfo(f2);
       // if csast newer than app's mtime, return
-      if (!Prefs.debug && astFile.LastWriteTime > AppBuildTime) { System.Console.WriteLine(); return; }
+      if ((!Prefs.debug) && Prefs.skipOlder && (astFile.LastWriteTime > AppBuildTime)) { System.Console.WriteLine(); return; }
       if (Program.saveDirName != null)
         Console.Write(f.Replace(saveDirName, "").Split("/")[0] + "\t");
 
