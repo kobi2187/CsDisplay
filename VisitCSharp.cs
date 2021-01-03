@@ -43,6 +43,7 @@ namespace CsDisplay
       var nl = new OurLine(LineKind.EndBlock);
       OurLine.AddEssentialInfo(ref nl, blockCount.ToString());
       OurLine.AddEssentialInfo(ref nl, currentBlock);
+
       LogCommand(nl);
     }
     public StringBuilder sb;

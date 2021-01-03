@@ -7,7 +7,8 @@ using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using System.Linq;
-// using System.Text;
+using System.Text.RegularExpressions;
+using System.Diagnostics;
 // using System.Threading.Tasks;
 
 
@@ -40,7 +41,20 @@ namespace CsDisplay
         System.Console.WriteLine("----- BEGIN FILE:" + f + " -----");
       }
 
+      var reAnnotation = new Regex(@"^\s*\[\w+(\(.*?\))?\]\s*$"); // Remove annotations.
+      var reLinecomment = new Regex(@"(?m)//.*$");
+      var reMultiLineComment = new Regex(@"(?s)/\*.*?\*/");
+
       var content = File.ReadAllText(f);
+      content = reAnnotation.Replace(content, "");
+      if (content.Contains("//"))
+        content = reLinecomment.Replace(content, "").Trim();
+      if (content.Contains("/*") && content.Contains("*/"))
+        content = reMultiLineComment.Replace(content, "");
+
+      Debug.Assert(!content.Contains("//"));
+      Debug.Assert(!content.Contains("/*"));
+      Debug.Assert(!content.Contains("*/"));
       SyntaxTree tree = CSharpSyntaxTree.ParseText(content);
       var cs = new VisitCSharp(f);
       var root = (CompilationUnitSyntax)tree.GetRoot();
@@ -49,8 +63,8 @@ namespace CsDisplay
 
       if (Prefs.displayOnly)
       {
-        System.Console.WriteLine(cs.sb.ToString());
-        System.Console.WriteLine("----- END FILE:" + f + " -----");
+        Console.WriteLine(cs.sb.ToString());
+        Console.WriteLine("----- END FILE:" + f + " -----");
 
       }
       else

@@ -15,6 +15,20 @@ namespace CsDisplay
   {
 
 
+    public override void VisitBinaryExpression(BinaryExpressionSyntax node)
+    {
+      if (debug) Console.WriteLine(node.ToFullString());
+      var nl = OurLine.NewLine(LineKind.Decl, "BinaryExpression");
+      OurLine.AddEssentialInfo(ref nl, node.Left.ToString());
+      OurLine.AddEssentialInfo(ref nl, node.OperatorToken.ToString());
+      OurLine.AddEssentialInfo(ref nl, node.Right.ToString());
+
+      System.Console.WriteLine(node.Parent.ToString());
+      nl.Source = node.ToFullString();
+      nl.ParentKind = node.Parent.RawKind;
+      LogCommand(nl);
+      base.VisitBinaryExpression(node);
+    }
     // TODO: well, we probably have the same info later on, with MemberAccessExpression etc.
     public override void VisitInvocationExpression(InvocationExpressionSyntax node)
     {
@@ -24,6 +38,7 @@ namespace CsDisplay
       var nl = OurLine.NewLine(LineKind.Decl, "InvocationExpression");
       OurLine.AddEssentialInfo(ref nl, expr.ToString());
       nl.Source = node.ToFullString();
+      nl.ParentKind = node.Parent.RawKind;
       LogCommand(nl);
       base.VisitInvocationExpression(node);
     }
@@ -41,6 +56,7 @@ namespace CsDisplay
       OurLine.AddEssentialInfo(ref nl, node.Statements.ToString());
 
       nl.Source = node.ToFullString();
+      nl.ParentKind = node.Parent.RawKind;
       LogCommand(nl);
 
       base.VisitSwitchSection(node);
@@ -51,6 +67,7 @@ namespace CsDisplay
       var nl = OurLine.NewLine(LineKind.Decl, "TypeArgumentList");
       nl.Source = node.ToFullString();
       OurLine.AddEssentialInfo(ref nl, node.Arguments.ToString());
+      nl.ParentKind = node.Parent.RawKind;
       LogCommand(nl);
 
       base.VisitTypeArgumentList(node);
@@ -61,6 +78,7 @@ namespace CsDisplay
       var nl = OurLine.NewLine(LineKind.Decl, "ObjectCreationExpression");
       OurLine.AddEssentialInfo(ref nl, node.Type.ToString());
       nl.Source = node.ToFullString();
+      nl.ParentKind = node.Parent.RawKind;
       LogCommand(nl);
       base.VisitObjectCreationExpression(node);
     }
@@ -70,6 +88,7 @@ namespace CsDisplay
       var nl = OurLine.NewLine(LineKind.Decl, "ConstructorDeclaration");
       nl.Source = node.ToFullString();
       OurLine.AddEssentialInfo(ref nl, node.Identifier.Text);
+      nl.ParentKind = node.Parent.RawKind;
       LogCommand(nl);
       base.VisitConstructorDeclaration(node);
     }
@@ -80,6 +99,7 @@ namespace CsDisplay
       OurLine.AddEssentialInfo(ref nl, node.Identifier.Text.ToString());
 
       nl.Source = node.ToFullString();
+      nl.ParentKind = node.Parent.RawKind;
       LogCommand(nl);
       base.VisitEnumMemberDeclaration(node);
     }
@@ -90,6 +110,7 @@ namespace CsDisplay
       OurLine.AddEssentialInfo(ref nl, node.Name.ToString().TrimEnd('.'));
       // System.Console.WriteLine(node.Name.ToString());
       nl.Source = node.ToFullString();
+      nl.ParentKind = node.Parent.RawKind;
       LogCommand(nl);
       base.VisitExplicitInterfaceSpecifier(node);
     }
@@ -99,6 +120,7 @@ namespace CsDisplay
       var nl = OurLine.NewLine(LineKind.Decl, "SimpleBaseType");
       OurLine.AddEssentialInfo(ref nl, node.Type.ToString());
       nl.Source = node.ToFullString();
+      nl.ParentKind = node.Parent.RawKind;
       LogCommand(nl);
 
       base.VisitSimpleBaseType(node);
@@ -112,6 +134,7 @@ namespace CsDisplay
       if (node.Expression != null)
         OurLine.AddEssentialInfo(ref nl, node.Expression.ToString());
 
+      nl.ParentKind = node.Parent.RawKind;
       LogCommand(nl);
 
       base.VisitReturnStatement(node);
@@ -125,6 +148,7 @@ namespace CsDisplay
       OurLine.AddEssentialInfo(ref nl, node.Declaration.Type.ToString());
       OurLine.AddEssentialInfo(ref nl, node.Declaration.Variables.ToString());
       nl.Source = node.ToFullString();
+      nl.ParentKind = node.Parent.RawKind;
       LogCommand(nl);
       base.VisitFieldDeclaration(node);
     }
@@ -136,6 +160,7 @@ namespace CsDisplay
       var nl = OurLine.NewLine(LineKind.Decl, "UsingDirective");
       OurLine.AddEssentialInfo(ref nl, name);
       nl.Source = node.ToFullString();
+      nl.ParentKind = node.Parent.RawKind;
       LogCommand(nl);
 
       // System.Console.WriteLine("info: " + nodeContent);
@@ -150,6 +175,7 @@ namespace CsDisplay
       var nl = OurLine.NewLine(LineKind.Decl, "PropertyDeclaration");
       nl.Source = node.ToFullString();
       OurLine.AddEssentialInfo(ref nl, node?.Identifier.Text.ToString());
+
       var cnt = node?.AccessorList?.Accessors.Count.ToString();
       int count;
       if (cnt == null)
@@ -164,6 +190,7 @@ namespace CsDisplay
       if (count > 1)
         OurLine.AddExtraInfo(ref nl, node?.AccessorList?.Accessors[1].Keyword.Text);
       // sometimes has body etc..
+      nl.ParentKind = node.Parent.RawKind;
       LogCommand(nl);
       base.VisitPropertyDeclaration(node);
       EndBlock();
@@ -178,6 +205,7 @@ namespace CsDisplay
       var nl = OurLine.NewLine(LineKind.Decl, "NamespaceDeclaration");
       OurLine.AddEssentialInfo(ref nl, name);
       // nl.Source = node.ToFullString();
+      nl.ParentKind = node.Parent.RawKind;
       LogCommand(nl);
       // currentNamespace = node;
       base.VisitNamespaceDeclaration(node);
@@ -192,6 +220,7 @@ namespace CsDisplay
       var nl = OurLine.NewLine(LineKind.Decl, "QualifiedName");
       OurLine.AddEssentialInfo(ref nl, text);
       // nl.Source = node.ToFullString();
+      nl.ParentKind = node.Parent.RawKind;
       LogCommand(nl);
       base.VisitQualifiedName(node);
     }
@@ -213,6 +242,7 @@ namespace CsDisplay
       var modifiers = node.Modifiers;
       OurLine.AddExtraInfo(ref nl, modifiers.ToString());
 
+      nl.ParentKind = node.Parent.RawKind;
       LogCommand(nl);
       base.VisitClassDeclaration(node);
       EndBlock();
@@ -224,6 +254,7 @@ namespace CsDisplay
       var nl = OurLine.NewLine(LineKind.Decl, "IdentifierName");
       nl.Source = node.ToFullString();
       OurLine.AddEssentialInfo(ref nl, node.Identifier.ToString());
+      nl.ParentKind = node.Parent.RawKind;
       LogCommand(nl);
       base.VisitIdentifierName(node);
     }
@@ -239,6 +270,7 @@ namespace CsDisplay
       OurLine.AddEssentialInfo(ref nl, ret);
       OurLine.AddExtraInfo(ref nl, mod);
       nl.Source = node.ToFullString();
+      nl.ParentKind = node.Parent.RawKind;
       LogCommand(nl);
       // currentMethod = node;
       base.VisitMethodDeclaration(node);
@@ -263,6 +295,7 @@ namespace CsDisplay
       OurLine.AddEssentialInfo(ref nl, "type:" + t);
       OurLine.AddEssentialInfo(ref nl, "name:" + varName);
       nl.Source = node.ToFullString();
+      nl.ParentKind = node.Parent.RawKind;
       LogCommand(nl);
       base.VisitVariableDeclaration(node);
     }
@@ -273,6 +306,7 @@ namespace CsDisplay
       var nl = OurLine.NewLine(LineKind.Decl, "LiteralExpression");
       OurLine.AddEssentialInfo(ref nl, token);
       nl.Source = node.ToFullString();
+      nl.ParentKind = node.Parent.RawKind;
       LogCommand(nl);
       base.VisitLiteralExpression(node);
     }
@@ -283,6 +317,7 @@ namespace CsDisplay
       var nl = OurLine.NewLine(LineKind.Decl, "ArgumentList");
       OurLine.AddEssentialInfo(ref nl, args);
       nl.Source = node.ToFullString();
+      nl.ParentKind = node.Parent.RawKind;
       LogCommand(nl);
       base.VisitArgumentList(node);
     }
@@ -292,6 +327,7 @@ namespace CsDisplay
       var nl = OurLine.NewLine(LineKind.Decl, "PredefinedType");
       OurLine.AddEssentialInfo(ref nl, node.Keyword.ToString());
       nl.Source = node.ToFullString();
+      nl.ParentKind = node.Parent.RawKind;
       LogCommand(nl);
 
       base.VisitPredefinedType(node);
@@ -304,6 +340,7 @@ namespace CsDisplay
       var nl = OurLine.NewLine(LineKind.Decl, "TypeParameterList");
       OurLine.AddEssentialInfo(ref nl, node.ToString());
       nl.Source = node.ToFullString();
+      nl.ParentKind = node.Parent.RawKind;
       LogCommand(nl);
 
       base.VisitTypeParameterList(node);
@@ -322,6 +359,7 @@ namespace CsDisplay
       var nl = OurLine.NewLine(LineKind.Decl, "Argument");
       OurLine.AddEssentialInfo(ref nl, n.ToFullString());
       nl.Source = node.ToFullString();
+      nl.ParentKind = node.Parent.RawKind;
       LogCommand(nl);
 
       base.VisitArgument(node);
@@ -333,6 +371,7 @@ namespace CsDisplay
       if (debug) Console.WriteLine(node.ToFullString());
       var nl = OurLine.NewLine(LineKind.Decl, "ExpressionStatement");
       nl.Source = node.ToFullString();
+      nl.ParentKind = node.Parent.RawKind;
       LogCommand(nl);
 
       base.VisitExpressionStatement(node);
@@ -347,6 +386,7 @@ namespace CsDisplay
       if (node.Modifiers.Count > 0)
         OurLine.AddExtraInfo(ref nl, node.Modifiers.ToString());
       nl.Source = node.ToFullString();
+      nl.ParentKind = node.Parent.RawKind;
       LogCommand(nl);
       base.VisitParameter(node);
     }
@@ -360,6 +400,7 @@ namespace CsDisplay
       OurLine.AddEssentialInfo(ref nl, node.OperatorToken.ToString());
       OurLine.AddEssentialInfo(ref nl, node.Right.ToString());
       nl.Source = node.ToFullString();
+      nl.ParentKind = node.Parent.RawKind;
       LogCommand(nl);
 
       base.VisitAssignmentExpression(node);
@@ -376,6 +417,7 @@ namespace CsDisplay
       OurLine.AddEssentialInfo(ref nl, typ);
 
       nl.Source = node.ToFullString();
+      nl.ParentKind = node.Parent.RawKind;
       LogCommand(nl);
       base.VisitLocalDeclarationStatement(node);
     }
@@ -388,6 +430,7 @@ namespace CsDisplay
       nl.Source = node.ToFullString();
       OurLine.AddEssentialInfo(ref nl, node.Identifier.Text.ToString());
       // System.Console.WriteLine(nl);
+      nl.ParentKind = node.Parent.RawKind;
       LogCommand(nl);
       base.VisitEnumDeclaration(node);
       EndBlock();
@@ -407,9 +450,113 @@ namespace CsDisplay
         OurLine.AddEssentialInfo(ref nl, elsey.ToString());
 
 
+      nl.ParentKind = node.Parent.RawKind;
       LogCommand(nl);
 
       base.VisitIfStatement(node);
+    }
+
+
+    public override void VisitBaseList(BaseListSyntax node)
+    {
+      if (debug) Console.WriteLine(node.ToFullString());
+      var nl = OurLine.NewLine(LineKind.Decl, "BaseList");
+      nl.Source = node.ToFullString();
+      OurLine.AddEssentialInfo(ref nl, node.Types.ToString());
+      nl.ParentKind = node.Parent.RawKind;
+      LogCommand(nl);
+      base.VisitBaseList(node);
+    }
+
+    public override void VisitGenericName(GenericNameSyntax node)
+    {
+      if (debug) Console.WriteLine(node.ToFullString());
+      var nl = OurLine.NewLine(LineKind.Decl, "GenericName");
+      nl.Source = node.ToFullString();
+      OurLine.AddEssentialInfo(ref nl, node.Arity.ToString());
+      OurLine.AddEssentialInfo(ref nl, node.Identifier.ToString());
+      OurLine.AddEssentialInfo(ref nl, node.TypeArgumentList.ToString());
+      OurLine.AddEssentialInfo(ref nl, node.TypeArgumentList.Arguments.ToString());
+
+      nl.ParentKind = node.Parent.RawKind;
+      LogCommand(nl);
+      base.VisitGenericName(node);
+    }
+
+    public override void VisitAttribute(AttributeSyntax node)
+    {
+      // not interested in supporting this!
+      // if (debug) Console.WriteLine(node.ToFullString());
+      // var nl = OurLine.NewLine(LineKind.Decl, "Attribute");
+      // nl.Source = node.ToFullString();
+      // nl.ParentKind = node.Parent.RawKind;
+      // LogCommand(nl);
+      base.VisitAttribute(node);
+    }
+
+    public override void VisitAttributeArgument(AttributeArgumentSyntax node)
+    {
+      // not interested in supporting this!
+      // if (debug) Console.WriteLine(node.ToFullString());
+      // var nl = OurLine.NewLine(LineKind.Decl, "AttributeArgument");
+      // nl.Source = node.ToFullString();
+      // nl.ParentKind = node.Parent.RawKind;
+      // LogCommand(nl);
+      base.VisitAttributeArgument(node);
+    }
+
+    public override void VisitAttributeArgumentList(AttributeArgumentListSyntax node)
+    {
+      // not interested in supporting this!
+      // if (debug) Console.WriteLine(node.ToFullString());
+      // var nl = OurLine.NewLine(LineKind.Decl, "AttributeArgumentList");
+      // nl.Source = node.ToFullString();
+      // nl.ParentKind = node.Parent.RawKind;
+      // LogCommand(nl);
+      base.VisitAttributeArgumentList(node);
+    }
+
+    public override void VisitAttributeList(AttributeListSyntax node)
+    {
+      // I don't want to support this.
+
+      // if (debug) Console.WriteLine(node.ToFullString());
+      // var nl = OurLine.NewLine(LineKind.Decl, "AttributeList");
+      // nl.Source = node.ToFullString();
+      // nl.ParentKind = node.Parent.RawKind;
+      // LogCommand(nl);
+      base.VisitAttributeList(node);
+    }
+    public override void VisitIndexerDeclaration(IndexerDeclarationSyntax node)
+    {
+      if (debug) Console.WriteLine(node.ToFullString());
+      var nl = OurLine.NewLine(LineKind.Decl, "IndexerDeclaration");
+      // relevant parts: accessor list, interface specifier, parameterlist, maybe modifiers maybe expressionbody
+      if (node.ExplicitInterfaceSpecifier != null)
+        OurLine.AddEssentialInfo(ref nl, node.ExplicitInterfaceSpecifier.ToString());
+      if (node.ParameterList != null)
+        OurLine.AddEssentialInfo(ref nl, node.ParameterList.ToString());
+      if (node.AccessorList != null)
+        OurLine.AddEssentialInfo(ref nl, node.AccessorList.ToString());
+      if (node.Modifiers != null)
+        OurLine.AddEssentialInfo(ref nl, node.Modifiers.ToString());
+      if (node.ExpressionBody != null)
+        OurLine.AddEssentialInfo(ref nl, node?.ExpressionBody.ToString());
+
+      nl.Source = node.ToFullString();
+      nl.ParentKind = node.Parent.RawKind;
+      LogCommand(nl);
+
+      base.VisitIndexerDeclaration(node);
+    }
+    public override void VisitAttributeTargetSpecifier(AttributeTargetSpecifierSyntax node)
+    {
+      // not interested in supporting this!
+      // if (debug) Console.WriteLine(node.ToFullString());
+      // var nl = OurLine.NewLine(LineKind.Decl, "AttributeTargetSpecifier");
+      // nl.Source = node.ToFullString();
+      // nl.ParentKind = node.Parent.RawKind;
+      base.VisitAttributeTargetSpecifier(node);
     }
 
   }

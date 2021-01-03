@@ -25,6 +25,7 @@ namespace CsDisplay
     public string KindStr { get { return this.Kind.ToString(); } }
     public string Declaration { get; set; }
     public Info Info { get; set; }
+    public int ParentKind { get; set; }
     string _src;
     public string Source
     {
@@ -52,6 +53,7 @@ namespace CsDisplay
     {
       this.Declaration = blockName;
       this.Kind = kind;
+
       // this.Info = new Info();
     }
 
