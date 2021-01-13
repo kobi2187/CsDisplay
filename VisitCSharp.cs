@@ -27,22 +27,22 @@ namespace CsDisplay
       if (debug) Console.WriteLine(line);
       lines.Add(line);
     }
-    string currentBlock = "";
+    // string currentBlock = "";
     public void StartBlock(string desc)
     {
       blockCount++;
-      currentBlock = desc;
+      // currentBlock = desc;
       var nl = OurLine.NewLine(LineKind.Decl, "BlockStarts");
       OurLine.AddEssentialInfo(ref nl, blockCount.ToString());
       if (desc != "") OurLine.AddExtraInfo(ref nl, desc);
       LogCommand(nl);
     }
-    public void EndBlock()
+    public void EndBlock(string desc)
     {
       blockCount--;
       var nl = new OurLine(LineKind.EndBlock);
       OurLine.AddEssentialInfo(ref nl, blockCount.ToString());
-      OurLine.AddEssentialInfo(ref nl, currentBlock);
+      OurLine.AddEssentialInfo(ref nl, desc);
 
       LogCommand(nl);
     }

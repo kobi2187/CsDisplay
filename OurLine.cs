@@ -26,6 +26,7 @@ namespace CsDisplay
     public string Declaration { get; set; }
     public Info Info { get; set; }
     public int ParentKind { get; set; }
+    public int RawKind { get; set; }
     string _src;
     public string Source
     {

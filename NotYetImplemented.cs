@@ -44,6 +44,7 @@ namespace CsDisplay
       }
       nl.Source = node.ToFullString();
       // nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitAccessorDeclaration(node);
     }
@@ -53,6 +54,7 @@ namespace CsDisplay
       Todo("IfDirectiveTrivia"); var nl = OurLine.NewLine(LineKind.Decl, "IfDirectiveTrivia");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       Todo("IfDirectiveTrivia");
 
@@ -65,6 +67,7 @@ namespace CsDisplay
       Todo("ImplicitArrayCreationExpression"); var nl = OurLine.NewLine(LineKind.Decl, "ImplicitArrayCreationExpression");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       Todo("ImplicitArrayCreationExpression");
 
@@ -76,6 +79,7 @@ namespace CsDisplay
       Todo("ImplicitElementAccess"); var nl = OurLine.NewLine(LineKind.Decl, "ImplicitElementAccess");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       Todo("ImplicitElementAccess");
 
@@ -87,6 +91,7 @@ namespace CsDisplay
       Todo("ImplicitStackAllocArrayCreationExpression"); var nl = OurLine.NewLine(LineKind.Decl, "ImplicitStackAllocArrayCreationExpression");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       Todo("ImplicitStackAllocArrayCreationExpression");
 
@@ -98,6 +103,7 @@ namespace CsDisplay
       Todo("IncompleteMember"); var nl = OurLine.NewLine(LineKind.Decl, "IncompleteMember");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       Todo("IncompleteMember");
 
@@ -110,6 +116,7 @@ namespace CsDisplay
       Todo("IndexerMemberCref"); var nl = OurLine.NewLine(LineKind.Decl, "IndexerMemberCref");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       Todo("IndexerMemberCref");
 
@@ -123,6 +130,7 @@ namespace CsDisplay
       OurLine.AddEssentialInfo(ref nl, node.Expressions.ToString());
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
 
       base.VisitInitializerExpression(node);
@@ -133,6 +141,7 @@ namespace CsDisplay
       Todo("InterfaceDeclaration"); var nl = OurLine.NewLine(LineKind.Decl, "InterfaceDeclaration");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       Todo("InterfaceDeclaration");
 
@@ -144,6 +153,7 @@ namespace CsDisplay
       Todo("InterpolatedStringExpression"); var nl = OurLine.NewLine(LineKind.Decl, "InterpolatedStringExpression");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       Todo("InterpolatedStringExpression");
 
@@ -155,6 +165,7 @@ namespace CsDisplay
       Todo("InterpolatedStringText"); var nl = OurLine.NewLine(LineKind.Decl, "InterpolatedStringText");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       Todo("InterpolatedStringText");
 
@@ -166,6 +177,7 @@ namespace CsDisplay
       Todo("Interpolation"); var nl = OurLine.NewLine(LineKind.Decl, "Interpolation");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       Todo("Interpolation");
 
@@ -177,6 +189,7 @@ namespace CsDisplay
       Todo("InterpolationAlignmentClause"); var nl = OurLine.NewLine(LineKind.Decl, "InterpolationAlignmentClause");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       Todo("InterpolationAlignmentClause");
 
@@ -188,6 +201,7 @@ namespace CsDisplay
       Todo("InterpolationFormatClause"); var nl = OurLine.NewLine(LineKind.Decl, "InterpolationFormatClause");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       Todo("InterpolationFormatClause");
 
@@ -200,6 +214,7 @@ namespace CsDisplay
       Todo("IsPatternExpression"); var nl = OurLine.NewLine(LineKind.Decl, "IsPatternExpression");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       Todo("IsPatternExpression");
 
@@ -211,6 +226,7 @@ namespace CsDisplay
       Todo("JoinClause"); var nl = OurLine.NewLine(LineKind.Decl, "JoinClause");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       Todo("JoinClause");
 
@@ -222,6 +238,7 @@ namespace CsDisplay
       Todo("JoinIntoClause"); var nl = OurLine.NewLine(LineKind.Decl, "JoinIntoClause");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       Todo("JoinIntoClause");
 
@@ -233,6 +250,7 @@ namespace CsDisplay
       Todo("LabeledStatement"); var nl = OurLine.NewLine(LineKind.Decl, "LabeledStatement");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       Todo("LabeledStatement");
 
@@ -244,6 +262,7 @@ namespace CsDisplay
       Todo("LetClause"); var nl = OurLine.NewLine(LineKind.Decl, "LetClause");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       Todo("LetClause");
 
@@ -255,6 +274,7 @@ namespace CsDisplay
       Todo("LineDirectiveTrivia"); var nl = OurLine.NewLine(LineKind.Decl, "LineDirectiveTrivia");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       Todo("LineDirectiveTrivia");
 
@@ -267,6 +287,7 @@ namespace CsDisplay
       Todo("LoadDirectiveTrivia"); var nl = OurLine.NewLine(LineKind.Decl, "LoadDirectiveTrivia");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       Todo("LoadDirectiveTrivia");
 
@@ -279,6 +300,7 @@ namespace CsDisplay
       Todo("LocalFunctionStatement"); var nl = OurLine.NewLine(LineKind.Decl, "LocalFunctionStatement");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       Todo("LocalFunctionStatement");
 
@@ -290,6 +312,7 @@ namespace CsDisplay
       Todo("LockStatement"); var nl = OurLine.NewLine(LineKind.Decl, "LockStatement");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       Todo("LockStatement");
 
@@ -301,6 +324,7 @@ namespace CsDisplay
       Todo("MakeRefExpression"); var nl = OurLine.NewLine(LineKind.Decl, "MakeRefExpression");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       Todo("MakeRefExpression");
 
@@ -313,6 +337,7 @@ namespace CsDisplay
       Todo("MemberBindingExpression"); var nl = OurLine.NewLine(LineKind.Decl, "MemberBindingExpression");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       Todo("MemberBindingExpression");
 
@@ -325,6 +350,7 @@ namespace CsDisplay
       Todo("NameColon"); var nl = OurLine.NewLine(LineKind.Decl, "NameColon");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       Todo("NameColon");
 
@@ -336,6 +362,7 @@ namespace CsDisplay
       Todo("NameEquals"); var nl = OurLine.NewLine(LineKind.Decl, "NameEquals");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       Todo("NameEquals");
 
@@ -347,6 +374,7 @@ namespace CsDisplay
       Todo("NameMemberCref"); var nl = OurLine.NewLine(LineKind.Decl, "NameMemberCref");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       Todo("NameMemberCref");
 
@@ -359,6 +387,7 @@ namespace CsDisplay
       Todo("NullableType"); var nl = OurLine.NewLine(LineKind.Decl, "NullableType");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       Todo("NullableType");
 
@@ -371,6 +400,7 @@ namespace CsDisplay
       Todo("OmittedArraySizeExpression"); var nl = OurLine.NewLine(LineKind.Decl, "OmittedArraySizeExpression");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       Todo("OmittedArraySizeExpression");
 
@@ -382,6 +412,7 @@ namespace CsDisplay
       Todo("OmittedTypeArgument"); var nl = OurLine.NewLine(LineKind.Decl, "OmittedTypeArgument");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       Todo("OmittedTypeArgument");
 
@@ -393,6 +424,7 @@ namespace CsDisplay
       Todo("OperatorDeclaration"); var nl = OurLine.NewLine(LineKind.Decl, "OperatorDeclaration");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       Todo("OperatorDeclaration");
 
@@ -404,6 +436,7 @@ namespace CsDisplay
       Todo("OperatorMemberCref"); var nl = OurLine.NewLine(LineKind.Decl, "OperatorMemberCref");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       Todo("OperatorMemberCref");
 
@@ -415,6 +448,7 @@ namespace CsDisplay
       Todo("OrderByClause"); var nl = OurLine.NewLine(LineKind.Decl, "OrderByClause");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       Todo("OrderByClause");
 
@@ -426,6 +460,7 @@ namespace CsDisplay
       Todo("Ordering"); var nl = OurLine.NewLine(LineKind.Decl, "Ordering");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       Todo("Ordering");
 
@@ -439,6 +474,7 @@ namespace CsDisplay
       Todo("ParenthesizedExpression"); var nl = OurLine.NewLine(LineKind.Decl, "ParenthesizedExpression");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       // Todo("ParenthesizedExpression");
       // note: I think nothing is needed to be done here, can accept code as is.
@@ -451,6 +487,7 @@ namespace CsDisplay
       Todo("ParenthesizedLambdaExpression"); var nl = OurLine.NewLine(LineKind.Decl, "ParenthesizedLambdaExpression");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       Todo("ParenthesizedLambdaExpression");
 
@@ -462,6 +499,7 @@ namespace CsDisplay
       Todo("ParenthesizedVariableDesignation"); var nl = OurLine.NewLine(LineKind.Decl, "ParenthesizedVariableDesignation");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       Todo("ParenthesizedVariableDesignation");
 
@@ -473,6 +511,7 @@ namespace CsDisplay
       Todo("PointerType"); var nl = OurLine.NewLine(LineKind.Decl, "PointerType");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       Todo("PointerType");
 
@@ -484,6 +523,7 @@ namespace CsDisplay
       Todo("PostfixUnaryExpression"); var nl = OurLine.NewLine(LineKind.Decl, "PostfixUnaryExpression");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       Todo("PostfixUnaryExpression");
 
@@ -495,6 +535,7 @@ namespace CsDisplay
       Todo("PragmaChecksumDirectiveTrivia"); var nl = OurLine.NewLine(LineKind.Decl, "PragmaChecksumDirectiveTrivia");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       Todo("PragmaChecksumDirectiveTrivia");
 
@@ -506,6 +547,7 @@ namespace CsDisplay
       Todo("PragmaWarningDirectiveTrivia"); var nl = OurLine.NewLine(LineKind.Decl, "PragmaWarningDirectiveTrivia");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       Todo("PragmaWarningDirectiveTrivia");
 
@@ -520,6 +562,7 @@ namespace CsDisplay
       OurLine.AddEssentialInfo(ref nl, node.Operand.ToString());
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitPrefixUnaryExpression(node);
     }
@@ -530,6 +573,7 @@ namespace CsDisplay
       Todo("QualifiedCref"); var nl = OurLine.NewLine(LineKind.Decl, "QualifiedCref");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       Todo("QualifiedCref");
 
@@ -542,6 +586,7 @@ namespace CsDisplay
       Todo("QueryBody"); var nl = OurLine.NewLine(LineKind.Decl, "QueryBody");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       Todo("QueryBody");
 
@@ -553,6 +598,7 @@ namespace CsDisplay
       Todo("QueryContinuation"); var nl = OurLine.NewLine(LineKind.Decl, "QueryContinuation");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       Todo("QueryContinuation");
 
@@ -564,6 +610,7 @@ namespace CsDisplay
       Todo("QueryExpression"); var nl = OurLine.NewLine(LineKind.Decl, "QueryExpression");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       Todo("QueryExpression");
 
@@ -575,6 +622,7 @@ namespace CsDisplay
       Todo("ReferenceDirectiveTrivia"); var nl = OurLine.NewLine(LineKind.Decl, "ReferenceDirectiveTrivia");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       Todo("ReferenceDirectiveTrivia");
 
@@ -586,6 +634,7 @@ namespace CsDisplay
       Todo("RefExpression"); var nl = OurLine.NewLine(LineKind.Decl, "RefExpression");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       Todo("RefExpression");
 
@@ -597,6 +646,7 @@ namespace CsDisplay
       Todo("RefType"); var nl = OurLine.NewLine(LineKind.Decl, "RefType");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       Todo("RefType");
 
@@ -608,6 +658,7 @@ namespace CsDisplay
       Todo("RefTypeExpression"); var nl = OurLine.NewLine(LineKind.Decl, "RefTypeExpression");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       Todo("RefTypeExpression");
 
@@ -619,6 +670,7 @@ namespace CsDisplay
       Todo("RefValueExpression"); var nl = OurLine.NewLine(LineKind.Decl, "RefValueExpression");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       Todo("RefValueExpression");
 
@@ -632,6 +684,7 @@ namespace CsDisplay
       Todo("SelectClause"); var nl = OurLine.NewLine(LineKind.Decl, "SelectClause");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       Todo("SelectClause");
 
@@ -643,6 +696,7 @@ namespace CsDisplay
       Todo("ShebangDirectiveTrivia"); var nl = OurLine.NewLine(LineKind.Decl, "ShebangDirectiveTrivia");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       Todo("ShebangDirectiveTrivia");
 
@@ -655,6 +709,7 @@ namespace CsDisplay
       Todo("SimpleLambdaExpression"); var nl = OurLine.NewLine(LineKind.Decl, "SimpleLambdaExpression");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       Todo("SimpleLambdaExpression");
 
@@ -666,6 +721,7 @@ namespace CsDisplay
       Todo("SingleVariableDesignation"); var nl = OurLine.NewLine(LineKind.Decl, "SingleVariableDesignation");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       Todo("SingleVariableDesignation");
 
@@ -677,6 +733,7 @@ namespace CsDisplay
       Todo("SizeOfExpression"); var nl = OurLine.NewLine(LineKind.Decl, "SizeOfExpression");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       Todo("SizeOfExpression");
 
@@ -688,6 +745,7 @@ namespace CsDisplay
       Todo("SkippedTokensTrivia"); var nl = OurLine.NewLine(LineKind.Decl, "SkippedTokensTrivia");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       Todo("SkippedTokensTrivia");
 
@@ -699,6 +757,7 @@ namespace CsDisplay
       Todo("StackAllocArrayCreationExpression"); var nl = OurLine.NewLine(LineKind.Decl, "StackAllocArrayCreationExpression");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       Todo("StackAllocArrayCreationExpression");
 
@@ -710,6 +769,7 @@ namespace CsDisplay
       Todo("StructDeclaration"); var nl = OurLine.NewLine(LineKind.Decl, "StructDeclaration");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       Todo("StructDeclaration");
 
@@ -722,6 +782,7 @@ namespace CsDisplay
       Todo("SwitchStatement"); var nl = OurLine.NewLine(LineKind.Decl, "SwitchStatement");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       Todo("SwitchStatement");
 
@@ -733,6 +794,7 @@ namespace CsDisplay
       Todo("ThisExpression"); var nl = OurLine.NewLine(LineKind.Decl, "ThisExpression");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       // Todo("ThisExpression");
 
@@ -744,6 +806,7 @@ namespace CsDisplay
       Todo("ThrowExpression"); var nl = OurLine.NewLine(LineKind.Decl, "ThrowExpression");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       Todo("ThrowExpression");
 
@@ -755,6 +818,7 @@ namespace CsDisplay
       Todo("ThrowStatement"); var nl = OurLine.NewLine(LineKind.Decl, "ThrowStatement");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       Todo("ThrowStatement");
 
@@ -766,6 +830,7 @@ namespace CsDisplay
       Todo("TryStatement"); var nl = OurLine.NewLine(LineKind.Decl, "TryStatement");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       Todo("TryStatement");
 
@@ -777,6 +842,7 @@ namespace CsDisplay
       Todo("TupleElement"); var nl = OurLine.NewLine(LineKind.Decl, "TupleElement");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       Todo("TupleElement");
 
@@ -788,6 +854,7 @@ namespace CsDisplay
       Todo("TupleExpression"); var nl = OurLine.NewLine(LineKind.Decl, "TupleExpression");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       Todo("TupleExpression");
 
@@ -799,6 +866,7 @@ namespace CsDisplay
       Todo("TupleType"); var nl = OurLine.NewLine(LineKind.Decl, "TupleType");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       Todo("TupleType");
 
@@ -811,6 +879,7 @@ namespace CsDisplay
       Todo("TypeConstraint"); var nl = OurLine.NewLine(LineKind.Decl, "TypeConstraint");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       Todo("TypeConstraint");
 
@@ -822,6 +891,7 @@ namespace CsDisplay
       Todo("TypeCref"); var nl = OurLine.NewLine(LineKind.Decl, "TypeCref");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       Todo("TypeCref");
 
@@ -833,6 +903,7 @@ namespace CsDisplay
       Todo("TypeOfExpression"); var nl = OurLine.NewLine(LineKind.Decl, "TypeOfExpression");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       Todo("TypeOfExpression");
 
@@ -844,6 +915,7 @@ namespace CsDisplay
       Todo("TypeParameter"); var nl = OurLine.NewLine(LineKind.Decl, "TypeParameter");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       Todo("TypeParameter");
 
@@ -855,6 +927,7 @@ namespace CsDisplay
       Todo("TypeParameterConstraintClause"); var nl = OurLine.NewLine(LineKind.Decl, "TypeParameterConstraintClause");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       Todo("TypeParameterConstraintClause");
 
@@ -867,6 +940,7 @@ namespace CsDisplay
       Todo("UndefDirectiveTrivia"); var nl = OurLine.NewLine(LineKind.Decl, "UndefDirectiveTrivia");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       Todo("UndefDirectiveTrivia");
 
@@ -878,6 +952,7 @@ namespace CsDisplay
       Todo("UnsafeStatement"); var nl = OurLine.NewLine(LineKind.Decl, "UnsafeStatement");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       Todo("UnsafeStatement");
 
@@ -890,6 +965,7 @@ namespace CsDisplay
       Todo("UsingStatement"); var nl = OurLine.NewLine(LineKind.Decl, "UsingStatement");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       Todo("UsingStatement");
 
@@ -902,6 +978,7 @@ namespace CsDisplay
       Todo("WarningDirectiveTrivia"); var nl = OurLine.NewLine(LineKind.Decl, "WarningDirectiveTrivia");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       Todo("WarningDirectiveTrivia");
 
@@ -913,6 +990,7 @@ namespace CsDisplay
       Todo("WhenClause"); var nl = OurLine.NewLine(LineKind.Decl, "WhenClause");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       Todo("WhenClause");
 
@@ -924,6 +1002,7 @@ namespace CsDisplay
       Todo("WhereClause"); var nl = OurLine.NewLine(LineKind.Decl, "WhereClause");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       Todo("WhereClause");
 
@@ -935,6 +1014,7 @@ namespace CsDisplay
       Todo("WhileStatement"); var nl = OurLine.NewLine(LineKind.Decl, "WhileStatement");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       Todo("WhileStatement");
 
@@ -947,6 +1027,7 @@ namespace CsDisplay
       Todo("YieldStatement"); var nl = OurLine.NewLine(LineKind.Decl, "YieldStatement");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       Todo("YieldStatement");
 
@@ -960,6 +1041,7 @@ namespace CsDisplay
       OurLine.AddEssentialInfo(ref nl, node.Accessors.ToString());
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitAccessorList(node);
     }
@@ -970,6 +1052,7 @@ namespace CsDisplay
       Todo("AliasQualifiedName"); var nl = OurLine.NewLine(LineKind.Decl, "AliasQualifiedName");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitAliasQualifiedName(node);
     }
@@ -980,6 +1063,7 @@ namespace CsDisplay
       Todo("AnonymousMethodExpression"); var nl = OurLine.NewLine(LineKind.Decl, "AnonymousMethodExpression");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitAnonymousMethodExpression(node);
     }
@@ -990,6 +1074,7 @@ namespace CsDisplay
       Todo("AnonymousObjectCreationExpression"); var nl = OurLine.NewLine(LineKind.Decl, "AnonymousObjectCreationExpression");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitAnonymousObjectCreationExpression(node);
     }
@@ -1000,6 +1085,7 @@ namespace CsDisplay
       Todo("AnonymousObjectMemberDeclarator"); var nl = OurLine.NewLine(LineKind.Decl, "AnonymousObjectMemberDeclarator");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitAnonymousObjectMemberDeclarator(node);
     }
@@ -1010,6 +1096,7 @@ namespace CsDisplay
       Todo("ArrayCreationExpression"); var nl = OurLine.NewLine(LineKind.Decl, "ArrayCreationExpression");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitArrayCreationExpression(node);
     }
@@ -1020,6 +1107,7 @@ namespace CsDisplay
       Todo("ArrayRankSpecifier"); var nl = OurLine.NewLine(LineKind.Decl, "ArrayRankSpecifier");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitArrayRankSpecifier(node);
     }
@@ -1030,6 +1118,7 @@ namespace CsDisplay
       Todo("ArrayType"); var nl = OurLine.NewLine(LineKind.Decl, "ArrayType");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitArrayType(node);
     }
@@ -1040,6 +1129,7 @@ namespace CsDisplay
       Todo("ArrowExpressionClause"); var nl = OurLine.NewLine(LineKind.Decl, "ArrowExpressionClause");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitArrowExpressionClause(node);
     }
@@ -1050,6 +1140,7 @@ namespace CsDisplay
       Todo("AwaitExpression"); var nl = OurLine.NewLine(LineKind.Decl, "AwaitExpression");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitAwaitExpression(node);
     }
@@ -1060,6 +1151,7 @@ namespace CsDisplay
       Todo("BadDirectiveTrivia"); var nl = OurLine.NewLine(LineKind.Decl, "BadDirectiveTrivia");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitBadDirectiveTrivia(node);
     }
@@ -1070,6 +1162,7 @@ namespace CsDisplay
       Todo("BaseExpression"); var nl = OurLine.NewLine(LineKind.Decl, "BaseExpression");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitBaseExpression(node);
     }
@@ -1082,6 +1175,7 @@ namespace CsDisplay
       Todo("BinaryPattern"); var nl = OurLine.NewLine(LineKind.Decl, "BinaryPattern");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitBinaryPattern(node);
     }
@@ -1092,6 +1186,7 @@ namespace CsDisplay
       Todo("BracketedArgumentList"); var nl = OurLine.NewLine(LineKind.Decl, "BracketedArgumentList");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitBracketedArgumentList(node);
     }
@@ -1103,6 +1198,7 @@ namespace CsDisplay
       nl.Source = node.ToFullString();
       OurLine.AddEssentialInfo(ref nl, node.Parameters.ToString());
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitBracketedParameterList(node);
     }
@@ -1113,6 +1209,7 @@ namespace CsDisplay
       Todo("BreakStatement"); var nl = OurLine.NewLine(LineKind.Decl, "BreakStatement");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitBreakStatement(node);
     }
@@ -1123,6 +1220,7 @@ namespace CsDisplay
       Todo("CasePatternSwitchLabel"); var nl = OurLine.NewLine(LineKind.Decl, "CasePatternSwitchLabel");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitCasePatternSwitchLabel(node);
     }
@@ -1133,6 +1231,7 @@ namespace CsDisplay
       Todo("CaseSwitchLabel"); var nl = OurLine.NewLine(LineKind.Decl, "CaseSwitchLabel");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitCaseSwitchLabel(node);
     }
@@ -1143,6 +1242,7 @@ namespace CsDisplay
       Todo("CastExpression"); var nl = OurLine.NewLine(LineKind.Decl, "CastExpression");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitCastExpression(node);
     }
@@ -1153,6 +1253,7 @@ namespace CsDisplay
       Todo("CatchClause"); var nl = OurLine.NewLine(LineKind.Decl, "CatchClause");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitCatchClause(node);
     }
@@ -1163,6 +1264,7 @@ namespace CsDisplay
       Todo("CatchDeclaration"); var nl = OurLine.NewLine(LineKind.Decl, "CatchDeclaration");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitCatchDeclaration(node);
     }
@@ -1173,6 +1275,7 @@ namespace CsDisplay
       Todo("CatchFilterClause"); var nl = OurLine.NewLine(LineKind.Decl, "CatchFilterClause");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitCatchFilterClause(node);
     }
@@ -1183,6 +1286,7 @@ namespace CsDisplay
       Todo("CheckedExpression"); var nl = OurLine.NewLine(LineKind.Decl, "CheckedExpression");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitCheckedExpression(node);
     }
@@ -1193,6 +1297,7 @@ namespace CsDisplay
       Todo("CheckedStatement"); var nl = OurLine.NewLine(LineKind.Decl, "CheckedStatement");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitCheckedStatement(node);
     }
@@ -1203,6 +1308,7 @@ namespace CsDisplay
       Todo("ClassOrStructConstraint"); var nl = OurLine.NewLine(LineKind.Decl, "ClassOrStructConstraint");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitClassOrStructConstraint(node);
     }
@@ -1215,6 +1321,7 @@ namespace CsDisplay
       Todo("ConditionalAccessExpression"); var nl = OurLine.NewLine(LineKind.Decl, "ConditionalAccessExpression");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitConditionalAccessExpression(node);
     }
@@ -1225,6 +1332,7 @@ namespace CsDisplay
       Todo("ConditionalExpression"); var nl = OurLine.NewLine(LineKind.Decl, "ConditionalExpression");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitConditionalExpression(node);
     }
@@ -1235,6 +1343,7 @@ namespace CsDisplay
       Todo("ConstantPattern"); var nl = OurLine.NewLine(LineKind.Decl, "ConstantPattern");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitConstantPattern(node);
     }
@@ -1245,6 +1354,7 @@ namespace CsDisplay
       Todo("ConstructorConstraint"); var nl = OurLine.NewLine(LineKind.Decl, "ConstructorConstraint");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitConstructorConstraint(node);
     }
@@ -1258,6 +1368,7 @@ namespace CsDisplay
       var nl = OurLine.NewLine(LineKind.Decl, "ConstructorInitializer");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitConstructorInitializer(node);
     }
@@ -1268,6 +1379,7 @@ namespace CsDisplay
       Todo("ContinueStatement"); var nl = OurLine.NewLine(LineKind.Decl, "ContinueStatement");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitContinueStatement(node);
     }
@@ -1278,6 +1390,7 @@ namespace CsDisplay
       Todo("ConversionOperatorDeclaration"); var nl = OurLine.NewLine(LineKind.Decl, "ConversionOperatorDeclaration");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitConversionOperatorDeclaration(node);
     }
@@ -1288,6 +1401,7 @@ namespace CsDisplay
       Todo("ConversionOperatorMemberCref"); var nl = OurLine.NewLine(LineKind.Decl, "ConversionOperatorMemberCref");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitConversionOperatorMemberCref(node);
     }
@@ -1298,6 +1412,7 @@ namespace CsDisplay
       Todo("CrefBracketedParameterList"); var nl = OurLine.NewLine(LineKind.Decl, "CrefBracketedParameterList");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitCrefBracketedParameterList(node);
     }
@@ -1308,6 +1423,7 @@ namespace CsDisplay
       Todo("CrefParameter"); var nl = OurLine.NewLine(LineKind.Decl, "CrefParameter");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitCrefParameter(node);
     }
@@ -1318,6 +1434,7 @@ namespace CsDisplay
       Todo("CrefParameterList"); var nl = OurLine.NewLine(LineKind.Decl, "CrefParameterList");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitCrefParameterList(node);
     }
@@ -1328,6 +1445,7 @@ namespace CsDisplay
       Todo("DeclarationExpression"); var nl = OurLine.NewLine(LineKind.Decl, "DeclarationExpression");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitDeclarationExpression(node);
     }
@@ -1338,6 +1456,7 @@ namespace CsDisplay
       Todo("DeclarationPattern"); var nl = OurLine.NewLine(LineKind.Decl, "DeclarationPattern");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitDeclarationPattern(node);
     }
@@ -1348,6 +1467,7 @@ namespace CsDisplay
       Todo("DefaultExpression"); var nl = OurLine.NewLine(LineKind.Decl, "DefaultExpression");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitDefaultExpression(node);
     }
@@ -1358,6 +1478,7 @@ namespace CsDisplay
       Todo("DefaultSwitchLabel"); var nl = OurLine.NewLine(LineKind.Decl, "DefaultSwitchLabel");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitDefaultSwitchLabel(node);
     }
@@ -1368,6 +1489,7 @@ namespace CsDisplay
       Todo("DefineDirectiveTrivia"); var nl = OurLine.NewLine(LineKind.Decl, "DefineDirectiveTrivia");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitDefineDirectiveTrivia(node);
     }
@@ -1378,6 +1500,7 @@ namespace CsDisplay
       Todo("DelegateDeclaration"); var nl = OurLine.NewLine(LineKind.Decl, "DelegateDeclaration");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitDelegateDeclaration(node);
     }
@@ -1388,6 +1511,7 @@ namespace CsDisplay
       Todo("DestructorDeclaration"); var nl = OurLine.NewLine(LineKind.Decl, "DestructorDeclaration");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitDestructorDeclaration(node);
     }
@@ -1398,6 +1522,7 @@ namespace CsDisplay
       Todo("DiscardDesignation"); var nl = OurLine.NewLine(LineKind.Decl, "DiscardDesignation");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitDiscardDesignation(node);
     }
@@ -1408,6 +1533,7 @@ namespace CsDisplay
       Todo("DiscardPattern"); var nl = OurLine.NewLine(LineKind.Decl, "DiscardPattern");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitDiscardPattern(node);
     }
@@ -1418,6 +1544,7 @@ namespace CsDisplay
       Todo("DocumentationCommentTrivia"); var nl = OurLine.NewLine(LineKind.Decl, "DocumentationCommentTrivia");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitDocumentationCommentTrivia(node);
     }
@@ -1428,6 +1555,7 @@ namespace CsDisplay
       Todo("DoStatement"); var nl = OurLine.NewLine(LineKind.Decl, "DoStatement");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitDoStatement(node);
     }
@@ -1438,6 +1566,7 @@ namespace CsDisplay
       Todo("ElementAccessExpression"); var nl = OurLine.NewLine(LineKind.Decl, "ElementAccessExpression");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitElementAccessExpression(node);
     }
@@ -1448,6 +1577,7 @@ namespace CsDisplay
       Todo("ElementBindingExpression"); var nl = OurLine.NewLine(LineKind.Decl, "ElementBindingExpression");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitElementBindingExpression(node);
     }
@@ -1458,6 +1588,7 @@ namespace CsDisplay
       Todo("ElifDirectiveTrivia"); var nl = OurLine.NewLine(LineKind.Decl, "ElifDirectiveTrivia");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitElifDirectiveTrivia(node);
     }
@@ -1468,6 +1599,7 @@ namespace CsDisplay
       Todo("ElseClause"); var nl = OurLine.NewLine(LineKind.Decl, "ElseClause");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitElseClause(node);
     }
@@ -1478,6 +1610,7 @@ namespace CsDisplay
       Todo("ElseDirectiveTrivia"); var nl = OurLine.NewLine(LineKind.Decl, "ElseDirectiveTrivia");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitElseDirectiveTrivia(node);
     }
@@ -1488,6 +1621,7 @@ namespace CsDisplay
       Todo("EmptyStatement"); var nl = OurLine.NewLine(LineKind.Decl, "EmptyStatement");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitEmptyStatement(node);
     }
@@ -1498,6 +1632,7 @@ namespace CsDisplay
       Todo("EndIfDirectiveTrivia"); var nl = OurLine.NewLine(LineKind.Decl, "EndIfDirectiveTrivia");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitEndIfDirectiveTrivia(node);
     }
@@ -1508,6 +1643,7 @@ namespace CsDisplay
       Todo("EndRegionDirectiveTrivia"); var nl = OurLine.NewLine(LineKind.Decl, "EndRegionDirectiveTrivia");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitEndRegionDirectiveTrivia(node);
     }
@@ -1523,6 +1659,7 @@ namespace CsDisplay
       OurLine.AddEssentialInfo(ref nl, node.Value.ToString());
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitEqualsValueClause(node);
     }
@@ -1533,6 +1670,7 @@ namespace CsDisplay
       Todo("ErrorDirectiveTrivia"); var nl = OurLine.NewLine(LineKind.Decl, "ErrorDirectiveTrivia");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitErrorDirectiveTrivia(node);
     }
@@ -1543,6 +1681,7 @@ namespace CsDisplay
       Todo("EventDeclaration"); var nl = OurLine.NewLine(LineKind.Decl, "EventDeclaration");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitEventDeclaration(node);
     }
@@ -1553,6 +1692,7 @@ namespace CsDisplay
       Todo("EventFieldDeclaration"); var nl = OurLine.NewLine(LineKind.Decl, "EventFieldDeclaration");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitEventFieldDeclaration(node);
     }
@@ -1570,6 +1710,7 @@ namespace CsDisplay
 
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitExternAliasDirective(node);
     }
@@ -1580,6 +1721,7 @@ namespace CsDisplay
       Todo("FinallyClause"); var nl = OurLine.NewLine(LineKind.Decl, "FinallyClause");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitFinallyClause(node);
     }
@@ -1590,6 +1732,7 @@ namespace CsDisplay
       Todo("FixedStatement"); var nl = OurLine.NewLine(LineKind.Decl, "FixedStatement");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitFixedStatement(node);
     }
@@ -1600,6 +1743,7 @@ namespace CsDisplay
       Todo("ForEachStatement"); var nl = OurLine.NewLine(LineKind.Decl, "ForEachStatement");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitForEachStatement(node);
     }
@@ -1610,18 +1754,9 @@ namespace CsDisplay
       Todo("ForEachVariableStatement"); var nl = OurLine.NewLine(LineKind.Decl, "ForEachVariableStatement");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitForEachVariableStatement(node);
-    }
-
-    public override void VisitForStatement(ForStatementSyntax node)
-    {
-      if (debug) Console.WriteLine(node.ToFullString());
-      Todo("ForStatement"); var nl = OurLine.NewLine(LineKind.Decl, "ForStatement");
-      nl.Source = node.ToFullString();
-      nl.ParentKind = node.Parent.RawKind;
-      LogCommand(nl);
-      base.VisitForStatement(node);
     }
 
     public override void VisitFromClause(FromClauseSyntax node)
@@ -1630,6 +1765,7 @@ namespace CsDisplay
       Todo("FromClause"); var nl = OurLine.NewLine(LineKind.Decl, "FromClause");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitFromClause(node);
     }
@@ -1640,6 +1776,7 @@ namespace CsDisplay
       Todo("FunctionPointerType"); var nl = OurLine.NewLine(LineKind.Decl, "FunctionPointerType");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitFunctionPointerType(node);
     }
@@ -1651,6 +1788,7 @@ namespace CsDisplay
       Todo("GlobalStatement"); var nl = OurLine.NewLine(LineKind.Decl, "GlobalStatement");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitGlobalStatement(node);
     }
@@ -1661,6 +1799,7 @@ namespace CsDisplay
       Todo("GotoStatement"); var nl = OurLine.NewLine(LineKind.Decl, "GotoStatement");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitGotoStatement(node);
     }
@@ -1671,6 +1810,7 @@ namespace CsDisplay
       Todo("GroupClause"); var nl = OurLine.NewLine(LineKind.Decl, "GroupClause");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitGroupClause(node);
     }
@@ -1682,6 +1822,7 @@ namespace CsDisplay
       Todo("ImplicitObjectCreationExpression"); var nl = OurLine.NewLine(LineKind.Decl, "ImplicitObjectCreationExpression");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitImplicitObjectCreationExpression(node);
     }
@@ -1694,6 +1835,7 @@ namespace CsDisplay
       OurLine.AddEssentialInfo(ref nl, node.Name.ToString());
       OurLine.AddEssentialInfo(ref nl, node.Expression.ToString());
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitMemberAccessExpression(node);
     }
@@ -1704,6 +1846,7 @@ namespace CsDisplay
       Todo("NullableDirectiveTrivia"); var nl = OurLine.NewLine(LineKind.Decl, "NullableDirectiveTrivia");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitNullableDirectiveTrivia(node);
     }
@@ -1717,6 +1860,7 @@ namespace CsDisplay
       OurLine.AddEssentialInfo(ref nl, node.Parameters.ToString());
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitParameterList(node);
     }
@@ -1727,6 +1871,7 @@ namespace CsDisplay
       Todo("ParenthesizedPattern"); var nl = OurLine.NewLine(LineKind.Decl, "ParenthesizedPattern");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitParenthesizedPattern(node);
     }
@@ -1737,6 +1882,7 @@ namespace CsDisplay
       Todo("PositionalPatternClause"); var nl = OurLine.NewLine(LineKind.Decl, "PositionalPatternClause");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitPositionalPatternClause(node);
     }
@@ -1747,6 +1893,7 @@ namespace CsDisplay
       Todo("PrimaryConstructorBaseType"); var nl = OurLine.NewLine(LineKind.Decl, "PrimaryConstructorBaseType");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitPrimaryConstructorBaseType(node);
     }
@@ -1757,6 +1904,7 @@ namespace CsDisplay
       Todo("PropertyPatternClause"); var nl = OurLine.NewLine(LineKind.Decl, "PropertyPatternClause");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitPropertyPatternClause(node);
     }
@@ -1767,6 +1915,7 @@ namespace CsDisplay
       Todo("RangeExpression"); var nl = OurLine.NewLine(LineKind.Decl, "RangeExpression");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitRangeExpression(node);
     }
@@ -1777,6 +1926,7 @@ namespace CsDisplay
       Todo("RecordDeclaration"); var nl = OurLine.NewLine(LineKind.Decl, "RecordDeclaration");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitRecordDeclaration(node);
     }
@@ -1787,6 +1937,7 @@ namespace CsDisplay
       Todo("RecursivePattern"); var nl = OurLine.NewLine(LineKind.Decl, "RecursivePattern");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitRecursivePattern(node);
     }
@@ -1797,6 +1948,7 @@ namespace CsDisplay
       Todo("RegionDirectiveTrivia"); var nl = OurLine.NewLine(LineKind.Decl, "RegionDirectiveTrivia");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitRegionDirectiveTrivia(node);
     }
@@ -1807,6 +1959,7 @@ namespace CsDisplay
       Todo("RelationalPattern"); var nl = OurLine.NewLine(LineKind.Decl, "RelationalPattern");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitRelationalPattern(node);
     }
@@ -1817,6 +1970,7 @@ namespace CsDisplay
       Todo("Subpattern"); var nl = OurLine.NewLine(LineKind.Decl, "Subpattern");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitSubpattern(node);
     }
@@ -1827,6 +1981,7 @@ namespace CsDisplay
       Todo("SwitchExpression"); var nl = OurLine.NewLine(LineKind.Decl, "SwitchExpression");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitSwitchExpression(node);
     }
@@ -1837,6 +1992,7 @@ namespace CsDisplay
       Todo("SwitchExpressionArm"); var nl = OurLine.NewLine(LineKind.Decl, "SwitchExpressionArm");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitSwitchExpressionArm(node);
     }
@@ -1847,6 +2003,7 @@ namespace CsDisplay
       Todo("TypePattern"); var nl = OurLine.NewLine(LineKind.Decl, "TypePattern");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitTypePattern(node);
     }
@@ -1858,6 +2015,7 @@ namespace CsDisplay
       Todo("UnaryPattern"); var nl = OurLine.NewLine(LineKind.Decl, "UnaryPattern");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitUnaryPattern(node);
     }
@@ -1869,6 +2027,7 @@ namespace CsDisplay
       OurLine.AddEssentialInfo(ref nl, node.Identifier.ToString());
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitVariableDeclarator(node);
     }
@@ -1879,6 +2038,7 @@ namespace CsDisplay
       Todo("VarPattern"); var nl = OurLine.NewLine(LineKind.Decl, "VarPattern");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitVarPattern(node);
     }
@@ -1889,6 +2049,7 @@ namespace CsDisplay
       Todo("WithExpression"); var nl = OurLine.NewLine(LineKind.Decl, "WithExpression");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitWithExpression(node);
     }
@@ -1899,6 +2060,7 @@ namespace CsDisplay
       Todo("XmlCDataSection"); var nl = OurLine.NewLine(LineKind.Decl, "XmlCDataSection");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitXmlCDataSection(node);
     }
@@ -1909,6 +2071,7 @@ namespace CsDisplay
       Todo("XmlComment"); var nl = OurLine.NewLine(LineKind.Decl, "XmlComment");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitXmlComment(node);
     }
@@ -1919,6 +2082,7 @@ namespace CsDisplay
       Todo("XmlCrefAttribute"); var nl = OurLine.NewLine(LineKind.Decl, "XmlCrefAttribute");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitXmlCrefAttribute(node);
     }
@@ -1929,6 +2093,7 @@ namespace CsDisplay
       Todo("XmlElement"); var nl = OurLine.NewLine(LineKind.Decl, "XmlElement");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitXmlElement(node);
     }
@@ -1939,6 +2104,7 @@ namespace CsDisplay
       Todo("XmlElementEndTag"); var nl = OurLine.NewLine(LineKind.Decl, "XmlElementEndTag");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitXmlElementEndTag(node);
     }
@@ -1949,6 +2115,7 @@ namespace CsDisplay
       Todo("XmlElementStartTag"); var nl = OurLine.NewLine(LineKind.Decl, "XmlElementStartTag");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitXmlElementStartTag(node);
     }
@@ -1959,6 +2126,7 @@ namespace CsDisplay
       Todo("XmlEmptyElement"); var nl = OurLine.NewLine(LineKind.Decl, "XmlEmptyElement");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitXmlEmptyElement(node);
     }
@@ -1969,6 +2137,7 @@ namespace CsDisplay
       Todo("XmlName"); var nl = OurLine.NewLine(LineKind.Decl, "XmlName");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitXmlName(node);
     }
@@ -1979,6 +2148,7 @@ namespace CsDisplay
       Todo("XmlNameAttribute"); var nl = OurLine.NewLine(LineKind.Decl, "XmlNameAttribute");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitXmlNameAttribute(node);
     }
@@ -1989,6 +2159,7 @@ namespace CsDisplay
       Todo("XmlPrefix"); var nl = OurLine.NewLine(LineKind.Decl, "XmlPrefix");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitXmlPrefix(node);
     }
@@ -1999,6 +2170,7 @@ namespace CsDisplay
       Todo("XmlProcessingInstruction"); var nl = OurLine.NewLine(LineKind.Decl, "XmlProcessingInstruction");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitXmlProcessingInstruction(node);
     }
@@ -2009,6 +2181,7 @@ namespace CsDisplay
       Todo("XmlText"); var nl = OurLine.NewLine(LineKind.Decl, "XmlText");
       nl.Source = node.ToFullString();
       // nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitXmlText(node);
     }
@@ -2019,6 +2192,7 @@ namespace CsDisplay
       Todo("XmlTextAttribute"); var nl = OurLine.NewLine(LineKind.Decl, "XmlTextAttribute");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitXmlTextAttribute(node);
     }

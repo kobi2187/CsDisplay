@@ -41,12 +41,17 @@ namespace CsDisplay
         System.Console.WriteLine("----- BEGIN FILE:" + f + " -----");
       }
 
-      var reAnnotation = new Regex(@"^\s*\[\w+(\(.*?\))?\]\s*$"); // Remove annotations.
-      var reLinecomment = new Regex(@"(?m)//.*$");
+
+      var reAnnotation = new Regex(@"^\s*\[\w+(\(.*?\))?\]\s*$", RegexOptions.Multiline); // Remove annotations.
+      var reLinecomment = new Regex(@"(?m)//.*$", RegexOptions.Multiline);
       var reMultiLineComment = new Regex(@"(?s)/\*.*?\*/");
 
       var content = File.ReadAllText(f);
-      content = reAnnotation.Replace(content, "");
+      System.Console.WriteLine(content.Length);
+      if (reAnnotation.IsMatch(content))
+        content = reAnnotation.Replace(content, "");
+
+      System.Console.WriteLine(content.Length);
       if (content.Contains("//"))
         content = reLinecomment.Replace(content, "").Trim();
       if (content.Contains("/*") && content.Contains("*/"))
@@ -58,6 +63,8 @@ namespace CsDisplay
       SyntaxTree tree = CSharpSyntaxTree.ParseText(content);
       var cs = new VisitCSharp(f);
       var root = (CompilationUnitSyntax)tree.GetRoot();
+      var a = root.DescendantNodes();
+
       cs.Visit(root);
       cs.Finish();
 
@@ -106,6 +113,7 @@ namespace CsDisplay
         var dir = file;
         saveDirName = dir;
         list = Directory.GetFiles(dir, "*.cs", SearchOption.AllDirectories).ToList();
+        // TODO: there is probably a yielding iterator so we don't need to list all files before beginning.
         // list.Sort((string a, string b) => a.ToLower().CompareTo(b.ToLower()));
         Program.dir = true;
       }
