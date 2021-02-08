@@ -5,7 +5,7 @@ namespace CsDisplay
   {
     public const bool displayOnly = false;
     public const bool debug = false;
-    public const bool skipOlder = true;
+    public const bool skipOlder = false;
 
 
   }

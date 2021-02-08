@@ -569,6 +569,7 @@ namespace CsDisplay
 
     public override void VisitForStatement(ForStatementSyntax node)
     {
+      StartBlock("ForStatement");
       if (debug) Console.WriteLine(node.ToFullString());
       var nl = OurLine.NewLine(LineKind.Decl, "ForStatement");
       if (node.Condition != null) OurLine.AddEssentialInfo(ref nl, "condition:" + node.Condition.ToString());
@@ -581,6 +582,8 @@ namespace CsDisplay
       nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitForStatement(node);
+      EndBlock("ForStatement");
+
     }
 
 

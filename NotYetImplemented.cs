@@ -826,6 +826,7 @@ namespace CsDisplay
     }
     public override void VisitTryStatement(TryStatementSyntax node)
     {
+      StartBlock("TryStatement");
       if (debug) Console.WriteLine(node.ToFullString());
       Todo("TryStatement"); var nl = OurLine.NewLine(LineKind.Decl, "TryStatement");
       nl.Source = node.ToFullString();
@@ -835,6 +836,8 @@ namespace CsDisplay
       Todo("TryStatement");
 
       base.VisitTryStatement(node);
+      EndBlock("TryStatement");
+
     }
     public override void VisitTupleElement(TupleElementSyntax node)
     {
@@ -912,13 +915,13 @@ namespace CsDisplay
     public override void VisitTypeParameter(TypeParameterSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      Todo("TypeParameter"); var nl = OurLine.NewLine(LineKind.Decl, "TypeParameter");
+      var nl = OurLine.NewLine(LineKind.Decl, "TypeParameter");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
       nl.RawKind = node.RawKind;
-      LogCommand(nl);
-      Todo("TypeParameter");
+      OurLine.AddEssentialInfo(ref nl, node.VarianceKeyword.ToString());
 
+      LogCommand(nl);
       base.VisitTypeParameter(node);
     }
     public override void VisitTypeParameterConstraintClause(TypeParameterConstraintClauseSyntax node)
@@ -961,6 +964,7 @@ namespace CsDisplay
 
     public override void VisitUsingStatement(UsingStatementSyntax node)
     {
+      StartBlock("UsingStatement");
       if (debug) Console.WriteLine(node.ToFullString());
       Todo("UsingStatement"); var nl = OurLine.NewLine(LineKind.Decl, "UsingStatement");
       nl.Source = node.ToFullString();
@@ -970,6 +974,8 @@ namespace CsDisplay
       Todo("UsingStatement");
 
       base.VisitUsingStatement(node);
+      EndBlock("UsingStatement");
+
     }
 
     public override void VisitWarningDirectiveTrivia(WarningDirectiveTriviaSyntax node)
@@ -1183,7 +1189,8 @@ namespace CsDisplay
     public override void VisitBracketedArgumentList(BracketedArgumentListSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      Todo("BracketedArgumentList"); var nl = OurLine.NewLine(LineKind.Decl, "BracketedArgumentList");
+      var nl = OurLine.NewLine(LineKind.Decl, "BracketedArgumentList");
+      OurLine.AddEssentialInfo(ref nl, node.Arguments.ToString());
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
       nl.RawKind = node.RawKind;
@@ -1563,7 +1570,7 @@ namespace CsDisplay
     public override void VisitElementAccessExpression(ElementAccessExpressionSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      Todo("ElementAccessExpression"); var nl = OurLine.NewLine(LineKind.Decl, "ElementAccessExpression");
+      var nl = OurLine.NewLine(LineKind.Decl, "ElementAccessExpression");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
       nl.RawKind = node.RawKind;
@@ -1678,7 +1685,7 @@ namespace CsDisplay
     public override void VisitEventDeclaration(EventDeclarationSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      Todo("EventDeclaration"); var nl = OurLine.NewLine(LineKind.Decl, "EventDeclaration");
+      Todo("EventDeclaration"); var nl = OurLine.NewLine(LineKind.Decl, "Event");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
       nl.RawKind = node.RawKind;
@@ -1689,7 +1696,7 @@ namespace CsDisplay
     public override void VisitEventFieldDeclaration(EventFieldDeclarationSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      Todo("EventFieldDeclaration"); var nl = OurLine.NewLine(LineKind.Decl, "EventFieldDeclaration");
+      Todo("EventField"); var nl = OurLine.NewLine(LineKind.Decl, "EventField");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
       nl.RawKind = node.RawKind;
@@ -1717,6 +1724,7 @@ namespace CsDisplay
 
     public override void VisitFinallyClause(FinallyClauseSyntax node)
     {
+      StartBlock("FinallyClause");
       if (debug) Console.WriteLine(node.ToFullString());
       Todo("FinallyClause"); var nl = OurLine.NewLine(LineKind.Decl, "FinallyClause");
       nl.Source = node.ToFullString();
@@ -1724,6 +1732,8 @@ namespace CsDisplay
       nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitFinallyClause(node);
+      EndBlock("FinallyClause");
+
     }
 
     public override void VisitFixedStatement(FixedStatementSyntax node)
@@ -1739,6 +1749,7 @@ namespace CsDisplay
 
     public override void VisitForEachStatement(ForEachStatementSyntax node)
     {
+      StartBlock("ForEachStatement");
       if (debug) Console.WriteLine(node.ToFullString());
       Todo("ForEachStatement"); var nl = OurLine.NewLine(LineKind.Decl, "ForEachStatement");
       nl.Source = node.ToFullString();
@@ -1746,6 +1757,8 @@ namespace CsDisplay
       nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitForEachStatement(node);
+      EndBlock("ForEachStatement");
+
     }
 
     public override void VisitForEachVariableStatement(ForEachVariableStatementSyntax node)

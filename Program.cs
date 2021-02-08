@@ -42,14 +42,28 @@ namespace CsDisplay
       }
 
 
-      var reAnnotation = new Regex(@"^\s*\[\w+(\(.*?\))?\]\s*$", RegexOptions.Multiline); // Remove annotations.
+      // var reAnnotation = new Regex(@"^\s*\n*\[(\w+:)?\s*\n*([\w.]+(\(.*?\))?\s*,?\s*)+\s*\n*\]\s*$", RegexOptions.Multiline | RegexOptions.Compiled); // Remove annotations.
+      // var reAnnotation = new Regex(@"^\s*\n*\[(\w+:)?\s*\n*([\w.]+(\(.*?\))?\s*,?\s*)+\s*\n*\]\s*$", RegexOptions.Multiline | RegexOptions.Compiled); // Remove annotations.
+      var reAnnotation = new Regex(@"^\s*\[.*?\]\s*$", RegexOptions.Multiline); // Remove annotations.
       var reLinecomment = new Regex(@"(?m)//.*$", RegexOptions.Multiline);
       var reMultiLineComment = new Regex(@"(?s)/\*.*?\*/");
+      var reAssemblyLine = new Regex(@"\[assembly:.*(\n+.*)+\]");
 
       var content = File.ReadAllText(f);
       System.Console.WriteLine(content.Length);
-      if (reAnnotation.IsMatch(content))
+      if (content.Contains("[") && content.Contains("]") && new Regex(@"^\s*\[", RegexOptions.Multiline).IsMatch(content) && reAnnotation.IsMatch(content))
+      {
+        System.Console.WriteLine("removing Annotation!");
         content = reAnnotation.Replace(content, "");
+      }
+
+      if (reAssemblyLine.IsMatch(content))
+      {
+        System.Console.WriteLine("removing assembly line annotation!");
+        content = reAssemblyLine.Replace(content, "");
+
+        // System.Console.WriteLine(content);
+      }
 
       System.Console.WriteLine(content.Length);
       if (content.Contains("//"))
