@@ -142,6 +142,37 @@ namespace CsDisplay
       base.VisitMethodDeclaration(node);
       EndBlock("MethodDeclaration");
     }
+
+
+    public override void VisitSwitchSection(SwitchSectionSyntax node)
+    {
+      if (debug) Console.WriteLine(node.ToFullString());
+      var nl = OurLine.NewLine(LineKind.Decl, "SwitchSection");
+      OurLine.AddEssentialInfo(ref nl, "labels:" + node.Labels.ToString());
+      // OurLine.AddEssentialInfo(ref nl, node.Labels.Select((l) => l.Value.ToString()));
+      OurLine.AddEssentialInfo(ref nl, "statements:" + node.Statements.ToString());
+
+      nl.Source = node.ToFullString();
+      nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
+      LogCommand(nl);
+      StartBlock("SwitchSection");
+      base.VisitSwitchSection(node);
+      EndBlock("SwitchSection");
+    }
+
+    public override void VisitStructDeclaration(StructDeclarationSyntax node)
+    {
+      if (debug) Console.WriteLine(node.ToFullString());
+      Todo("StructDeclaration"); var nl = OurLine.NewLine(LineKind.Decl, "StructDeclaration");
+      nl.Source = node.ToFullString();
+      nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
+      LogCommand(nl);
+      StartBlock("StructDeclaration");
+      base.VisitStructDeclaration(node);
+      EndBlock("StructDeclaration");
+    }
     public override void VisitNamespaceDeclaration(NamespaceDeclarationSyntax node)
     {
 
@@ -320,6 +351,158 @@ namespace CsDisplay
       StartBlock("SwitchStatement");
       base.VisitSwitchStatement(node);
       EndBlock("SwitchStatement");
+    }
+    public override void VisitCatchClause(CatchClauseSyntax node)
+    {
+      if (debug) Console.WriteLine(node.ToFullString());
+      var nl = OurLine.NewLine(LineKind.Decl, "CatchClause");
+      nl.Source = node.ToFullString();
+      nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
+      LogCommand(nl);
+      StartBlock("CatchClause");
+      base.VisitCatchClause(node);
+      EndBlock("CatchClause");
+    }
+
+    public override void VisitAccessorDeclaration(AccessorDeclarationSyntax node)
+    {
+      if (debug) Console.WriteLine(node.ToFullString());
+      var nl = OurLine.NewLine(LineKind.Decl, "AccessorDeclaration");
+      var stms = node?.Body?.Statements.Select((x) => x.ToString());
+      OurLine.AddEssentialInfo(ref nl, "keyword:" + node.Keyword.Text);
+      if (stms != null)
+      {
+        var statements = string.Join("###", stms);
+        OurLine.AddEssentialInfo(ref nl, "statements:" + statements);
+      }
+      nl.Source = node.ToFullString();
+      // nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
+      LogCommand(nl);
+      StartBlock("AccessorDeclaration");
+      base.VisitAccessorDeclaration(node);
+      EndBlock("AccessorDeclaration");
+    }
+
+    public override void VisitConstructorDeclaration(ConstructorDeclarationSyntax node)
+    {
+      if (debug) Console.WriteLine(node.ToFullString());
+      var nl = OurLine.NewLine(LineKind.Decl, "ConstructorDeclaration");
+      nl.Source = node.ToFullString();
+      OurLine.AddEssentialInfo(ref nl, "name:" + node.Identifier.Text);
+      nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
+      LogCommand(nl);
+      StartBlock("ConstructorDeclaration");
+      base.VisitConstructorDeclaration(node);
+      EndBlock("ConstructorDeclaration");
+    }
+    public override void VisitDestructorDeclaration(DestructorDeclarationSyntax node)
+    {
+      if (debug) Console.WriteLine(node.ToFullString());
+      Todo("DestructorDeclaration"); var nl = OurLine.NewLine(LineKind.Decl, "DestructorDeclaration");
+      nl.Source = node.ToFullString();
+      nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
+      LogCommand(nl);
+      StartBlock("DestructorDeclaration");
+      base.VisitDestructorDeclaration(node);
+      EndBlock("DestructorDeclaration");
+    }
+    public override void VisitIndexerDeclaration(IndexerDeclarationSyntax node)
+    {
+      if (debug) Console.WriteLine(node.ToFullString());
+      var nl = OurLine.NewLine(LineKind.Decl, "IndexerDeclaration");
+      // relevant parts: accessor list, interface specifier, parameterlist, maybe modifiers maybe expressionbody
+      if (node.ExplicitInterfaceSpecifier != null)
+        OurLine.AddEssentialInfo(ref nl, "explicitInterfaceSpecifier:" + node.ExplicitInterfaceSpecifier.ToString());
+      if (node.ParameterList != null)
+        OurLine.AddEssentialInfo(ref nl, "parameterList:" + node.ParameterList.ToString());
+      if (node.AccessorList != null)
+        OurLine.AddEssentialInfo(ref nl, "accessorList:" + node.AccessorList.ToString());
+      if (node.Modifiers != null)
+        OurLine.AddEssentialInfo(ref nl, "modifiers:" + node.Modifiers.ToString());
+      if (node.ExpressionBody != null)
+        OurLine.AddEssentialInfo(ref nl, "expressionBody:" + node.ExpressionBody.ToString());
+
+      nl.Source = node.ToFullString();
+      nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
+      LogCommand(nl);
+
+      StartBlock("IndexerDeclaration");
+      base.VisitIndexerDeclaration(node);
+      EndBlock("IndexerDeclaration");
+    }
+    public override void VisitAnonymousMethodExpression(AnonymousMethodExpressionSyntax node)
+    {
+      if (debug) Console.WriteLine(node.ToFullString());
+      Todo("AnonymousMethodExpression"); var nl = OurLine.NewLine(LineKind.Decl, "AnonymousMethodExpression");
+      nl.Source = node.ToFullString();
+      nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
+      LogCommand(nl);
+      StartBlock("AnonymousMethodExpression");
+      base.VisitAnonymousMethodExpression(node);
+      EndBlock("AnonymousMethodExpression");
+    }
+
+    public override void VisitConversionOperatorDeclaration(ConversionOperatorDeclarationSyntax node)
+    {
+      if (debug) Console.WriteLine(node.ToFullString());
+      Todo("ConversionOperatorDeclaration"); var nl = OurLine.NewLine(LineKind.Decl, "ConversionOperatorDeclaration");
+      nl.Source = node.ToFullString();
+      nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
+      LogCommand(nl);
+      StartBlock("ConversionOperatorDeclaration");
+      base.VisitConversionOperatorDeclaration(node);
+      EndBlock("ConversionOperatorDeclaration");
+    }
+    public override void VisitSimpleLambdaExpression(SimpleLambdaExpressionSyntax node)
+    {
+      if (debug) Console.WriteLine(node.ToFullString());
+      Todo("SimpleLambdaExpression"); var nl = OurLine.NewLine(LineKind.Decl, "SimpleLambdaExpression");
+      nl.Source = node.ToFullString();
+      nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
+      LogCommand(nl);
+      Todo("SimpleLambdaExpression");
+
+      StartBlock("SimpleLambdaExpression");
+      base.VisitSimpleLambdaExpression(node);
+      EndBlock("SimpleLambdaExpression");
+    }
+
+    public override void VisitParenthesizedLambdaExpression(ParenthesizedLambdaExpressionSyntax node)
+    {
+      if (debug) Console.WriteLine(node.ToFullString());
+      Todo("ParenthesizedLambdaExpression"); var nl = OurLine.NewLine(LineKind.Decl, "ParenthesizedLambdaExpression");
+      nl.Source = node.ToFullString();
+      nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
+      LogCommand(nl);
+      Todo("ParenthesizedLambdaExpression");
+
+      StartBlock("ParenthesizedLambdaExpression");
+      base.VisitParenthesizedLambdaExpression(node);
+      EndBlock("ParenthesizedLambdaExpression");
+    }
+
+    public override void VisitOperatorDeclaration(OperatorDeclarationSyntax node)
+    {
+      if (debug) Console.WriteLine(node.ToFullString());
+      Todo("OperatorDeclaration"); var nl = OurLine.NewLine(LineKind.Decl, "OperatorDeclaration");
+      nl.Source = node.ToFullString();
+      nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
+      LogCommand(nl);
+      Todo("OperatorDeclaration");
+
+      StartBlock("OperatorDeclaration");
+      base.VisitOperatorDeclaration(node);
+      EndBlock("OperatorDeclaration");
     }
   }
 }

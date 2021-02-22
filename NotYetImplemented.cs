@@ -35,23 +35,6 @@ namespace CsDisplay
 
 
 
-    public override void VisitAccessorDeclaration(AccessorDeclarationSyntax node)
-    {
-      if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "AccessorDeclaration");
-      var stms = node?.Body?.Statements.Select((x) => x.ToString());
-      OurLine.AddEssentialInfo(ref nl, "keyword:" + node.Keyword.Text);
-      if (stms != null)
-      {
-        var statements = string.Join("###", stms);
-        OurLine.AddEssentialInfo(ref nl, "statements:" + statements);
-      }
-      nl.Source = node.ToFullString();
-      // nl.ParentKind = node.Parent.RawKind;
-      nl.RawKind = node.RawKind;
-      LogCommand(nl);
-      base.VisitAccessorDeclaration(node);
-    }
 
     public override void VisitImplicitArrayCreationExpression(ImplicitArrayCreationExpressionSyntax node)
     {
@@ -376,18 +359,7 @@ namespace CsDisplay
 
       base.VisitOmittedTypeArgument(node);
     }
-    public override void VisitOperatorDeclaration(OperatorDeclarationSyntax node)
-    {
-      if (debug) Console.WriteLine(node.ToFullString());
-      Todo("OperatorDeclaration"); var nl = OurLine.NewLine(LineKind.Decl, "OperatorDeclaration");
-      nl.Source = node.ToFullString();
-      nl.ParentKind = node.Parent.RawKind;
-      nl.RawKind = node.RawKind;
-      LogCommand(nl);
-      Todo("OperatorDeclaration");
 
-      base.VisitOperatorDeclaration(node);
-    }
     public override void VisitOperatorMemberCref(OperatorMemberCrefSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
@@ -439,18 +411,7 @@ namespace CsDisplay
 
       base.VisitParenthesizedExpression(node);
     }
-    public override void VisitParenthesizedLambdaExpression(ParenthesizedLambdaExpressionSyntax node)
-    {
-      if (debug) Console.WriteLine(node.ToFullString());
-      Todo("ParenthesizedLambdaExpression"); var nl = OurLine.NewLine(LineKind.Decl, "ParenthesizedLambdaExpression");
-      nl.Source = node.ToFullString();
-      nl.ParentKind = node.Parent.RawKind;
-      nl.RawKind = node.RawKind;
-      LogCommand(nl);
-      Todo("ParenthesizedLambdaExpression");
 
-      base.VisitParenthesizedLambdaExpression(node);
-    }
     public override void VisitParenthesizedVariableDesignation(ParenthesizedVariableDesignationSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
@@ -616,18 +577,7 @@ namespace CsDisplay
     }
 
 
-    public override void VisitSimpleLambdaExpression(SimpleLambdaExpressionSyntax node)
-    {
-      if (debug) Console.WriteLine(node.ToFullString());
-      Todo("SimpleLambdaExpression"); var nl = OurLine.NewLine(LineKind.Decl, "SimpleLambdaExpression");
-      nl.Source = node.ToFullString();
-      nl.ParentKind = node.Parent.RawKind;
-      nl.RawKind = node.RawKind;
-      LogCommand(nl);
-      Todo("SimpleLambdaExpression");
 
-      base.VisitSimpleLambdaExpression(node);
-    }
     public override void VisitSingleVariableDesignation(SingleVariableDesignationSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
@@ -676,18 +626,7 @@ namespace CsDisplay
 
       base.VisitStackAllocArrayCreationExpression(node);
     }
-    public override void VisitStructDeclaration(StructDeclarationSyntax node)
-    {
-      if (debug) Console.WriteLine(node.ToFullString());
-      Todo("StructDeclaration"); var nl = OurLine.NewLine(LineKind.Decl, "StructDeclaration");
-      nl.Source = node.ToFullString();
-      nl.ParentKind = node.Parent.RawKind;
-      nl.RawKind = node.RawKind;
-      LogCommand(nl);
-      Todo("StructDeclaration");
 
-      base.VisitStructDeclaration(node);
-    }
 
     public override void VisitThisExpression(ThisExpressionSyntax node)
     { // note: I already do that with methods, no need for special handling.
@@ -888,16 +827,7 @@ namespace CsDisplay
       base.VisitAliasQualifiedName(node);
     }
 
-    public override void VisitAnonymousMethodExpression(AnonymousMethodExpressionSyntax node)
-    {
-      if (debug) Console.WriteLine(node.ToFullString());
-      Todo("AnonymousMethodExpression"); var nl = OurLine.NewLine(LineKind.Decl, "AnonymousMethodExpression");
-      nl.Source = node.ToFullString();
-      nl.ParentKind = node.Parent.RawKind;
-      nl.RawKind = node.RawKind;
-      LogCommand(nl);
-      base.VisitAnonymousMethodExpression(node);
-    }
+
 
     public override void VisitAnonymousObjectCreationExpression(AnonymousObjectCreationExpressionSyntax node)
     {
@@ -1070,16 +1000,7 @@ namespace CsDisplay
       base.VisitCastExpression(node);
     }
 
-    public override void VisitCatchClause(CatchClauseSyntax node)
-    {
-      if (debug) Console.WriteLine(node.ToFullString());
-      Todo("CatchClause"); var nl = OurLine.NewLine(LineKind.Decl, "CatchClause");
-      nl.Source = node.ToFullString();
-      nl.ParentKind = node.Parent.RawKind;
-      nl.RawKind = node.RawKind;
-      LogCommand(nl);
-      base.VisitCatchClause(node);
-    }
+
 
     public override void VisitCatchDeclaration(CatchDeclarationSyntax node)
     {
@@ -1197,16 +1118,6 @@ namespace CsDisplay
       base.VisitContinueStatement(node);
     }
 
-    public override void VisitConversionOperatorDeclaration(ConversionOperatorDeclarationSyntax node)
-    {
-      if (debug) Console.WriteLine(node.ToFullString());
-      Todo("ConversionOperatorDeclaration"); var nl = OurLine.NewLine(LineKind.Decl, "ConversionOperatorDeclaration");
-      nl.Source = node.ToFullString();
-      nl.ParentKind = node.Parent.RawKind;
-      nl.RawKind = node.RawKind;
-      LogCommand(nl);
-      base.VisitConversionOperatorDeclaration(node);
-    }
 
     public override void VisitConversionOperatorMemberCref(ConversionOperatorMemberCrefSyntax node)
     {
@@ -1308,16 +1219,7 @@ namespace CsDisplay
       base.VisitDelegateDeclaration(node);
     }
 
-    public override void VisitDestructorDeclaration(DestructorDeclarationSyntax node)
-    {
-      if (debug) Console.WriteLine(node.ToFullString());
-      Todo("DestructorDeclaration"); var nl = OurLine.NewLine(LineKind.Decl, "DestructorDeclaration");
-      nl.Source = node.ToFullString();
-      nl.ParentKind = node.Parent.RawKind;
-      nl.RawKind = node.RawKind;
-      LogCommand(nl);
-      base.VisitDestructorDeclaration(node);
-    }
+
 
     public override void VisitDiscardDesignation(DiscardDesignationSyntax node)
     {

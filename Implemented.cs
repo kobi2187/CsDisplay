@@ -50,21 +50,6 @@ namespace CsDisplay
       base.VisitCompilationUnit(node);
     }
 
-    public override void VisitSwitchSection(SwitchSectionSyntax node)
-    {
-      if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "SwitchSection");
-      OurLine.AddEssentialInfo(ref nl, "labels:" + node.Labels.ToString());
-      // OurLine.AddEssentialInfo(ref nl, node.Labels.Select((l) => l.Value.ToString()));
-      OurLine.AddEssentialInfo(ref nl, "statements:" + node.Statements.ToString());
-
-      nl.Source = node.ToFullString();
-      nl.ParentKind = node.Parent.RawKind;
-      nl.RawKind = node.RawKind;
-      LogCommand(nl);
-
-      base.VisitSwitchSection(node);
-    }
     public override void VisitTypeArgumentList(TypeArgumentListSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
@@ -88,17 +73,7 @@ namespace CsDisplay
       LogCommand(nl);
       base.VisitObjectCreationExpression(node);
     }
-    public override void VisitConstructorDeclaration(ConstructorDeclarationSyntax node)
-    {
-      if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "ConstructorDeclaration");
-      nl.Source = node.ToFullString();
-      OurLine.AddEssentialInfo(ref nl, "name:" + node.Identifier.Text);
-      nl.ParentKind = node.Parent.RawKind;
-      nl.RawKind = node.RawKind;
-      LogCommand(nl);
-      base.VisitConstructorDeclaration(node);
-    }
+
     public override void VisitEnumMemberDeclaration(EnumMemberDeclarationSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
@@ -413,29 +388,7 @@ namespace CsDisplay
       // I don't want to support this.
       base.VisitAttributeList(node);
     }
-    public override void VisitIndexerDeclaration(IndexerDeclarationSyntax node)
-    {
-      if (debug) Console.WriteLine(node.ToFullString());
-      var nl = OurLine.NewLine(LineKind.Decl, "IndexerDeclaration");
-      // relevant parts: accessor list, interface specifier, parameterlist, maybe modifiers maybe expressionbody
-      if (node.ExplicitInterfaceSpecifier != null)
-        OurLine.AddEssentialInfo(ref nl, "explicitInterfaceSpecifier:" + node.ExplicitInterfaceSpecifier.ToString());
-      if (node.ParameterList != null)
-        OurLine.AddEssentialInfo(ref nl, "parameterList:" + node.ParameterList.ToString());
-      if (node.AccessorList != null)
-        OurLine.AddEssentialInfo(ref nl, "accessorList:" + node.AccessorList.ToString());
-      if (node.Modifiers != null)
-        OurLine.AddEssentialInfo(ref nl, "modifiers:" + node.Modifiers.ToString());
-      if (node.ExpressionBody != null)
-        OurLine.AddEssentialInfo(ref nl, "expressionBody:" + node.ExpressionBody.ToString());
 
-      nl.Source = node.ToFullString();
-      nl.ParentKind = node.Parent.RawKind;
-      nl.RawKind = node.RawKind;
-      LogCommand(nl);
-
-      base.VisitIndexerDeclaration(node);
-    }
     public override void VisitAttributeTargetSpecifier(AttributeTargetSpecifierSyntax node)
     {
       // not interested in supporting this!
