@@ -31,34 +31,26 @@ namespace CsDisplay
       }
     }
 
+
+
+
+
     public override void VisitAccessorDeclaration(AccessorDeclarationSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
       var nl = OurLine.NewLine(LineKind.Decl, "AccessorDeclaration");
       var stms = node?.Body?.Statements.Select((x) => x.ToString());
-      OurLine.AddEssentialInfo(ref nl, node.Keyword.Text);
+      OurLine.AddEssentialInfo(ref nl, "keyword:" + node.Keyword.Text);
       if (stms != null)
       {
         var statements = string.Join("###", stms);
-        OurLine.AddEssentialInfo(ref nl, statements);
+        OurLine.AddEssentialInfo(ref nl, "statements:" + statements);
       }
       nl.Source = node.ToFullString();
       // nl.ParentKind = node.Parent.RawKind;
       nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitAccessorDeclaration(node);
-    }
-    public override void VisitIfDirectiveTrivia(IfDirectiveTriviaSyntax node)
-    {
-      if (debug) Console.WriteLine(node.ToFullString());
-      Todo("IfDirectiveTrivia"); var nl = OurLine.NewLine(LineKind.Decl, "IfDirectiveTrivia");
-      nl.Source = node.ToFullString();
-      nl.ParentKind = node.Parent.RawKind;
-      nl.RawKind = node.RawKind;
-      LogCommand(nl);
-      Todo("IfDirectiveTrivia");
-
-      base.VisitIfDirectiveTrivia(node);
     }
 
     public override void VisitImplicitArrayCreationExpression(ImplicitArrayCreationExpressionSyntax node)
@@ -126,8 +118,8 @@ namespace CsDisplay
     {
       if (debug) Console.WriteLine(node.ToFullString());
       var nl = OurLine.NewLine(LineKind.Decl, "InitializerExpression");
-      OurLine.AddEssentialInfo(ref nl, node.Expressions.Count.ToString());
-      OurLine.AddEssentialInfo(ref nl, node.Expressions.ToString());
+      OurLine.AddEssentialInfo(ref nl, "count:" + node.Expressions.Count.ToString());
+      OurLine.AddEssentialInfo(ref nl, "expressions:" + node.Expressions.ToString());
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
       nl.RawKind = node.RawKind;
@@ -268,31 +260,8 @@ namespace CsDisplay
 
       base.VisitLetClause(node);
     }
-    public override void VisitLineDirectiveTrivia(LineDirectiveTriviaSyntax node)
-    {
-      if (debug) Console.WriteLine(node.ToFullString());
-      Todo("LineDirectiveTrivia"); var nl = OurLine.NewLine(LineKind.Decl, "LineDirectiveTrivia");
-      nl.Source = node.ToFullString();
-      nl.ParentKind = node.Parent.RawKind;
-      nl.RawKind = node.RawKind;
-      LogCommand(nl);
-      Todo("LineDirectiveTrivia");
 
-      base.VisitLineDirectiveTrivia(node);
-    }
 
-    public override void VisitLoadDirectiveTrivia(LoadDirectiveTriviaSyntax node)
-    {
-      if (debug) Console.WriteLine(node.ToFullString());
-      Todo("LoadDirectiveTrivia"); var nl = OurLine.NewLine(LineKind.Decl, "LoadDirectiveTrivia");
-      nl.Source = node.ToFullString();
-      nl.ParentKind = node.Parent.RawKind;
-      nl.RawKind = node.RawKind;
-      LogCommand(nl);
-      Todo("LoadDirectiveTrivia");
-
-      base.VisitLoadDirectiveTrivia(node);
-    }
 
     public override void VisitLocalFunctionStatement(LocalFunctionStatementSyntax node)
     {
@@ -306,18 +275,7 @@ namespace CsDisplay
 
       base.VisitLocalFunctionStatement(node);
     }
-    public override void VisitLockStatement(LockStatementSyntax node)
-    {
-      if (debug) Console.WriteLine(node.ToFullString());
-      Todo("LockStatement"); var nl = OurLine.NewLine(LineKind.Decl, "LockStatement");
-      nl.Source = node.ToFullString();
-      nl.ParentKind = node.Parent.RawKind;
-      nl.RawKind = node.RawKind;
-      LogCommand(nl);
-      Todo("LockStatement");
 
-      base.VisitLockStatement(node);
-    }
     public override void VisitMakeRefExpression(MakeRefExpressionSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
@@ -529,37 +487,14 @@ namespace CsDisplay
 
       base.VisitPostfixUnaryExpression(node);
     }
-    public override void VisitPragmaChecksumDirectiveTrivia(PragmaChecksumDirectiveTriviaSyntax node)
-    {
-      if (debug) Console.WriteLine(node.ToFullString());
-      Todo("PragmaChecksumDirectiveTrivia"); var nl = OurLine.NewLine(LineKind.Decl, "PragmaChecksumDirectiveTrivia");
-      nl.Source = node.ToFullString();
-      nl.ParentKind = node.Parent.RawKind;
-      nl.RawKind = node.RawKind;
-      LogCommand(nl);
-      Todo("PragmaChecksumDirectiveTrivia");
 
-      base.VisitPragmaChecksumDirectiveTrivia(node);
-    }
-    public override void VisitPragmaWarningDirectiveTrivia(PragmaWarningDirectiveTriviaSyntax node)
-    {
-      if (debug) Console.WriteLine(node.ToFullString());
-      Todo("PragmaWarningDirectiveTrivia"); var nl = OurLine.NewLine(LineKind.Decl, "PragmaWarningDirectiveTrivia");
-      nl.Source = node.ToFullString();
-      nl.ParentKind = node.Parent.RawKind;
-      nl.RawKind = node.RawKind;
-      LogCommand(nl);
-      Todo("PragmaWarningDirectiveTrivia");
-
-      base.VisitPragmaWarningDirectiveTrivia(node);
-    }
 
     public override void VisitPrefixUnaryExpression(PrefixUnaryExpressionSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
       var nl = OurLine.NewLine(LineKind.Decl, "PrefixUnaryExpression");
-      OurLine.AddEssentialInfo(ref nl, node.OperatorToken.ToString());
-      OurLine.AddEssentialInfo(ref nl, node.Operand.ToString());
+      OurLine.AddEssentialInfo(ref nl, "optoken:" + node.OperatorToken.ToString());
+      OurLine.AddEssentialInfo(ref nl, "operand:" + node.Operand.ToString());
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
       nl.RawKind = node.RawKind;
@@ -616,18 +551,7 @@ namespace CsDisplay
 
       base.VisitQueryExpression(node);
     }
-    public override void VisitReferenceDirectiveTrivia(ReferenceDirectiveTriviaSyntax node)
-    {
-      if (debug) Console.WriteLine(node.ToFullString());
-      Todo("ReferenceDirectiveTrivia"); var nl = OurLine.NewLine(LineKind.Decl, "ReferenceDirectiveTrivia");
-      nl.Source = node.ToFullString();
-      nl.ParentKind = node.Parent.RawKind;
-      nl.RawKind = node.RawKind;
-      LogCommand(nl);
-      Todo("ReferenceDirectiveTrivia");
 
-      base.VisitReferenceDirectiveTrivia(node);
-    }
     public override void VisitRefExpression(RefExpressionSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
@@ -690,18 +614,7 @@ namespace CsDisplay
 
       base.VisitSelectClause(node);
     }
-    public override void VisitShebangDirectiveTrivia(ShebangDirectiveTriviaSyntax node)
-    {
-      if (debug) Console.WriteLine(node.ToFullString());
-      Todo("ShebangDirectiveTrivia"); var nl = OurLine.NewLine(LineKind.Decl, "ShebangDirectiveTrivia");
-      nl.Source = node.ToFullString();
-      nl.ParentKind = node.Parent.RawKind;
-      nl.RawKind = node.RawKind;
-      LogCommand(nl);
-      Todo("ShebangDirectiveTrivia");
 
-      base.VisitShebangDirectiveTrivia(node);
-    }
 
     public override void VisitSimpleLambdaExpression(SimpleLambdaExpressionSyntax node)
     {
@@ -776,18 +689,6 @@ namespace CsDisplay
       base.VisitStructDeclaration(node);
     }
 
-    public override void VisitSwitchStatement(SwitchStatementSyntax node)
-    {
-      if (debug) Console.WriteLine(node.ToFullString());
-      Todo("SwitchStatement"); var nl = OurLine.NewLine(LineKind.Decl, "SwitchStatement");
-      nl.Source = node.ToFullString();
-      nl.ParentKind = node.Parent.RawKind;
-      nl.RawKind = node.RawKind;
-      LogCommand(nl);
-      Todo("SwitchStatement");
-
-      base.VisitSwitchStatement(node);
-    }
     public override void VisitThisExpression(ThisExpressionSyntax node)
     { // note: I already do that with methods, no need for special handling.
       if (debug) Console.WriteLine(node.ToFullString());
@@ -823,21 +724,6 @@ namespace CsDisplay
       Todo("ThrowStatement");
 
       base.VisitThrowStatement(node);
-    }
-    public override void VisitTryStatement(TryStatementSyntax node)
-    {
-      StartBlock("TryStatement");
-      if (debug) Console.WriteLine(node.ToFullString());
-      Todo("TryStatement"); var nl = OurLine.NewLine(LineKind.Decl, "TryStatement");
-      nl.Source = node.ToFullString();
-      nl.ParentKind = node.Parent.RawKind;
-      nl.RawKind = node.RawKind;
-      LogCommand(nl);
-      Todo("TryStatement");
-
-      base.VisitTryStatement(node);
-      EndBlock("TryStatement");
-
     }
     public override void VisitTupleElement(TupleElementSyntax node)
     {
@@ -919,7 +805,7 @@ namespace CsDisplay
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
       nl.RawKind = node.RawKind;
-      OurLine.AddEssentialInfo(ref nl, node.VarianceKeyword.ToString());
+      OurLine.AddEssentialInfo(ref nl, "varianceKeyword:" + node.VarianceKeyword.ToString());
 
       LogCommand(nl);
       base.VisitTypeParameter(node);
@@ -937,59 +823,9 @@ namespace CsDisplay
       base.VisitTypeParameterConstraintClause(node);
     }
 
-    public override void VisitUndefDirectiveTrivia(UndefDirectiveTriviaSyntax node)
-    {
-      if (debug) Console.WriteLine(node.ToFullString());
-      Todo("UndefDirectiveTrivia"); var nl = OurLine.NewLine(LineKind.Decl, "UndefDirectiveTrivia");
-      nl.Source = node.ToFullString();
-      nl.ParentKind = node.Parent.RawKind;
-      nl.RawKind = node.RawKind;
-      LogCommand(nl);
-      Todo("UndefDirectiveTrivia");
 
-      base.VisitUndefDirectiveTrivia(node);
-    }
-    public override void VisitUnsafeStatement(UnsafeStatementSyntax node)
-    {
-      if (debug) Console.WriteLine(node.ToFullString());
-      Todo("UnsafeStatement"); var nl = OurLine.NewLine(LineKind.Decl, "UnsafeStatement");
-      nl.Source = node.ToFullString();
-      nl.ParentKind = node.Parent.RawKind;
-      nl.RawKind = node.RawKind;
-      LogCommand(nl);
-      Todo("UnsafeStatement");
 
-      base.VisitUnsafeStatement(node);
-    }
 
-    public override void VisitUsingStatement(UsingStatementSyntax node)
-    {
-      StartBlock("UsingStatement");
-      if (debug) Console.WriteLine(node.ToFullString());
-      Todo("UsingStatement"); var nl = OurLine.NewLine(LineKind.Decl, "UsingStatement");
-      nl.Source = node.ToFullString();
-      nl.ParentKind = node.Parent.RawKind;
-      nl.RawKind = node.RawKind;
-      LogCommand(nl);
-      Todo("UsingStatement");
-
-      base.VisitUsingStatement(node);
-      EndBlock("UsingStatement");
-
-    }
-
-    public override void VisitWarningDirectiveTrivia(WarningDirectiveTriviaSyntax node)
-    {
-      if (debug) Console.WriteLine(node.ToFullString());
-      Todo("WarningDirectiveTrivia"); var nl = OurLine.NewLine(LineKind.Decl, "WarningDirectiveTrivia");
-      nl.Source = node.ToFullString();
-      nl.ParentKind = node.Parent.RawKind;
-      nl.RawKind = node.RawKind;
-      LogCommand(nl);
-      Todo("WarningDirectiveTrivia");
-
-      base.VisitWarningDirectiveTrivia(node);
-    }
     public override void VisitWhenClause(WhenClauseSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
@@ -1014,18 +850,7 @@ namespace CsDisplay
 
       base.VisitWhereClause(node);
     }
-    public override void VisitWhileStatement(WhileStatementSyntax node)
-    {
-      if (debug) Console.WriteLine(node.ToFullString());
-      Todo("WhileStatement"); var nl = OurLine.NewLine(LineKind.Decl, "WhileStatement");
-      nl.Source = node.ToFullString();
-      nl.ParentKind = node.Parent.RawKind;
-      nl.RawKind = node.RawKind;
-      LogCommand(nl);
-      Todo("WhileStatement");
 
-      base.VisitWhileStatement(node);
-    }
 
     public override void VisitYieldStatement(YieldStatementSyntax node)
     {
@@ -1044,7 +869,7 @@ namespace CsDisplay
     {
       if (debug) Console.WriteLine(node.ToFullString());
       var nl = OurLine.NewLine(LineKind.Decl, "AccessorList");
-      OurLine.AddEssentialInfo(ref nl, node.Accessors.ToString());
+      OurLine.AddEssentialInfo(ref nl, "accessors:" + node.Accessors.ToString());
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
       nl.RawKind = node.RawKind;
@@ -1151,16 +976,7 @@ namespace CsDisplay
       base.VisitAwaitExpression(node);
     }
 
-    public override void VisitBadDirectiveTrivia(BadDirectiveTriviaSyntax node)
-    {
-      if (debug) Console.WriteLine(node.ToFullString());
-      Todo("BadDirectiveTrivia"); var nl = OurLine.NewLine(LineKind.Decl, "BadDirectiveTrivia");
-      nl.Source = node.ToFullString();
-      nl.ParentKind = node.Parent.RawKind;
-      nl.RawKind = node.RawKind;
-      LogCommand(nl);
-      base.VisitBadDirectiveTrivia(node);
-    }
+
 
     public override void VisitBaseExpression(BaseExpressionSyntax node)
     {
@@ -1190,7 +1006,7 @@ namespace CsDisplay
     {
       if (debug) Console.WriteLine(node.ToFullString());
       var nl = OurLine.NewLine(LineKind.Decl, "BracketedArgumentList");
-      OurLine.AddEssentialInfo(ref nl, node.Arguments.ToString());
+      OurLine.AddEssentialInfo(ref nl, "arguments:" + node.Arguments.ToString());
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
       nl.RawKind = node.RawKind;
@@ -1203,7 +1019,7 @@ namespace CsDisplay
       if (debug) Console.WriteLine(node.ToFullString());
       var nl = OurLine.NewLine(LineKind.Decl, "BracketedParameterList");
       nl.Source = node.ToFullString();
-      OurLine.AddEssentialInfo(ref nl, node.Parameters.ToString());
+      OurLine.AddEssentialInfo(ref nl, "parameters:" + node.Parameters.ToString());
       nl.ParentKind = node.Parent.RawKind;
       nl.RawKind = node.RawKind;
       LogCommand(nl);
@@ -1298,16 +1114,6 @@ namespace CsDisplay
       base.VisitCheckedExpression(node);
     }
 
-    public override void VisitCheckedStatement(CheckedStatementSyntax node)
-    {
-      if (debug) Console.WriteLine(node.ToFullString());
-      Todo("CheckedStatement"); var nl = OurLine.NewLine(LineKind.Decl, "CheckedStatement");
-      nl.Source = node.ToFullString();
-      nl.ParentKind = node.Parent.RawKind;
-      nl.RawKind = node.RawKind;
-      LogCommand(nl);
-      base.VisitCheckedStatement(node);
-    }
 
     public override void VisitClassOrStructConstraint(ClassOrStructConstraintSyntax node)
     {
@@ -1490,16 +1296,6 @@ namespace CsDisplay
       base.VisitDefaultSwitchLabel(node);
     }
 
-    public override void VisitDefineDirectiveTrivia(DefineDirectiveTriviaSyntax node)
-    {
-      if (debug) Console.WriteLine(node.ToFullString());
-      Todo("DefineDirectiveTrivia"); var nl = OurLine.NewLine(LineKind.Decl, "DefineDirectiveTrivia");
-      nl.Source = node.ToFullString();
-      nl.ParentKind = node.Parent.RawKind;
-      nl.RawKind = node.RawKind;
-      LogCommand(nl);
-      base.VisitDefineDirectiveTrivia(node);
-    }
 
     public override void VisitDelegateDeclaration(DelegateDeclarationSyntax node)
     {
@@ -1556,16 +1352,6 @@ namespace CsDisplay
       base.VisitDocumentationCommentTrivia(node);
     }
 
-    public override void VisitDoStatement(DoStatementSyntax node)
-    {
-      if (debug) Console.WriteLine(node.ToFullString());
-      Todo("DoStatement"); var nl = OurLine.NewLine(LineKind.Decl, "DoStatement");
-      nl.Source = node.ToFullString();
-      nl.ParentKind = node.Parent.RawKind;
-      nl.RawKind = node.RawKind;
-      LogCommand(nl);
-      base.VisitDoStatement(node);
-    }
 
     public override void VisitElementAccessExpression(ElementAccessExpressionSyntax node)
     {
@@ -1589,38 +1375,9 @@ namespace CsDisplay
       base.VisitElementBindingExpression(node);
     }
 
-    public override void VisitElifDirectiveTrivia(ElifDirectiveTriviaSyntax node)
-    {
-      if (debug) Console.WriteLine(node.ToFullString());
-      Todo("ElifDirectiveTrivia"); var nl = OurLine.NewLine(LineKind.Decl, "ElifDirectiveTrivia");
-      nl.Source = node.ToFullString();
-      nl.ParentKind = node.Parent.RawKind;
-      nl.RawKind = node.RawKind;
-      LogCommand(nl);
-      base.VisitElifDirectiveTrivia(node);
-    }
 
-    public override void VisitElseClause(ElseClauseSyntax node)
-    {
-      if (debug) Console.WriteLine(node.ToFullString());
-      Todo("ElseClause"); var nl = OurLine.NewLine(LineKind.Decl, "ElseClause");
-      nl.Source = node.ToFullString();
-      nl.ParentKind = node.Parent.RawKind;
-      nl.RawKind = node.RawKind;
-      LogCommand(nl);
-      base.VisitElseClause(node);
-    }
 
-    public override void VisitElseDirectiveTrivia(ElseDirectiveTriviaSyntax node)
-    {
-      if (debug) Console.WriteLine(node.ToFullString());
-      Todo("ElseDirectiveTrivia"); var nl = OurLine.NewLine(LineKind.Decl, "ElseDirectiveTrivia");
-      nl.Source = node.ToFullString();
-      nl.ParentKind = node.Parent.RawKind;
-      nl.RawKind = node.RawKind;
-      LogCommand(nl);
-      base.VisitElseDirectiveTrivia(node);
-    }
+
 
     public override void VisitEmptyStatement(EmptyStatementSyntax node)
     {
@@ -1633,28 +1390,6 @@ namespace CsDisplay
       base.VisitEmptyStatement(node);
     }
 
-    public override void VisitEndIfDirectiveTrivia(EndIfDirectiveTriviaSyntax node)
-    {
-      if (debug) Console.WriteLine(node.ToFullString());
-      Todo("EndIfDirectiveTrivia"); var nl = OurLine.NewLine(LineKind.Decl, "EndIfDirectiveTrivia");
-      nl.Source = node.ToFullString();
-      nl.ParentKind = node.Parent.RawKind;
-      nl.RawKind = node.RawKind;
-      LogCommand(nl);
-      base.VisitEndIfDirectiveTrivia(node);
-    }
-
-    public override void VisitEndRegionDirectiveTrivia(EndRegionDirectiveTriviaSyntax node)
-    {
-      if (debug) Console.WriteLine(node.ToFullString());
-      Todo("EndRegionDirectiveTrivia"); var nl = OurLine.NewLine(LineKind.Decl, "EndRegionDirectiveTrivia");
-      nl.Source = node.ToFullString();
-      nl.ParentKind = node.Parent.RawKind;
-      nl.RawKind = node.RawKind;
-      LogCommand(nl);
-      base.VisitEndRegionDirectiveTrivia(node);
-    }
-
 
 
 
@@ -1663,7 +1398,7 @@ namespace CsDisplay
       if (debug) Console.WriteLine(node.ToFullString());
       // Todo("EqualsValueClause");
       var nl = OurLine.NewLine(LineKind.Decl, "EqualsValueClause");
-      OurLine.AddEssentialInfo(ref nl, node.Value.ToString());
+      OurLine.AddEssentialInfo(ref nl, "value:" + node.Value.ToString());
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
       nl.RawKind = node.RawKind;
@@ -1671,16 +1406,7 @@ namespace CsDisplay
       base.VisitEqualsValueClause(node);
     }
 
-    public override void VisitErrorDirectiveTrivia(ErrorDirectiveTriviaSyntax node)
-    {
-      if (debug) Console.WriteLine(node.ToFullString());
-      Todo("ErrorDirectiveTrivia"); var nl = OurLine.NewLine(LineKind.Decl, "ErrorDirectiveTrivia");
-      nl.Source = node.ToFullString();
-      nl.ParentKind = node.Parent.RawKind;
-      nl.RawKind = node.RawKind;
-      LogCommand(nl);
-      base.VisitErrorDirectiveTrivia(node);
-    }
+
 
     public override void VisitEventDeclaration(EventDeclarationSyntax node)
     {
@@ -1706,60 +1432,8 @@ namespace CsDisplay
 
 
 
-    public override void VisitExternAliasDirective(ExternAliasDirectiveSyntax node)
-    {
-      if (debug) Console.WriteLine(node.ToFullString());
-      if (debug) Console.WriteLine(node.ToString());
 
-      Todo("ExternAliasDirective");
 
-      var nl = OurLine.NewLine(LineKind.Decl, "ExternAliasDirective");
-
-      nl.Source = node.ToFullString();
-      nl.ParentKind = node.Parent.RawKind;
-      nl.RawKind = node.RawKind;
-      LogCommand(nl);
-      base.VisitExternAliasDirective(node);
-    }
-
-    public override void VisitFinallyClause(FinallyClauseSyntax node)
-    {
-      StartBlock("FinallyClause");
-      if (debug) Console.WriteLine(node.ToFullString());
-      Todo("FinallyClause"); var nl = OurLine.NewLine(LineKind.Decl, "FinallyClause");
-      nl.Source = node.ToFullString();
-      nl.ParentKind = node.Parent.RawKind;
-      nl.RawKind = node.RawKind;
-      LogCommand(nl);
-      base.VisitFinallyClause(node);
-      EndBlock("FinallyClause");
-
-    }
-
-    public override void VisitFixedStatement(FixedStatementSyntax node)
-    {
-      if (debug) Console.WriteLine(node.ToFullString());
-      Todo("FixedStatement"); var nl = OurLine.NewLine(LineKind.Decl, "FixedStatement");
-      nl.Source = node.ToFullString();
-      nl.ParentKind = node.Parent.RawKind;
-      nl.RawKind = node.RawKind;
-      LogCommand(nl);
-      base.VisitFixedStatement(node);
-    }
-
-    public override void VisitForEachStatement(ForEachStatementSyntax node)
-    {
-      StartBlock("ForEachStatement");
-      if (debug) Console.WriteLine(node.ToFullString());
-      Todo("ForEachStatement"); var nl = OurLine.NewLine(LineKind.Decl, "ForEachStatement");
-      nl.Source = node.ToFullString();
-      nl.ParentKind = node.Parent.RawKind;
-      nl.RawKind = node.RawKind;
-      LogCommand(nl);
-      base.VisitForEachStatement(node);
-      EndBlock("ForEachStatement");
-
-    }
 
     public override void VisitForEachVariableStatement(ForEachVariableStatementSyntax node)
     {
@@ -1845,23 +1519,12 @@ namespace CsDisplay
       if (debug) Console.WriteLine(node.ToFullString());
       var nl = OurLine.NewLine(LineKind.Decl, "MemberAccessExpression");
       nl.Source = node.ToFullString();
-      OurLine.AddEssentialInfo(ref nl, node.Name.ToString());
-      OurLine.AddEssentialInfo(ref nl, node.Expression.ToString());
+      OurLine.AddEssentialInfo(ref nl, "name:" + node.Name.ToString());
+      OurLine.AddEssentialInfo(ref nl, "expression:" + node.Expression.ToString());
       nl.ParentKind = node.Parent.RawKind;
       nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitMemberAccessExpression(node);
-    }
-
-    public override void VisitNullableDirectiveTrivia(NullableDirectiveTriviaSyntax node)
-    {
-      if (debug) Console.WriteLine(node.ToFullString());
-      Todo("NullableDirectiveTrivia"); var nl = OurLine.NewLine(LineKind.Decl, "NullableDirectiveTrivia");
-      nl.Source = node.ToFullString();
-      nl.ParentKind = node.Parent.RawKind;
-      nl.RawKind = node.RawKind;
-      LogCommand(nl);
-      base.VisitNullableDirectiveTrivia(node);
     }
 
 
@@ -1870,7 +1533,7 @@ namespace CsDisplay
     {
       if (debug) Console.WriteLine(node.ToFullString());
       var nl = OurLine.NewLine(LineKind.Decl, "ParameterList");
-      OurLine.AddEssentialInfo(ref nl, node.Parameters.ToString());
+      OurLine.AddEssentialInfo(ref nl, "parameters:" + node.Parameters.ToString());
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
       nl.RawKind = node.RawKind;
@@ -1955,16 +1618,7 @@ namespace CsDisplay
       base.VisitRecursivePattern(node);
     }
 
-    public override void VisitRegionDirectiveTrivia(RegionDirectiveTriviaSyntax node)
-    {
-      if (debug) Console.WriteLine(node.ToFullString());
-      Todo("RegionDirectiveTrivia"); var nl = OurLine.NewLine(LineKind.Decl, "RegionDirectiveTrivia");
-      nl.Source = node.ToFullString();
-      nl.ParentKind = node.Parent.RawKind;
-      nl.RawKind = node.RawKind;
-      LogCommand(nl);
-      base.VisitRegionDirectiveTrivia(node);
-    }
+
 
     public override void VisitRelationalPattern(RelationalPatternSyntax node)
     {
@@ -2037,7 +1691,7 @@ namespace CsDisplay
     {
       if (debug) Console.WriteLine(node.ToFullString());
       var nl = OurLine.NewLine(LineKind.Decl, "VariableDeclarator");
-      OurLine.AddEssentialInfo(ref nl, node.Identifier.ToString());
+      OurLine.AddEssentialInfo(ref nl, "name:" + node.Identifier.ToString());
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
       nl.RawKind = node.RawKind;

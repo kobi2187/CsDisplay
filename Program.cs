@@ -45,26 +45,55 @@ namespace CsDisplay
       // var reAnnotation = new Regex(@"^\s*\n*\[(\w+:)?\s*\n*([\w.]+(\(.*?\))?\s*,?\s*)+\s*\n*\]\s*$", RegexOptions.Multiline | RegexOptions.Compiled); // Remove annotations.
       // var reAnnotation = new Regex(@"^\s*\n*\[(\w+:)?\s*\n*([\w.]+(\(.*?\))?\s*,?\s*)+\s*\n*\]\s*$", RegexOptions.Multiline | RegexOptions.Compiled); // Remove annotations.
       var reAnnotation = new Regex(@"^\s*\[.*?\]\s*$", RegexOptions.Multiline); // Remove annotations.
+      var reAnnotationMulti = new Regex(@"^\s*\[.*?\]", RegexOptions.Singleline | RegexOptions.Multiline); // Remove annotations.
+      var reInnerAnnotation = new Regex(@"\[[A-Z].*?\]", RegexOptions.Multiline);
       var reLinecomment = new Regex(@"(?m)//.*$", RegexOptions.Multiline);
       var reMultiLineComment = new Regex(@"(?s)/\*.*?\*/");
-      var reAssemblyLine = new Regex(@"\[assembly:.*(\n+.*)+\]");
+      var reAssemblyLine = new Regex(@"^\[assembly:(.*\n?)+\]", RegexOptions.Multiline);
+      // var reAssemblyLine = new Regex(@"^\s*\[assembly:(.*\n?)+\]");
+
 
       var content = File.ReadAllText(f);
       System.Console.WriteLine(content.Length);
+
+      if (content.Contains("[assembly:") && Regex.IsMatch(content, @"^\s*\[assembly:"))
+      {
+        // content = reAssemblyLine.Replace(content, "");
+        int b = -1;
+        int idx = -1;
+        do
+        {
+          idx = content.IndexOf("[assembly:", 0);
+          if (idx >= 0)
+          {
+            b = content.IndexOf("]\n", idx);
+            if (b >= 0)
+            {
+              var str = content.Substring(idx, b - idx + 1);
+              System.Console.WriteLine("removing assembly line annotation!");
+              content = content.Replace(str, "");
+            }
+          }
+        } while (idx >= 0 && b >= 0);
+      }
       if (content.Contains("[") && content.Contains("]") && new Regex(@"^\s*\[", RegexOptions.Multiline).IsMatch(content) && reAnnotation.IsMatch(content))
       {
         System.Console.WriteLine("removing Annotation!");
         content = reAnnotation.Replace(content, "");
-      }
-
-      if (reAssemblyLine.IsMatch(content))
-      {
-        System.Console.WriteLine("removing assembly line annotation!");
-        content = reAssemblyLine.Replace(content, "");
-
         // System.Console.WriteLine(content);
       }
-
+      if (reAnnotationMulti.IsMatch(content))
+      {
+        System.Console.WriteLine("trying to remove multi-line Annotation!");
+        content = reAnnotationMulti.Replace(content, "");
+        // System.Console.WriteLine(content);
+      }
+      if (reInnerAnnotation.IsMatch(content))
+      {
+        System.Console.WriteLine("trying to remove inner annotation");
+        content = reInnerAnnotation.Replace(content, "");
+        System.Console.WriteLine(content);
+      }
       System.Console.WriteLine(content.Length);
       if (content.Contains("//"))
         content = reLinecomment.Replace(content, "").Trim();
