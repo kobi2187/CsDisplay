@@ -740,11 +740,13 @@ namespace CsDisplay
     public override void VisitTypeParameter(TypeParameterSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
+
       var nl = OurLine.NewLine(LineKind.Decl, "TypeParameter");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
       nl.RawKind = node.RawKind;
       OurLine.AddEssentialInfo(ref nl, "varianceKeyword:" + node.VarianceKeyword.ToString());
+      OurLine.AddEssentialInfo(ref nl, "identifier:" + node.Identifier.Text);
 
       LogCommand(nl);
       base.VisitTypeParameter(node);
@@ -1422,6 +1424,7 @@ namespace CsDisplay
       var nl = OurLine.NewLine(LineKind.Decl, "MemberAccessExpression");
       nl.Source = node.ToFullString();
       OurLine.AddEssentialInfo(ref nl, "name:" + node.Name.ToString());
+      OurLine.AddEssentialInfo(ref nl, "optoken:" + node.OperatorToken.ToString());
       OurLine.AddEssentialInfo(ref nl, "expression:" + node.Expression.ToString());
       nl.ParentKind = node.Parent.RawKind;
       nl.RawKind = node.RawKind;

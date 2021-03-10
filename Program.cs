@@ -44,9 +44,10 @@ namespace CsDisplay
 
       // var reAnnotation = new Regex(@"^\s*\n*\[(\w+:)?\s*\n*([\w.]+(\(.*?\))?\s*,?\s*)+\s*\n*\]\s*$", RegexOptions.Multiline | RegexOptions.Compiled); // Remove annotations.
       // var reAnnotation = new Regex(@"^\s*\n*\[(\w+:)?\s*\n*([\w.]+(\(.*?\))?\s*,?\s*)+\s*\n*\]\s*$", RegexOptions.Multiline | RegexOptions.Compiled); // Remove annotations.
-      var reAnnotation = new Regex(@"^\s*\[.*?\]\s*$", RegexOptions.Multiline); // Remove annotations.
-      var reAnnotationMulti = new Regex(@"^\s*\[.*?\]", RegexOptions.Singleline | RegexOptions.Multiline); // Remove annotations.
-      var reInnerAnnotation = new Regex(@"\[[A-Z].*?\]", RegexOptions.Multiline);
+      var reAnnotation = new Regex(@"^\s*\[[A-Z].*?\]\s*$", RegexOptions.Multiline); // Remove annotations.
+      var reAnnotationMulti = new Regex(@"^\s*\[[A-Z].*?\]", RegexOptions.Singleline | RegexOptions.Multiline); // Remove annotations.
+      // var reInnerAnnotation = new Regex(@"\[[A-Z].*?\]", RegexOptions.Multiline);
+
       var reLinecomment = new Regex(@"(?m)//.*$", RegexOptions.Multiline);
       var reMultiLineComment = new Regex(@"(?s)/\*.*?\*/");
       var reAssemblyLine = new Regex(@"^\[assembly:(.*\n?)+\]", RegexOptions.Multiline);
@@ -56,8 +57,11 @@ namespace CsDisplay
       var content = File.ReadAllText(f);
       System.Console.WriteLine(content.Length);
 
-      if (content.Contains("[assembly:") && Regex.IsMatch(content, @"^\s*\[assembly:"))
+      if (content.Contains("[assembly:")) //&& Regex.IsMatch(content, @"^\s*\[assembly:", RegexOptions.Multiline))
       {
+        System.Console.WriteLine("FOUND IT!");
+        // [assembly: SuppressMessage("Microsoft.Design", "CA1020:AvoidNamespacesWithFewTypes", Scope = "namespace", Target = "ConfigR.Tests.Smoke.Service.Logging")]
+
         // content = reAssemblyLine.Replace(content, "");
         int b = -1;
         int idx = -1;
@@ -66,10 +70,15 @@ namespace CsDisplay
           idx = content.IndexOf("[assembly:", 0);
           if (idx >= 0)
           {
-            b = content.IndexOf("]\n", idx);
+
+            b = content.IndexOf("]\r", idx);
+            if (b == -1)
+              b = content.IndexOf("]\n", idx);
+
             if (b >= 0)
             {
               var str = content.Substring(idx, b - idx + 1);
+              System.Console.WriteLine("ASSEMBLY annotation!:" + str);
               System.Console.WriteLine("removing assembly line annotation!");
               content = content.Replace(str, "");
             }
@@ -88,12 +97,13 @@ namespace CsDisplay
         content = reAnnotationMulti.Replace(content, "");
         // System.Console.WriteLine(content);
       }
-      if (reInnerAnnotation.IsMatch(content))
-      {
-        System.Console.WriteLine("trying to remove inner annotation");
-        content = reInnerAnnotation.Replace(content, "");
-        System.Console.WriteLine(content);
-      }
+      // TODO: it also removed valid indexers. need to match on a capture group i think. for now, handle it manually.:
+      // if (reInnerAnnotation.IsMatch(content))
+      // {
+      //   System.Console.WriteLine("trying to remove inner annotation");
+      //   content = reInnerAnnotation.Replace(content, "");
+      //   System.Console.WriteLine(content);
+      // }
       System.Console.WriteLine(content.Length);
       if (content.Contains("//"))
         content = reLinecomment.Replace(content, "").Trim();
@@ -103,10 +113,13 @@ namespace CsDisplay
       Debug.Assert(!content.Contains("//"));
       Debug.Assert(!content.Contains("/*"));
       Debug.Assert(!content.Contains("*/"));
+
+      File.WriteAllText(Path.ChangeExtension(f, ".precs"), content);
+
       SyntaxTree tree = CSharpSyntaxTree.ParseText(content);
       var cs = new VisitCSharp(f);
       var root = (CompilationUnitSyntax)tree.GetRoot();
-      var a = root.DescendantNodes();
+      // var a = root.DescendantNodes();
 
       cs.Visit(root);
       cs.Finish();
@@ -119,7 +132,12 @@ namespace CsDisplay
       }
       else
       {
-        File.WriteAllText(Path.ChangeExtension(f, "csast"), cs.sb.ToString());
+        var newfile = Path.ChangeExtension(f, "csast");
+        if (File.Exists(newfile))
+        {
+          File.Delete(newfile);
+        }
+        File.WriteAllText(newfile, cs.sb.ToString());
       }
       if (!dir) ReportTodo(cs.counter);
     }
@@ -151,6 +169,7 @@ namespace CsDisplay
         return;
       }
       var file = args[0];
+
       if (Directory.Exists(file))
       {
         var dir = file;
@@ -160,14 +179,11 @@ namespace CsDisplay
         // list.Sort((string a, string b) => a.ToLower().CompareTo(b.ToLower()));
         Program.dir = true;
       }
-      else if (File.Exists(file))
-      {
-        list.Add(file);
-
-      }
+      else if (File.Exists(file) && file.EndsWith(".cs"))
+      { list.Add(file); }
       else
       {
-        System.Console.WriteLine("File doesn't exist");
+        System.Console.WriteLine("cannot find the .cs file");
         return;
       }
       int x = 0;

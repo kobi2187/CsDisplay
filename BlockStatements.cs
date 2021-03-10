@@ -91,6 +91,7 @@ namespace CsDisplay
       var nl = OurLine.NewLine(LineKind.Decl, "EnumDeclaration");
       nl.Source = node.ToFullString();
       OurLine.AddEssentialInfo(ref nl, "name:" + node.Identifier.Text.ToString());
+      OurLine.AddEssentialInfo(ref nl, "modifiers:" + node.Modifiers.ToString());
       // System.Console.WriteLine(nl);
       nl.ParentKind = node.Parent.RawKind;
       nl.RawKind = node.RawKind;
@@ -226,7 +227,10 @@ namespace CsDisplay
     public override void VisitTryStatement(TryStatementSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      Todo("TryStatement"); var nl = OurLine.NewLine(LineKind.Decl, "TryStatement");
+      var nl = OurLine.NewLine(LineKind.Decl, "TryStatement");
+      if (node.Finally != null) OurLine.AddEssentialInfo(ref nl, "finally:" + node.Finally.ToString());
+      if (node.Catches != null) OurLine.AddEssentialInfo(ref nl, "catches:" + node.Catches.ToString());
+      // we get the details later on.
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
       nl.RawKind = node.RawKind;
@@ -346,7 +350,6 @@ namespace CsDisplay
       nl.ParentKind = node.Parent.RawKind;
       nl.RawKind = node.RawKind;
       LogCommand(nl);
-      Todo("SwitchStatement");
 
       StartBlock("SwitchStatement");
       base.VisitSwitchStatement(node);
@@ -376,6 +379,9 @@ namespace CsDisplay
         var statements = string.Join("###", stms);
         OurLine.AddEssentialInfo(ref nl, "statements:" + statements);
       }
+
+      OurLine.AddEssentialInfo(ref nl, "modifiers:" + node.Modifiers.ToString());
+      OurLine.AddEssentialInfo(ref nl, "expressionBody:" + node.ExpressionBody?.ToString() ?? "");
       nl.Source = node.ToFullString();
       // nl.ParentKind = node.Parent.RawKind;
       nl.RawKind = node.RawKind;
@@ -391,6 +397,7 @@ namespace CsDisplay
       var nl = OurLine.NewLine(LineKind.Decl, "ConstructorDeclaration");
       nl.Source = node.ToFullString();
       OurLine.AddEssentialInfo(ref nl, "name:" + node.Identifier.Text);
+      OurLine.AddEssentialInfo(ref nl, "modifiers:" + node.Modifiers.ToString());
       nl.ParentKind = node.Parent.RawKind;
       nl.RawKind = node.RawKind;
       LogCommand(nl);

@@ -67,6 +67,7 @@ namespace CsDisplay
       if (debug) Console.WriteLine(node.ToFullString());
       var nl = OurLine.NewLine(LineKind.Decl, "ObjectCreationExpression");
       OurLine.AddEssentialInfo(ref nl, "type:" + node.Type.ToString());
+      // # the rest come later. (i think)
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
       nl.RawKind = node.RawKind;
@@ -146,6 +147,7 @@ namespace CsDisplay
       if (debug) Console.WriteLine(node.ToFullString());
       var nl = OurLine.NewLine(LineKind.Decl, "UsingDirective");
       OurLine.AddEssentialInfo(ref nl, "name:" + name);
+      OurLine.AddEssentialInfo(ref nl, "staticKeyword:" + node.StaticKeyword.Text);
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
       nl.RawKind = node.RawKind;
