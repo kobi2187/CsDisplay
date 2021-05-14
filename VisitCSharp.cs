@@ -18,7 +18,7 @@ namespace CsDisplay
 
   partial class VisitCSharp : CSharpSyntaxWalker
   {
-    const bool debug = Prefs.debug;
+    static readonly bool debug = Prefs.debug;
     static int blockCount = 0;
 
     public void LogCommand(OurLine line)

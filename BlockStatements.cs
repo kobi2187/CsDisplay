@@ -64,6 +64,21 @@ namespace CsDisplay
       EndBlock("ForStatement");
 
     }
+
+
+    public override void VisitLocalFunctionStatement(LocalFunctionStatementSyntax node)
+    {
+      if (debug) Console.WriteLine(node.ToFullString());
+      Todo("LocalFunctionStatement"); var nl = OurLine.NewLine(LineKind.Decl, "LocalFunctionStatement");
+      nl.Source = node.ToFullString();
+      nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
+      LogCommand(nl);
+      Todo("LocalFunctionStatement");
+      StartBlock("LocalFunctionStatement");
+      base.VisitLocalFunctionStatement(node);
+      EndBlock("LocalFunctionStatement");
+    }
     public override void VisitIfStatement(IfStatementSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());

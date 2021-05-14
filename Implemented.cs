@@ -15,6 +15,20 @@ namespace CsDisplay
   {
 
 
+    public override void VisitConditionalExpression(ConditionalExpressionSyntax node)
+    {
+      if (debug) Console.WriteLine(node.ToFullString());
+      // Todo("ConditionalExpression");
+      var nl = OurLine.NewLine(LineKind.Decl, "ConditionalExpression");
+      OurLine.AddEssentialInfo(ref nl, "condition:" + node.Condition.ToString());
+      OurLine.AddEssentialInfo(ref nl, "whentrue:" + node.WhenTrue.ToString());
+      OurLine.AddEssentialInfo(ref nl, "whenfalse:" + node.WhenFalse.ToString());
+      nl.Source = node.ToFullString();
+      nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
+      LogCommand(nl);
+      base.VisitConditionalExpression(node);
+    }
     public override void VisitBinaryExpression(BinaryExpressionSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
@@ -139,6 +153,19 @@ namespace CsDisplay
       nl.RawKind = node.RawKind;
       LogCommand(nl);
       base.VisitFieldDeclaration(node);
+    }
+    public override void VisitCastExpression(CastExpressionSyntax node)
+    {
+      if (debug) Console.WriteLine(node.ToFullString());
+      // Todo("CastExpression");
+      var nl = OurLine.NewLine(LineKind.Decl, "CastExpression");
+      nl.Source = node.ToFullString();
+      nl.ParentKind = node.Parent.RawKind;
+      nl.RawKind = node.RawKind;
+      OurLine.AddEssentialInfo(ref nl, "type:" + node.Type.ToString());
+      OurLine.AddEssentialInfo(ref nl, "expr:" + node.Expression.ToString());
+      LogCommand(nl);
+      base.VisitCastExpression(node);
     }
 
     public override void VisitUsingDirective(UsingDirectiveSyntax node)
@@ -356,10 +383,10 @@ namespace CsDisplay
       if (debug) Console.WriteLine(node.ToFullString());
       var nl = OurLine.NewLine(LineKind.Decl, "GenericName");
       nl.Source = node.ToFullString();
-      OurLine.AddEssentialInfo(ref nl, node.Arity.ToString());
-      OurLine.AddEssentialInfo(ref nl, node.Identifier.ToString());
-      OurLine.AddEssentialInfo(ref nl, node.TypeArgumentList.ToString());
-      OurLine.AddEssentialInfo(ref nl, node.TypeArgumentList.Arguments.ToString());
+      OurLine.AddEssentialInfo(ref nl, "arity:" + node.Arity.ToString());
+      OurLine.AddEssentialInfo(ref nl, "identifier:" + node.Identifier.ToString());
+      OurLine.AddEssentialInfo(ref nl, "typeArgumentList:" + node.TypeArgumentList.ToString());
+      OurLine.AddEssentialInfo(ref nl, "typeArgumentListArgs:" + node.TypeArgumentList.Arguments.ToString());
 
       nl.ParentKind = node.Parent.RawKind;
       nl.RawKind = node.RawKind;

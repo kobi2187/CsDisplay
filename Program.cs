@@ -44,18 +44,23 @@ namespace CsDisplay
 
       // var reAnnotation = new Regex(@"^\s*\n*\[(\w+:)?\s*\n*([\w.]+(\(.*?\))?\s*,?\s*)+\s*\n*\]\s*$", RegexOptions.Multiline | RegexOptions.Compiled); // Remove annotations.
       // var reAnnotation = new Regex(@"^\s*\n*\[(\w+:)?\s*\n*([\w.]+(\(.*?\))?\s*,?\s*)+\s*\n*\]\s*$", RegexOptions.Multiline | RegexOptions.Compiled); // Remove annotations.
-      var reAnnotation = new Regex(@"^\s*\[[A-Z].*?\]\s*$", RegexOptions.Multiline); // Remove annotations.
+      // var reAnnotation = new Regex(@"^\s*\[[A-Z].*?\]\s*$", RegexOptions.Multiline); // Remove annotations.
+      var reAnnotation = new Regex(@"^\s*\[[A-Za-z].*?\]\s*$", RegexOptions.Multiline); // Remove annotations.
       var reAnnotationMulti = new Regex(@"^\s*\[[A-Z].*?\]", RegexOptions.Singleline | RegexOptions.Multiline); // Remove annotations.
-      // var reInnerAnnotation = new Regex(@"\[[A-Z].*?\]", RegexOptions.Multiline);
+      var reInnerAnnotation = new Regex(@"(?<=(,|\(|\s+))\[[A-Z].*?\]", RegexOptions.Multiline);
+      // var reInnerAnnotation = new Regex(@"(?<=(,|\(|\s+))\[[A-Z]\w+\s*(\([\w\d]+\))?\]", RegexOptions.Multiline);
 
       var reLinecomment = new Regex(@"(?m)//.*$", RegexOptions.Multiline);
       var reMultiLineComment = new Regex(@"(?s)/\*.*?\*/");
-      var reAssemblyLine = new Regex(@"^\[assembly:(.*\n?)+\]", RegexOptions.Multiline);
+      var reAssemblyLine = new Regex(@"^\s*\[assembly\s*:.*?\]$", RegexOptions.Multiline);
+      // var reModuleLine = new Regex(@"^\s*\[module\s*:.*?\]$", RegexOptions.Multiline);
+
       // var reAssemblyLine = new Regex(@"^\s*\[assembly:(.*\n?)+\]");
 
 
       var content = File.ReadAllText(f);
       System.Console.WriteLine(content.Length);
+      var count = 0;
 
       if (content.Contains("[assembly:")) //&& Regex.IsMatch(content, @"^\s*\[assembly:", RegexOptions.Multiline))
       {
@@ -64,7 +69,7 @@ namespace CsDisplay
 
         // content = reAssemblyLine.Replace(content, "");
         int b = -1;
-        int idx = -1;
+        int idx;// = -1;
         do
         {
           idx = content.IndexOf("[assembly:", 0);
@@ -74,6 +79,8 @@ namespace CsDisplay
             b = content.IndexOf("]\r", idx);
             if (b == -1)
               b = content.IndexOf("]\n", idx);
+            if (b == -1)
+              b = content.IndexOf("]", idx);
 
             if (b >= 0)
             {
@@ -83,32 +90,56 @@ namespace CsDisplay
               content = content.Replace(str, "");
             }
           }
-        } while (idx >= 0 && b >= 0);
+          ++count;
+        } while (idx >= 0 && b >= 0 && count < 1000);
       }
-      if (content.Contains("[") && content.Contains("]") && new Regex(@"^\s*\[", RegexOptions.Multiline).IsMatch(content) && reAnnotation.IsMatch(content))
+      count = 0;
+      while (reAssemblyLine.IsMatch(content) && count < 1000)
+      {
+        content = reAssemblyLine.Replace(content, "");
+        ++count;
+
+      }
+
+      count = 0;
+      while (count < 1000 && content.Contains("[") && content.Contains("]") && new Regex(@"^\s*\[", RegexOptions.Multiline).IsMatch(content) && reAnnotation.IsMatch(content))
       {
         System.Console.WriteLine("removing Annotation!");
         content = reAnnotation.Replace(content, "");
+        ++count;
         // System.Console.WriteLine(content);
       }
-      if (reAnnotationMulti.IsMatch(content))
+      count = 0;
+      while (reAnnotationMulti.IsMatch(content) && count < 1000)
       {
         System.Console.WriteLine("trying to remove multi-line Annotation!");
         content = reAnnotationMulti.Replace(content, "");
         // System.Console.WriteLine(content);
+        ++count;
       }
       // TODO: it also removed valid indexers. need to match on a capture group i think. for now, handle it manually.:
-      // if (reInnerAnnotation.IsMatch(content))
-      // {
-      //   System.Console.WriteLine("trying to remove inner annotation");
-      //   content = reInnerAnnotation.Replace(content, "");
-      //   System.Console.WriteLine(content);
-      // }
+      // no, added a "look-behind" to the regex so it seems to work now.
+      count = 0;
+      while (reInnerAnnotation.IsMatch(content) && count < 1000)
+      {
+        ++count;
+        System.Console.WriteLine("trying to remove inner annotation");
+        content = reInnerAnnotation.Replace(content, "");
+        System.Console.WriteLine(content);
+      }
       System.Console.WriteLine(content.Length);
-      if (content.Contains("//"))
+      count = 0;
+      while (content.Contains("//") && count < 1000)
+      {
         content = reLinecomment.Replace(content, "").Trim();
-      if (content.Contains("/*") && content.Contains("*/"))
+        ++count;
+      }
+      count = 0;
+      while (content.Contains("/*") && content.Contains("*/") && count < 1000)
+      {
+        ++count;
         content = reMultiLineComment.Replace(content, "");
+      }
 
       Debug.Assert(!content.Contains("//"));
       Debug.Assert(!content.Contains("/*"));

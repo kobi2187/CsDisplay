@@ -246,18 +246,6 @@ namespace CsDisplay
 
 
 
-    public override void VisitLocalFunctionStatement(LocalFunctionStatementSyntax node)
-    {
-      if (debug) Console.WriteLine(node.ToFullString());
-      Todo("LocalFunctionStatement"); var nl = OurLine.NewLine(LineKind.Decl, "LocalFunctionStatement");
-      nl.Source = node.ToFullString();
-      nl.ParentKind = node.Parent.RawKind;
-      nl.RawKind = node.RawKind;
-      LogCommand(nl);
-      Todo("LocalFunctionStatement");
-
-      base.VisitLocalFunctionStatement(node);
-    }
 
     public override void VisitMakeRefExpression(MakeRefExpressionSyntax node)
     {
@@ -878,7 +866,7 @@ namespace CsDisplay
     public override void VisitArrayType(ArrayTypeSyntax node)
     {
       if (debug) Console.WriteLine(node.ToFullString());
-      Todo("ArrayType"); var nl = OurLine.NewLine(LineKind.Decl, "ArrayType");
+      var nl = OurLine.NewLine(LineKind.Decl, "ArrayType");
       nl.Source = node.ToFullString();
       nl.ParentKind = node.Parent.RawKind;
       nl.RawKind = node.RawKind;
@@ -991,16 +979,6 @@ namespace CsDisplay
       base.VisitCaseSwitchLabel(node);
     }
 
-    public override void VisitCastExpression(CastExpressionSyntax node)
-    {
-      if (debug) Console.WriteLine(node.ToFullString());
-      Todo("CastExpression"); var nl = OurLine.NewLine(LineKind.Decl, "CastExpression");
-      nl.Source = node.ToFullString();
-      nl.ParentKind = node.Parent.RawKind;
-      nl.RawKind = node.RawKind;
-      LogCommand(nl);
-      base.VisitCastExpression(node);
-    }
 
 
 
@@ -1062,16 +1040,6 @@ namespace CsDisplay
       base.VisitConditionalAccessExpression(node);
     }
 
-    public override void VisitConditionalExpression(ConditionalExpressionSyntax node)
-    {
-      if (debug) Console.WriteLine(node.ToFullString());
-      Todo("ConditionalExpression"); var nl = OurLine.NewLine(LineKind.Decl, "ConditionalExpression");
-      nl.Source = node.ToFullString();
-      nl.ParentKind = node.Parent.RawKind;
-      nl.RawKind = node.RawKind;
-      LogCommand(nl);
-      base.VisitConditionalExpression(node);
-    }
 
     public override void VisitConstantPattern(ConstantPatternSyntax node)
     {
